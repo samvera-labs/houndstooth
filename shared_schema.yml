@@ -1,0 +1,93 @@
+
+#-------------------
+# Shared Metadata Model
+# Property Settings
+#-------------------
+#
+# This section defines every metadata property that can be used 
+# in the system. Individual work types may override some settings 
+# defined here. Predicates for each property should be defined
+# here, and cannot be overridden once defined.
+
+properties:
+
+  default:
+    definition: "This property has not yet been documented."
+    required: false
+    multiple: true
+    primary: false
+    hidden: false
+    work_title: false
+    input: scalar
+    range: RDF:Literal
+
+  title:
+    definition: "The title of the resource."
+    usage_note: "Multiple titles are allowed, but discouraged. In some contexts it cannot be predicted which title will be displayed."
+    predicate: "DC:title"
+    label: "Title"
+    range: "rdfs:Literal"
+    required: true
+    primary: true
+    work_title: true
+
+  creator:
+    definition: "A person or organization responsible for creating the resource."
+    usage_note: "We plan to use a controlled vocabulary for this field in the future. It is encouraged to use names corresponding exactly to names from the LCSH names directory."
+    predicate: "DC:creator"
+    primary: true
+    required: true
+    facet: true
+
+  contributor:
+    definition: "A person or organization responsible for making contributions to the resource."
+    usage_note: "We plan to use a controlled vocabulary for this field in the future. It is encouraged to use names corresponding exactly to names from the LCSH names directory."
+    predicate: "DC:contributor"
+    facet: true
+
+  publisher:
+    definition: "An entity responsible for making the resource available."
+    usage_note: "We plan to use a controlled vocabulary for this field in the future. It is encouraged to use names corresponding exactly to names from the LCSH names directory."
+    predicate: "DC:publisher"
+    facet: true
+
+  description:
+    definition: "A summary or account of the resource."
+    predicate: "DC:description"
+    range: "rdfs:Literal"
+    primary: true
+
+  subject:
+    definition: "The topic of the resource."
+    usage_note: "We plan to use a controlled vocabulary for this field in the future. It is encouraged to use names corresponding exactly to names from the LCSH vocabulary."
+    predicate: "DC:subject"
+    facet: true
+    primary: true
+
+  date_created: 
+    definition: "Date of creation of the resource."
+    predicate: "DC:created"
+    range: "edm:TimeSpan"
+    label: "Date Created"
+    primary: true
+    required: true
+
+  language:
+    definition: "A language of the resource."
+    predicate: "DC:language"
+    range: skos:concept
+
+  source:
+    definition: "Use to record and previous publication information, e.g., the place of publication and publisher name for a physical resource."
+    predicate: "DC:source"
+
+  call_number:
+    definition: "A call number identifier for the resource."
+    predicate: "Bibframe:classification"
+    multiple: false
+
+  copyright_statement:
+    definition: "Information about rights held in and over the resource."
+    predicate: "DC:rights"
+    primary: true
+    required: true
