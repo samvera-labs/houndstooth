@@ -30,7 +30,8 @@ properties:
     range:
       uri: "rdfs:Literal"
       # validator: RDF::LiteralValidator # Based on discussion, we are defering decision on whether we need this
-    required: true
+    validations: # Assumes that validations are something extensible, and we want to ship some of them, and have a conversation about what those extensions are
+      cardinality: 1..3
     primary: true
     work_title: true
 
