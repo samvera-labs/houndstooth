@@ -11,20 +11,21 @@
 
 properties:
 
-  default:
-    definition: "This property has not yet been documented."
-    required: false
-    multiple: true
-    primary: false
-    hidden: false
-    work_title: false
-    input: scalar
-    range: RDF:Literal
+  # Example only:
+  # default:
+  #   definition: "This property has not yet been documented."
+  #   required: false
+  #   multiple: true
+  #   primary: false
+  #   hidden: false
+  #   work_title: false
+  #   input: scalar
+  #   range: RDF:Literal
 
   title:
     definition: "The title of the resource."
     usage_note: "Multiple titles are allowed, but discouraged. In some contexts it cannot be predicted which title will be displayed."
-    predicate: "DC:title"
+    predicate: "http://dublincore.org/2012/06/14/dcterms#title"
     label: "Title"
     range: "rdfs:Literal"
     required: true
