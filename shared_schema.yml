@@ -14,84 +14,87 @@ properties:
   # Example only:
   # default:
   #   definition: "This property has not yet been documented."
-  #   required: false
-  #   multiple: true
-  #   primary: false
-  #   hidden: false
-  #   work_title: false
-  #   input: scalar
-  #   range: RDF:Literal
-
+  #   usage_note: "Multiple instances are allowed, but discouraged. In some contexts it cannot be predicited which value will be displayed."
+  #   predicate: "full.url.for/predicate"
+  #   sample_value: "The best property ever"
+  #   range:
+  #      uri: "rdfs:Literal"
+  #   controlled_values: # Is there a better way to express this?
+  #      list:  
+  #         - value 1
+  #         - value 2
+  #         - value 3
+  #      uri: http://uri.for.supported/vocabulary
+  #   validations:
+  #      cardinality: 0..n
+  #   facet: 
+  #      faceted: #true/false
+  #      facet_group: #facet group name
+  #   search:
+  #      search_indexed: #true/false
+  #      search_group: #search group name
+  #   display:
+  #      display_label: "Label"     
+  #      display_title: true/false 
+  #      display_type: true/false 
+  #      display_groups: 
+  #         - object
+  #         - collection
+  #      display_order: #how to express this?
+  #      display_hidden: true/false
+  
+  
   title: # Property Name
     definition: "The title of the resource."
-    usage_note: "Multiple titles are allowed, but discouraged. In some contexts it cannot be predicted which title will be displayed."
+    usage_note: "Preferrably, make the titles of resources unique within a collection. However, there is no hard rule against duplicate object titles."
     predicate: "http://dublincore.org/2012/06/14/dcterms#title"
-    label: "Title"
+    sample_value: "Sun God: decorated as Rambird, 1986: front view"
     range:
       uri: "rdfs:Literal"
       # validator: RDF::LiteralValidator # Based on discussion, we are defering decision on whether we need this
     validations: # Assumes that validations are something extensible, and we want to ship some of them, and have a conversation about what those extensions are
-      cardinality: 1..3
-    primary: true
-    work_title: true
+      cardinality: 1
+    facet: #could this and search be simiplified somehow?
+       faceted: false
+    search:
+       search_indexed: true
+       search_group:  
+          - title
+          - all_fields
+    display:
+       display_label: "Title"
+       display_title: true
+       display_type: false
+       display_groups:
+          - search_results
+          - object
+       display_order: #how best to express this? do we need to organize into concept groups? e.g., all the notes, all the agents?
+       display_hidden: false  
 
-  creator:
+  agent_creator: 
     definition: "A person or organization responsible for creating the resource."
-    usage_note: "We plan to use a controlled vocabulary for this field in the future. It is encouraged to use names corresponding exactly to names from the LCSH names directory."
-    predicate: "DC:creator"
-    primary: true
-    required: true
-    facet: true
+    usage_note: "Can be used when lacking specific information on an agent's exact role in creating the resource."
+    predicate: "http://dublincore.org/2012/06/14/dcelements#creator"
+    range:
+       uri: "ucsd:Agent"
+    validations: 
+       cardinality: 0..n
+    facet:
+       faceted: true
+       facet_group: creators
+    search:
+       search_indexed: true
+       search_group:
+          - creators
+          - all_fields
+    display:
+       display_label: "Creator" #is there a way to express that the field label should equal the prefLabel for the predicate?
+       display_title: false
+       display_type: false
+       display_groups:
+          - object
+          - search_results
+       display_order: # how to express this?
+       display_hidden: false
 
-  contributor:
-    definition: "A person or organization responsible for making contributions to the resource."
-    usage_note: "We plan to use a controlled vocabulary for this field in the future. It is encouraged to use names corresponding exactly to names from the LCSH names directory."
-    predicate: "DC:contributor"
-    facet: true
-
-  publisher:
-    definition: "An entity responsible for making the resource available."
-    usage_note: "We plan to use a controlled vocabulary for this field in the future. It is encouraged to use names corresponding exactly to names from the LCSH names directory."
-    predicate: "DC:publisher"
-    facet: true
-
-  description:
-    definition: "A summary or account of the resource."
-    predicate: "DC:description"
-    range: "rdfs:Literal"
-    primary: true
-
-  subject:
-    definition: "The topic of the resource."
-    usage_note: "We plan to use a controlled vocabulary for this field in the future. It is encouraged to use names corresponding exactly to names from the LCSH vocabulary."
-    predicate: "DC:subject"
-    facet: true
-    primary: true
-
-  date_created:
-    definition: "Date of creation of the resource."
-    predicate: "DC:created"
-    range: "edm:TimeSpan"
-    label: "Date Created"
-    primary: true
-    required: true
-
-  language:
-    definition: "A language of the resource."
-    predicate: "DC:language"
-    range: skos:concept
-
-  source:
-    definition: "Use to record and previous publication information, e.g., the place of publication and publisher name for a physical resource."
-    predicate: "DC:source"
-
-  call_number:
-    definition: "A call number identifier for the resource."
-    predicate: "Bibframe:classification"
-    multiple: false
-
-  copyright_statement:
-    definition: "Information about rights held in and over the resource."
-    predicate: "DC:rights"
-    primary: true
-    required: true
+  
