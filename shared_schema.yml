@@ -15,7 +15,7 @@ properties:
   # default:
   #   definition: "This property has not yet been documented."
   #   usage_note: "Multiple instances are allowed, but discouraged. In some contexts it cannot be predicited which value will be displayed."
-  #   predicate: "full.url.for/predicate"
+  #   predicate: "full.url.for/predicate" # For creator/contributor roles, could this point to an external file where relator roles can be maintained (e.g., https://github.com/chrissyrissmeyer/metadata-ci/blob/master/lib/fields/marcrel.rb)?
   #   sample_value: "The best property ever"
   #   range:
   #      uri: "rdfs:Literal"
