@@ -19,12 +19,15 @@ properties:
   #   sample_value: "The best property ever"
   #   range:
   #      uri: "rdfs:Literal"
-  #   controlled_values: # Is there a better way to express this?
-  #      list:  
+  #   controlled_values: #use vocabularies or list (not both)
+  #      vocabularies: #connection to questioning authority?
+  #          uri: http://uri.for.supported/vocabulary
+  #          authority:
+  #          sub-authority:
+  #      list:  # or ref to config file list
   #         - value 1
   #         - value 2
-  #         - value 3
-  #      uri: http://uri.for.supported/vocabulary
+  #         - value 3  #      
   #   validations:
   #      cardinality: 0..n
   #   facet: 
