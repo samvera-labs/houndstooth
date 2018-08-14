@@ -35,13 +35,14 @@ properties:
   #      search_group: #search group name
   #   display:
   #      display_label: "Label"     
-  #      display_title: true/false 
-  #      display_type: true/false 
-  #      display_groups: 
+  #      display_group: 
+  #         - title
+  #         - type
+  #         - search_results
   #         - object
   #         - collection
   #      display_order: #how to express this?
-  #      display_hidden: true/false
+  #      display_level: #how to express this?
   
   
   title: # Property Name
@@ -63,13 +64,12 @@ properties:
           - all_fields
     display:
        display_label: "Title"
-       display_title: true
-       display_type: false
-       display_groups:
+       display_group:
+          - title
           - search_results
           - object
        display_order: #how best to express this? do we need to organize into concept groups? e.g., all the notes, all the agents?
-       display_hidden: false  
+       display_level: 
 
   agent_creator: 
     definition: "A person or organization responsible for creating the resource."
@@ -91,10 +91,10 @@ properties:
        display_label: "Creator" #is there a way to express that the field label should equal the prefLabel for the predicate?
        display_title: false
        display_type: false
-       display_groups:
+       display_group:
           - object
           - search_results
        display_order: # how to express this?
-       display_hidden: false
+       display_level: 
 
   
