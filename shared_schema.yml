@@ -28,9 +28,9 @@ properties:
   #         - value 1
   #         - value 2
   #         - value 3  #      
-  #   validations:
+  #   validations: # Assumes that validations are something extensible, and we want to ship some of them, and have a conversation about what those extensions are # validator: RDF::LiteralValidator # Based on discussion, we are defering decision on whether we need this
   #      cardinality: 0..n
-  #   facet: 
+  #   facet: #could this and search be simiplified somehow?
   #      faceted: #true/false
   #      facet_group: #facet group name
   #   search:
@@ -44,8 +44,8 @@ properties:
   #         - search_results
   #         - object
   #         - collection
-  #      display_order: #how to express this?
-  #      display_level: #how to express this?
+  #      display_order: #ref to configuration file? #how best to express this? do we need to organize into concept groups? e.g., all the notes, all the agents?
+  #      display_suppressed: #true/false (e.g., visible only to staff)
   
   
   title: # Property Name
@@ -54,11 +54,10 @@ properties:
     predicate: "http://dublincore.org/2012/06/14/dcterms#title"
     sample_value: "Sun God: decorated as Rambird, 1986: front view"
     range:
-      uri: "rdfs:Literal"
-      # validator: RDF::LiteralValidator # Based on discussion, we are defering decision on whether we need this
-    validations: # Assumes that validations are something extensible, and we want to ship some of them, and have a conversation about what those extensions are
+      uri: "rdfs:Literal"      
+    validations: 
       cardinality: 1
-    facet: #could this and search be simiplified somehow?
+    facet: 
        faceted: false
     search:
        search_indexed: true
@@ -71,8 +70,8 @@ properties:
           - title
           - search_results
           - object
-       display_order: #how best to express this? do we need to organize into concept groups? e.g., all the notes, all the agents?
-       display_level: 
+       display_order: 
+       display_suppressed: false
 
   agent_creator: 
     definition: "A person or organization responsible for creating the resource."
@@ -97,7 +96,7 @@ properties:
        display_group:
           - object
           - search_results
-       display_order: # how to express this?
-       display_level: 
+       display_order: 
+       display_suppressed: false
 
   
