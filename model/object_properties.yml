@@ -1,0 +1,37 @@
+
+#-------------------
+# Shared Metadata Model
+# Property Settings
+#-------------------
+#
+# This section defines every metadata property that can be used
+# in the system. Individual work types may override some settings
+# defined here. Predicates for each property should be defined
+# here, and cannot be overridden once defined.
+
+properties:
+
+  # Example only:
+  # default:
+  #   definition: "This property has not yet been documented."
+  #   predicate: "full.url.for/predicate" # For creator/contributor roles, could this point to an external file where relator roles can be maintained (e.g., https://github.com/chrissyrissmeyer/metadata-ci/blob/master/lib/fields/marcrel.rb)?
+  #   range:
+  #      uri: "rdfs:Literal"
+  #   system_obligation: 0..n
+  
+  
+  title: # Property Name
+    definition: "The title of the resource."
+    predicate: "http://dublincore.org/2012/06/14/dcterms#title"
+    range:
+      uri: "rdfs:Literal"      
+    system_obligation: 1
+
+  agent_creator: 
+    definition: "A person or organization responsible for creating the resource."
+    predicate: "http://dublincore.org/2012/06/14/dcelements#creator"
+    range:
+       uri: "ucsd:Agent"
+    system_obligation: 0..n
+
+  

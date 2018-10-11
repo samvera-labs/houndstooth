@@ -13,12 +13,8 @@ properties:
 
   # Example only:
   # default:
-  #   definition: "This property has not yet been documented."
   #   usage_note: "Multiple instances are allowed, but discouraged. In some contexts it cannot be predicited which value will be displayed."
-  #   predicate: "full.url.for/predicate" # For creator/contributor roles, could this point to an external file where relator roles can be maintained (e.g., https://github.com/chrissyrissmeyer/metadata-ci/blob/master/lib/fields/marcrel.rb)?
   #   sample_value: "The best property ever"
-  #   range:
-  #      uri: "rdfs:Literal"
   #   controlled_values: #use vocabularies or list (not both)
   #      vocabularies: #connection to questioning authority?
   #          uri: http://uri.for.supported/vocabulary
@@ -49,12 +45,8 @@ properties:
   
   
   title: # Property Name
-    definition: "The title of the resource."
     usage_note: "Preferrably, make the titles of resources unique within a collection. However, there is no hard rule against duplicate object titles."
-    predicate: "http://dublincore.org/2012/06/14/dcterms#title"
     sample_value: "Sun God: decorated as Rambird, 1986: front view"
-    range:
-      uri: "rdfs:Literal"      
     validations: 
       cardinality: 1
     facet: 
@@ -74,11 +66,7 @@ properties:
        display_suppressed: false
 
   agent_creator: 
-    definition: "A person or organization responsible for creating the resource."
     usage_note: "Can be used when lacking specific information on an agent's exact role in creating the resource."
-    predicate: "http://dublincore.org/2012/06/14/dcelements#creator"
-    range:
-       uri: "ucsd:Agent"
     validations: 
        cardinality: 0..n
     facet:
