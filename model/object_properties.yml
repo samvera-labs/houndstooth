@@ -17,7 +17,7 @@ properties:
   #   predicate: "full.url.for/predicate" # For creator/contributor roles, could this point to an external file where relator roles can be maintained (e.g., https://github.com/chrissyrissmeyer/metadata-ci/blob/master/lib/fields/marcrel.rb)?
   #   range:
   #      uri: "rdfs:Literal"
-  #   system_obligation: 0..n
+  #   cardinality: 0..n
   
   
   title: # Property Name
@@ -25,13 +25,13 @@ properties:
     predicate: "http://dublincore.org/2012/06/14/dcterms#title"
     range:
       uri: "rdfs:Literal"      
-    system_obligation: 1
+    cardinality: 1
 
   agent_creator: 
     definition: "A person or organization responsible for creating the resource."
     predicate: "http://dublincore.org/2012/06/14/dcelements#creator"
     range:
        uri: "ucsd:Agent"
-    system_obligation: 0..n
+    cardinality: 0..n
 
   
