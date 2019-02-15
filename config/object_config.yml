@@ -25,7 +25,7 @@ properties:
   #         - value 2
   #         - value 3  #      
   #   validations: # Assumes that validations are something extensible, and we want to ship some of them, and have a conversation about what those extensions are # validator: RDF::LiteralValidator # Based on discussion, we are defering decision on whether we need this
-  #      cardinality: 0..n
+  #      obligation: 0..n
   #   facet: #could this and search be simiplified somehow?
   #      faceted: #true/false
   #      facet_group: #facet group name
@@ -48,7 +48,7 @@ properties:
     usage_note: "Preferrably, make the titles of resources unique within a collection. However, there is no hard rule against duplicate object titles."
     sample_value: "Sun God: decorated as Rambird, 1986: front view"
     validations: 
-      cardinality: 1
+      obligation: 1
     facet: 
        faceted: false
     search:
@@ -68,7 +68,7 @@ properties:
   agent_creator: 
     usage_note: "Can be used when lacking specific information on an agent's exact role in creating the resource."
     validations: 
-       cardinality: 0..n
+       obligation: 0..n
     facet:
        faceted: true
        facet_group: creators
