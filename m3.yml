@@ -1,0 +1,54 @@
+#-------------------
+# M3 Metadata Model
+#-------------------
+# Administrative information about the profile/model
+# profile_responsibility:  "the organization or individual responsible for maintaining the profile
+# profile_responsibility statement:  "statement of the organization or individual responsible for maintaining the profile
+# profile_date_modified:  "the date the profile was last altered
+# profile_type:  "what type of thing does the profile describe?
+# profile_version:  "what version of the profile is this?
+    profile_responsibility: https://www.wikidata.org/wiki/Q131454
+    profile_responsibility statement: Library of Congress
+    profile_date_modified: 2019-01-31
+    profile_type: concept
+    profile_version: 1.1
+
+# Property Definition
+# property_method_name:  "stable generic local name for the property / method name for retrieving data for the property
+# definition:  "The definition for the metadata property being described.
+# display_label:  "human-readable label for the property
+# usage_guidelines:  "description of how the defined property should be used (helper text, hints, deposit text, etc.)
+# requirement:  "separate from system obligation/cardinality --> the requirement of the property from a best practices standpoint
+# sample value:  "exemplar values
+# property_uri:  "URI for the property, from a local or shared ontology
+# available_on_object:  "what PCDM objects and/or work types is this property available on"
+
+# range:  "class constraint on the property's value
+# data_type:  "type constraint on the property's value
+# syntax:  "syntax standard constraint on the property's value
+# validation_regex:  "pattern the value must match to be valid
+# controlled_values:
+#    controlled_value_format:  "controlled vocabulary constraint on the property's value
+#    controlled_value_sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values
+# minimum_occurrence:  "minimum number of values the property must have
+# maximum_occurrence:  "maximum number of values the property may have
+
+
+- creator: #property_method_name
+    definition: "A person or organization responsible for creating the resource. (This is an example definition for a creator metadata field.)"
+    display_label: "Creator(s)"
+    usage_guidelines: Record in lastname, firstname order.
+    requirement: recommended, if applicable
+    sample value: Smith, John
+    property_uri: http://purl.org/dc/elements/1.1/creator
+    available_on_object: Collection, MyCustomWorkType
+    range: bf:Agent
+    data_type: xsd:string
+    syntax: edtf
+    validation_regex: [\\d]{4}
+    controlled_value:
+       controlled_value_format: literal
+       controlled_value_sources: /qa/terms/local/roles/
+    minimum_occurrence: 0
+    maximum_occurrence: 100
+    
