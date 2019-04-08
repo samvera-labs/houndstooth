@@ -14,61 +14,78 @@
     profile_version: 1.1
 
 # Property Definition
-# property_method_name:  "stable generic local name for the property / method name for retrieving data for the property
-# definition:  "The definition for the metadata property being described.
-# display_label:  "human-readable label for the property
-# usage_guidelines:  "description of how the defined property should be used (helper text, hints, deposit text, etc.)
-# requirement:  "separate from system obligation/cardinality --> the requirement of the property from a best practices standpoint
-# sample value:  "exemplar values
-# property_uri:  "URI for the property, from a local or shared ontology
-# available_on_object:  "what PCDM objects and/or work types is this property available on"
 
-# range:  "class constraint on the property's value
-# data_type:  "type constraint on the property's value
-# syntax:  "syntax standard constraint on the property's value
-# validation_regex:  "pattern the value must match to be valid
-# controlled_values:
-#    controlled_value_format:  "controlled vocabulary constraint on the property's value
-#    controlled_value_sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values
-# minimum_occurrence:  "minimum number of values the property must have
-# maximum_occurrence:  "maximum number of values the property may have
-
+# - property_method_name:  "stable generic local name for the property / method name for retrieving data for the property"
+#     display_label:  "human-readable label for the property"
+#     definition:  "The definition for the metadata property being described."
+#     usage_guidelines:  "description of how the defined property should be used (helper text, hints, deposit text, etc.)"
+#     requirement:  "separate from system obligation/cardinality --> the requirement of the property from a best practices standpoint"
+#     controlled_values:
+#       controlled_value_format:  "controlled vocabulary constraint on the property's value"
+#       controlled_value_sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values"     
+#     sample_value:  "exemplar values"
+#     property_uri:  "URI for the property, from a local or shared ontology"
+#     available_on_object:  "what PCDM objects and/or work types is this property available on"
+#       - object/work type 1
+#       - object/work type 2
+#     validations:
+#       range:  "class constraint on the property's value"
+#       data_type:  "type constraint on the property's value"
+#       syntax:  "syntax standard constraint on the property's value"
+#       validation_regex:  "pattern the value must match to be valid"
+#       minimum_occurrence:  "minimum number of values the property must have"
+#       maximum_occurrence:  "maximum number of values the property may have"
+#     index_documentation: "free text metadata specialist facing documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc."
+#     mapping: "profiles for different services (e.g., DPLA, DataCite, etc.)"
+#       service: "e.g. DataCite, DPLA, schema.org"
+#       property_name: "URI for target property" 
 
 - creator: #property_method_name
-    definition: "A person or organization responsible for creating the resource. (This is an example definition for a creator metadata field.)"
     display_label: "Creator(s)"
-    usage_guidelines: Record in lastname, firstname order.
-    requirement: recommended, if applicable
+    definition: "A person or organization responsible for creating the resource. (This is an example definition for a creator metadata field.)"
+    usage_guidelines: "Record in lastname, firstname order."
+    requirement: "recommended, if applicable"
+    controlled_value:
+       controlled_value_format: "xsd:literal"
+       controlled_value_sources: "/qa/terms/local/roles/"
     sample_value: Smith, John
     property_uri: http://purl.org/dc/elements/1.1/creator
-    available_on_object: Collection, MyCustomWorkType
-    range: bf:Agent
-    data_type: xsd:string
-    syntax: edtf
-    validation_regex: [\\d]{4}
-    controlled_value:
-       controlled_value_format: literal
-       controlled_value_sources: /qa/terms/local/roles/
-    minimum_occurrence: 0
-    maximum_occurrence: 100
+    available_on_object: 
+      - Collection
+      - MyCustomWorkType
+    validations:
+      range: http://id.loc.gov/ontologies/bibframe/Agent
+      data_type: xsd:string
+      syntax: edtf
+      validation_regex: [\\d]{4}
+      minimum_occurrence: 0
+      maximum_occurrence: 100
+    index_documentation: "searchable, displayable, creator facet"
+    mapping: 
+      mapping_service: "DPLA"
+      mapping_property_uri: "http://purl.org/dc/elements/1.1/creator" 
     
 - title: #property_method_name
-    definition: "The title of the resource. (From Hyrax): A name to aid in identifying a work."
     display_label: "Title"
+    definition: "The title of the resource. (From Hyrax): A name to aid in identifying a work."
     #usage_guidelines:
-    requirement: required
+    requirement: "required"
+    #controlled_values:
+      #controlled_value_format: 
+      #controlled_value_sources:
     sample_value: "The Tell-Tale Heart"
     property_uri: http://purl.org/dc/terms/title
-    available_on_object: Collection, MyCustomWorkType
-    range: http://www.w3.org/2000/01/rdf-schema#Literal
-    data_type: http://www.w3.org/2001/XMLSchema#string
-    #syntax:
-    #validation_regex:
-    #controlled_values:
-        #controlled_value_format: 
-        #controlled_value_sources:
-    minimum_occurrence: 1
-    maximum_occurrence: 100
-    #mapping:
-    #index_documentation:
-    
+    available_on_object: 
+      - Collection
+      - MyCustomWorkType
+    validations:
+      range: http://www.w3.org/2000/01/rdf-schema#Literal
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      #syntax:
+      #validation_regex:
+      minimum_occurrence: 1
+      maximum_occurrence: 100
+   #index_documentation:
+   #mapping:
+     #mapping_service:
+     #mapping_property_uri:  
