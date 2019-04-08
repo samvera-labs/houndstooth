@@ -39,7 +39,7 @@
     display_label: "Creator(s)"
     usage_guidelines: Record in lastname, firstname order.
     requirement: recommended, if applicable
-    sample value: Smith, John
+    sample_value: Smith, John
     property_uri: http://purl.org/dc/elements/1.1/creator
     available_on_object: Collection, MyCustomWorkType
     range: bf:Agent
@@ -51,4 +51,24 @@
        controlled_value_sources: /qa/terms/local/roles/
     minimum_occurrence: 0
     maximum_occurrence: 100
+    
+- title: #property_method_name
+    definition: "The title of the resource. (From Hyrax): A name to aid in identifying a work."
+    display_label: "Title"
+    #usage_guidelines:
+    requirement: required
+    sample_value: "The Tell-Tale Heart"
+    property_uri: http://purl.org/dc/terms/title
+    available_on_object: Collection, MyCustomWorkType
+    range: http://www.w3.org/2000/01/rdf-schema#Literal
+    data_type: http://www.w3.org/2001/XMLSchema#string
+    #syntax:
+    #validation_regex:
+    #controlled_values:
+        #controlled_value_format: 
+        #controlled_value_sources:
+    minimum_occurrence: 1
+    maximum_occurrence: 100
+    #mapping:
+    #index_documentation:
     
