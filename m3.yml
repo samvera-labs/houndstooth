@@ -25,7 +25,9 @@
 #     requirement:  "separate from system obligation/cardinality --> the requirement of the property from a best practices standpoint"
 #     controlled_values:
 #       controlled_value_format:  "controlled vocabulary constraint on the property's value"
-#       controlled_value_sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values"     
+#       controlled_value_sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values"   
+#        - value 1 
+#        - value 2
 #     sample_value:  "exemplar values"
 #     property_uri:  "URI for the property, from a local or shared ontology"
 #     available_on_object:  "what PCDM objects and/or work types is this property available on"
@@ -50,7 +52,8 @@
     requirement: "recommended, if applicable"
     controlled_value:
        controlled_value_format: "xsd:literal"
-       controlled_value_sources: "/qa/terms/local/roles/"
+       controlled_value_sources: 
+         - "/qa/terms/local/roles/"
     sample_value: Smith, John
     property_uri: http://purl.org/dc/elements/1.1/creator
     available_on_object: 
