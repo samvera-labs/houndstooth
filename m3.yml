@@ -7,6 +7,9 @@
 # profile_date_modified:  "the date the profile was last altered
 # profile_type:  "what type of thing does the profile describe?
 # profile_version:  "what version of the profile is this?
+# profile_mappings: "what mappings are expressed in the profile?"
+#   - Digital Public Library of America: dpla
+#   - DataCite: datacite
     profile_responsibility: https://www.wikidata.org/wiki/Q131454
     profile_responsibility statement: Library of Congress
     profile_date_modified: 2019-01-31
@@ -36,9 +39,9 @@
 #       minimum_occurrence:  "minimum number of values the property must have"
 #       maximum_occurrence:  "maximum number of values the property may have"
 #     index_documentation: "free text metadata specialist facing documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc."
-#     mapping: "profiles for different services (e.g., DPLA, DataCite, etc.)"
-#       service: "e.g. DataCite, DPLA, schema.org"
-#       property_name: "URI for target property" 
+#     mapping: "pair values for different services"
+#       "dpla" : "URI for target property"
+#       "otherthing" : "URI for target property"
 
 - creator: #property_method_name
     display_label: "Creator(s)"
@@ -62,8 +65,7 @@
       maximum_occurrence: 100
     index_documentation: "searchable, displayable, creator facet"
     mapping: 
-      mapping_service: "DPLA"
-      mapping_property_uri: "http://purl.org/dc/elements/1.1/creator" 
+      dpla: "http://purl.org/dc/elements/1.1/creator" 
     
 - title: #property_method_name
     display_label: "Title"
@@ -87,5 +89,4 @@
       maximum_occurrence: 100
    #index_documentation:
    #mapping:
-     #mapping_service:
-     #mapping_property_uri:  
+     #mapping_service: mapping_property_uri:  
