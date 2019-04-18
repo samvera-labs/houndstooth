@@ -59,8 +59,9 @@ classes:
 #       class_uri: "class constraint on the property's value"
 #     data_type:  "type constraint on the property's value"
 #     syntax:  "syntax standard constraint on the property's value"
-#     minimum_occurrence:  "minimum number of values the property must have"
-#     maximum_occurrence:  "maximum number of values the property may have"
+#     cardinality:
+#       minimum:  "minimum number of values the property must have"
+#       maximum:  "maximum number of values the property may have"
 #     index_documentation: "free text metadata specialist facing documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc."
 #     validations:
 #       match_regex:  "pattern each value must match to be valid"
@@ -87,8 +88,9 @@ classes:
       class_uri: http://id.loc.gov/ontologies/bibframe/Agent
     data_type: xsd:string
     syntax: edtf
-    minimum_occurrence: 0
-    maximum_occurrence: 100
+    cardinality:
+      minimum: 0
+      maximum: 100
     index_documentation: "searchable, displayable, creator facet"
     validations:
       match_regex: [\\d]{4}
@@ -111,8 +113,9 @@ classes:
     range:
       class_uri: http://www.w3.org/2000/01/rdf-schema#Literal
     data_type: http://www.w3.org/2001/XMLSchema#string
-    minimum_occurrence: 1
-    maximum_occurrence: 100
+    cardinality:
+      minimum: 1
+      maximum: 100
    #index_documentation:
    #mapping:
      #mapping_service: mapping_property_uri:
