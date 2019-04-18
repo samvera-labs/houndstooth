@@ -2,19 +2,21 @@
 # M3 Metadata Model
 #-------------------
 # Administrative information about the profile/model
-# profile_responsibility:  "the organization or individual responsible for maintaining the profile
-# profile_responsibility statement:  "statement of the organization or individual responsible for maintaining the profile
-# profile_date_modified:  "the date the profile was last altered
-# profile_type:  "what type of thing does the profile describe?
-# profile_version:  "what version of the profile is this?
-# profile_mappings: "what mappings are expressed in the profile?"
+# profile:
+#   responsibility:  "the organization or individual responsible for maintaining the profile
+#   responsibility_statement:  "statement of the organization or individual responsible for maintaining the profile
+#   date_modified:  "the date the profile was last altered
+#   type:  "what type of thing does the profile describe?
+#   version:  "what version of the profile is this?
+#   mappings: "what mappings are expressed in the profile?"
 #   - Digital Public Library of America: dpla
 #   - DataCite: datacite
-    profile_responsibility: https://www.wikidata.org/wiki/Q131454
-    profile_responsibility statement: Library of Congress
-    profile_date_modified: 2019-01-31
-    profile_type: concept
-    profile_version: 1.1
+profile:
+  responsibility: https://www.wikidata.org/wiki/Q131454
+  responsibility statement: Library of Congress
+  date_modified: 2019-01-31
+  type: concept
+  version: 1.1
 
 # Property Definition
 
@@ -25,8 +27,8 @@
 #     requirement:  "separate from system obligation/cardinality --> the requirement of the property from a best practices standpoint"
 #     controlled_values:
 #       controlled_value_format:  "controlled vocabulary constraint on the property's value"
-#       controlled_value_sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values"   
-#        - value 1 
+#       controlled_value_sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values"
+#        - value 1
 #        - value 2
 #     sample_value:  "exemplar values"
 #     property_uri:  "URI for the property, from a local or shared ontology"
@@ -52,11 +54,11 @@
     requirement: "recommended, if applicable"
     controlled_value:
        controlled_value_format: "xsd:literal"
-       controlled_value_sources: 
+       controlled_value_sources:
          - "/qa/terms/local/roles/"
     sample_value: Smith, John
     property_uri: http://purl.org/dc/elements/1.1/creator
-    available_on_object: 
+    available_on_object:
       - Collection
       - MyCustomWorkType
     validations:
@@ -67,20 +69,20 @@
       minimum_occurrence: 0
       maximum_occurrence: 100
     index_documentation: "searchable, displayable, creator facet"
-    mapping: 
-      dpla: "http://purl.org/dc/elements/1.1/creator" 
-    
+    mapping:
+      dpla: "http://purl.org/dc/elements/1.1/creator"
+
 - title: #property_method_name
     display_label: "Title"
     definition: "The title of the resource. (From Hyrax): A name to aid in identifying a work."
     #usage_guidelines:
     requirement: "required"
     #controlled_values:
-      #controlled_value_format: 
+      #controlled_value_format:
       #controlled_value_sources:
     sample_value: "The Tell-Tale Heart"
     property_uri: http://purl.org/dc/terms/title
-    available_on_object: 
+    available_on_object:
       - Collection
       - MyCustomWorkType
     validations:
@@ -92,4 +94,4 @@
       maximum_occurrence: 100
    #index_documentation:
    #mapping:
-     #mapping_service: mapping_property_uri:  
+     #mapping_service: mapping_property_uri:
