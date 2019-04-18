@@ -8,15 +8,20 @@
 #   date_modified:  "the date the profile was last altered
 #   type:  "what type of thing does the profile describe?
 #   version:  "what version of the profile is this?
-#   mappings: "what mappings are expressed in the profile?"
-#   - Digital Public Library of America: dpla
-#   - DataCite: datacite
 profile:
   responsibility: https://www.wikidata.org/wiki/Q131454
   responsibility statement: Library of Congress
   date_modified: 2019-01-31
   type: concept
   version: 1.1
+
+# Mapping Definitions
+
+# mappings: "what mappings are expressed in the profile?"
+# - dpla:
+#   name: Digital Public Library of America
+# - datacite:
+#   name: DataCite
 
 # Property Definition
 
