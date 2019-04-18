@@ -23,61 +23,79 @@ profile:
 # - datacite:
 #   name: DataCite
 
-# Property Definition
+# Class Definitions
 
-# - property_method_name:  "stable generic local name for the property / method name for retrieving data for the property"
+# classes:
+# - class_name:  "stable generic local name for the class"
+#   display_label:  "human-readable label for the property"
+classes:
+- Collection:
+  display_label: "Collection"
+- MyCustomWorkType:
+  display_label: "Custom Work Type"
+
+# Property Definitions
+
+# - property_name:  "stable generic local name for the property"
 #     display_label:  "human-readable label for the property"
 #     definition:  "The definition for the metadata property being described."
 #     usage_guidelines:  "description of how the defined property should be used (helper text, hints, deposit text, etc.)"
 #     requirement:  "separate from system obligation/cardinality --> the requirement of the property from a best practices standpoint"
 #     controlled_values:
-#       controlled_value_format:  "controlled vocabulary constraint on the property's value"
-#       controlled_value_sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values"
+#       format:  "controlled vocabulary constraint on the property's value"
+#       sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values"
 #        - value 1
 #        - value 2
 #     sample_value:  "exemplar values"
 #     property_uri:  "URI for the property, from a local or shared ontology"
-#     available_on_object:  "what PCDM objects and/or work types is this property available on"
-#       - object/work type 1
-#       - object/work type 2
-#     validations:
-#       range:  "class constraint on the property's value"
-#       data_type:  "type constraint on the property's value"
-#       syntax:  "syntax standard constraint on the property's value"
-#       validation_regex:  "pattern the value must match to be valid"
-#       minimum_occurrence:  "minimum number of values the property must have"
-#       maximum_occurrence:  "maximum number of values the property may have"
+#     available_on:  "what PCDM objects and/or work types is this property available on"
+#       class:
+#         - Collection
+#         - MyCustomWorkType
+#       resource_type:
+#         - image
+#         - thesis
+#     range:
+#       class_uri: "class constraint on the property's value"
+#     data_type:  "type constraint on the property's value"
+#     syntax:  "syntax standard constraint on the property's value"
+#     minimum_occurrence:  "minimum number of values the property must have"
+#     maximum_occurrence:  "maximum number of values the property may have"
 #     index_documentation: "free text metadata specialist facing documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc."
+#     validations:
+#       match_regex:  "pattern each value must match to be valid"
 #     mapping: "pair values for different services"
 #       "dpla" : "URI for target property"
 #       "otherthing" : "URI for target property"
 
-- creator: #property_method_name
+- creator:
     display_label: "Creator(s)"
     definition: "A person or organization responsible for creating the resource. (This is an example definition for a creator metadata field.)"
     usage_guidelines: "Record in lastname, firstname order."
     requirement: "recommended, if applicable"
     controlled_value:
-       controlled_value_format: "xsd:literal"
-       controlled_value_sources:
-         - "/qa/terms/local/roles/"
+      format: "xsd:literal"
+      sources:
+        - "/qa/terms/local/roles/"
     sample_value: Smith, John
     property_uri: http://purl.org/dc/elements/1.1/creator
-    available_on_object:
-      - Collection
-      - MyCustomWorkType
-    validations:
-      range: http://id.loc.gov/ontologies/bibframe/Agent
-      data_type: xsd:string
-      syntax: edtf
-      validation_regex: [\\d]{4}
-      minimum_occurrence: 0
-      maximum_occurrence: 100
+    available_on:
+      class:
+        - Collection
+        - MyCustomWorkType
+    range:
+      class_uri: http://id.loc.gov/ontologies/bibframe/Agent
+    data_type: xsd:string
+    syntax: edtf
+    minimum_occurrence: 0
+    maximum_occurrence: 100
     index_documentation: "searchable, displayable, creator facet"
+    validations:
+      match_regex: [\\d]{4}
     mapping:
       dpla: "http://purl.org/dc/elements/1.1/creator"
 
-- title: #property_method_name
+- title:
     display_label: "Title"
     definition: "The title of the resource. (From Hyrax): A name to aid in identifying a work."
     #usage_guidelines:
@@ -90,13 +108,11 @@ profile:
     available_on_object:
       - Collection
       - MyCustomWorkType
-    validations:
-      range: http://www.w3.org/2000/01/rdf-schema#Literal
-      data_type: http://www.w3.org/2001/XMLSchema#string
-      #syntax:
-      #validation_regex:
-      minimum_occurrence: 1
-      maximum_occurrence: 100
+    range:
+      class_uri: http://www.w3.org/2000/01/rdf-schema#Literal
+    data_type: http://www.w3.org/2001/XMLSchema#string
+    minimum_occurrence: 1
+    maximum_occurrence: 100
    #index_documentation:
    #mapping:
      #mapping_service: mapping_property_uri:
