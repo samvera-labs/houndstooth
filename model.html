@@ -7,9 +7,61 @@ title: Glorious Model
     <h1>{{ page.title }}</h1>
 </header>
 
-<h2>Profile</h2>
-{% for item in site.data.m3.profile %}
-{{item}}
-{% endfor %}
+<h2>Introduction</h2>
+<p>Some introduction text to the model</p>
 
-Yup
+<h2>Administrative Information</h2>
+<h3>Profile</h3>
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Example Value</th>
+    </tr>
+    {% for e in site.data.m3.profile %}
+        {% for item in e %}
+		    {% if forloop.first %}<tr>{% endif %}
+            <td>{{item}}</td>
+        {% if forloop.last %}</tr>{% endif %}
+        {% endfor %}
+    {% endfor %}
+</table>
+
+<h2>Class Definitions</h2>
+<h3>Classes</h3>
+<table>
+      {% for e in site.data.m3.classes %}
+          {% if forloop.first == true %}
+          <tr>
+          {% for item in e %}
+              <th>{{item[0]}}</th>
+          {% endfor %}
+          </tr>
+          {% endif %}
+          <tr>
+          {% for item in e %}
+              <td>{{item[1]}}</td>
+          {% endfor %}
+          </tr>
+      {% endfor %}
+</table>
+
+<h2>Property Definitions</h2>
+<h3>Roles</h3>
+<table>
+      {% for e in site.data.m3.roles %}
+          {% if forloop.first == true %}
+          <tr>
+          {% for item in e %}
+              <th>{{item[0]}}</th>
+          {% endfor %}
+          </tr>
+          {% endif %}
+          <tr>
+          {% for item in e %}
+              <td>{{item[1]}}</td>
+          {% endfor %}
+          </tr>
+      {% endfor %}
+</table>
+
+<p>The End</p>
