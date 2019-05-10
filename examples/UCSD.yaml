@@ -1,0 +1,2972 @@
+﻿#-------------------
+# M3 Metadata Model
+#-------------------
+
+# UCSD DAMS 5 Profile
+# 
+# Administrative information about the profile/model
+
+#    profile_responsibility: No URI available
+    profile_responsibility statement: UC San Diego Library
+    profile_date_modified: 2019-04-22
+    profile_type: base
+    profile_version: 0.1
+
+- "agent:contributor":
+	display_label: "Contributor"
+	defintion: "A person or organization responsible for making contributions to the resource."
+	usage_guidelines: "Use as the broadest possible role, i.e. when lacking specific information on an agent's role, or the role is unclear or unknown. If a more specific role is available, prefer that, e.g. editor, compiler, illustrator."
+#	  rdcp: "Use for institutions, centers in addition to individuals that contribute to a resource (e.g. SIO, CAICE)"
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Smith, Joe S."
+	property_uri: "dc11:contributor"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "ucsd:Agent"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Creator"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Contributor"
+	  dc: "dc:contributor"
+	  dams4_ingest_template: "Person:Contributor; Corporate:Contributor"
+# comments - 
+
+- "agent:creator":
+	display_label: "Creator"
+	defintion: "A person or organization responsible for creating the resource."
+	usage_guidelines: "Can be used when lacking specific information on an agent's exact role in creating the resource."
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Alphabet, Inc."
+	property_uri: "dc11:creator"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "ucsd:Agent"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Creator"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Creator"
+	  dc: "dc:creator"
+	  dams4_ingest_template: "Person:Creator; Corporate:Creator"
+# comments - 
+
+- "agent:publisher":
+	display_label: 
+	defintion: "A person or organization responsible for publishing the resource."
+	usage_guidelines: "Used when the exact publishing entity is known, since these will become authorities"
+#	  rdcp: 
+#	  dldp_sca: "For cases where an exact entity's information is not known, record relevant information in note:publication"
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: 
+	property_uri: "dc11:publisher"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "ucsd:Agent"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Creator"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Publisher"
+	  dc: "dc:publisher"
+	  dams4_ingest_template: "Person:Publisher; Corporate:Publisher"
+# comments - 
+
+- "agent:[role]":
+	display_label: "[Role]"
+	defintion: "This isn't an actual property, but a representation of agent roles. "
+	usage_guidelines: "See Agent Types list for full valid list of roles"
+#	  rdcp: "Roles are selected by researchers when they fill out the form, but we can propose new roles if necessary"
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: "MARC Relator codes/URIs and also local roles"
+	sample_value: "Smith, Joe S."
+	property_uri: "[Agent Types Predicate] e.g. agent:author"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "ucsd:Agent"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Creator"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Contributor, Creator"
+	  dc: "dc:contributor, dc:creator"
+	  dams4_ingest_template: "Person:;Corporate"
+# comments - 
+
+- "subject:spatial":
+	display_label: 
+	defintion: "Spatial characteristics of described resource, such as acountry, city, region, address or other geographical term. Captures aboutness."
+	usage_guidelines: "In general, LoC's label is close to our ideal label. But, the ideal format is the place followed in parentheses by its next highest division (so a state for a city in the US, a country or region for other cities)."
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Jalisco (Mexico)"
+	property_uri: "dc:spatial"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "ucsd:Place"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Topic"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Place"
+	  dc: "dc:spatial"
+	  dams4_ingest_template: "Geographic(reference system, point, line, polygon, projection, scale)"
+# comments - 
+
+- "subject:temporal":
+	display_label: 
+	defintion: "Temporal characteristics of the described resource. Captures aboutness."
+	usage_guidelines: "These can be geological time periods, or humanistic ones associated with e.g. artistic movements"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Pleistocene Era"
+	property_uri: "dc:temporal"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "edm:TimeSpan"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Topic"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Temporal Coverage"
+	  dc: "dc:temporal"
+	  dams4_ingest_template: "Subject:temporal"
+# comments - 
+
+- "date":
+	display_label: "Date"
+	defintion: "A point or period of time associated with an event in the lifecycle of the resource."
+	usage_guidelines: "If you have a more specific date, use the more specific types, e.g. collection date, event date"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: "Inclusive of all objects in the collection"
+	requirement: "Recommended"
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "July 14, 1971"
+	property_uri: "dc11:date"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "edm:TimeSpan"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Date"
+	  dc: "dc11:date"
+	  dams4_ingest_template: 
+# comments - 
+
+- "date:created":
+	display_label: "Creation Date"
+	defintion: "A date associated with the creation of the resource. "
+	usage_guidelines: "The date the resource was created"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: 
+	property_uri: "dc:created"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "edm:TimeSpan"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: 
+	  dc: "dc:created"
+	  dams4_ingest_template: "Date:creation"
+# comments - 
+
+- "date:event":
+	display_label: "Event Date"
+	defintion: "The date of the event depicted in the resource."
+	usage_guidelines: "Typically these dates are for objects representing a performance or other event"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "April 8, 1908"
+	property_uri: "ucsd:eventDate"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "edm:TimeSpan"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Date"
+	  dc: "dc11:date"
+	  dams4_ingest_template: "Date:event"
+# comments - 
+
+- "date:collection":
+	display_label: "Date Collected"
+	defintion: "The date that the physical or digital materials represented by the object were collected."
+	usage_guidelines: "Can be used from an archival context to record when materials were collected, or when a researcher or other entity collected research materials or findings."
+#	  rdcp: "Typically used for a date at which a researcher observed/collected/analyzed something"
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "June 1, 2013 to July, 18 2013"
+	property_uri: "ucsd:collectionDate"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "edm:TimeSpan"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Date"
+	  dc: "dc11:date"
+	  dams4_ingest_template: "Date:collected"
+# comments - 
+
+- "date:copyrighted":
+	display_label: 
+	defintion: "The date that the resource was copyrighted."
+	usage_guidelines: "Used when the exact copyright date is crucial to the object's context"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "1963"
+	property_uri: "dc:dateCopyrighted"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "edm:TimeSpan"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Date"
+	  dc: "dc:dateCopyrighted"
+	  dams4_ingest_template: "Date:copyright"
+# comments - 
+
+- "date:issue":
+	display_label: "Date Issued"
+	defintion: "The year in which the resource was issued (e.g., the year a digital collection was first viewable by the public)."
+	usage_guidelines: "Primarily used for minting DOIs and to work with external services, but can also be used to indicate when the resource was issued"
+#	  rdcp: "Use for all RDCP collections. YYYY only. Only use the year the collection will be published, and for continuing collections (i.e., ongoing collections with no set end date), use the year in which the collection was first published"
+#	  dldp_sca: 
+#	  music: 
+#	  collection: "If minting DOIs, format is 'YYYY'"
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "2017"
+	property_uri: "dc:issued"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "edm:TimeSpan"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: 
+	  dc: "dc:issued"
+	  dams4_ingest_template: "Date:issued"
+# comments - 
+
+- "note:description":
+	display_label: "Description"
+	defintion: "A description or summary of a resource"
+	usage_guidelines: "This note is more specialized than a general note. It gives the overall summary of the item, in a more detailed manner than the brief description"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: "The description in a CLR is the fuller version of the brief description. There are no character limits."
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "A alteration by unnamed student(s) intended as a parody of De Saint Phalle's Sun God."
+	property_uri: "dc11:description"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description, Collection Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:description"
+# comments - 
+
+- "note:bibliographic citation":
+	display_label: 
+	defintion: "A bibliographic reference for the resource."
+	usage_guidelines: "Include sufficient bibliographic detail to identify the resource as unambiguously as possible."
+#	  rdcp: 
+#	  dldp_sca: "The format generally is '[Title, Date]', followed by the collection title, followed by the accession or other archival identifier, followed by the unit"
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "[Title, Date]. Leo Szilard Papers. MSS 32. Special Collections & Archives, UC San Diego Library."
+	property_uri: "dc:bibliographicCitation"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc:bibliographicCitation"
+	  dams4_ingest_template: "Note:bibliography"
+# comments - "I think the usage guidelines on this are actually for preferred citation"
+
+- "note:table of contents":
+	display_label: 
+	defintion: "A list of subunits of the resource."
+	usage_guidelines: "Mainly used in context of a book or physical music piece"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "1. Beginnings 2. The Academic Plan 3. The 1966 Revision 4. Conclusion"
+	property_uri: "dc:tableOfContents"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc:tableOfContents"
+	  dams4_ingest_template: "Note:table of contents"
+# comments - 
+
+- "note:arrangement":
+	display_label: "Arrangement"
+	defintion: "Information about the organization and arrangement of a collection of items represented by the object."
+	usage_guidelines: "Intellectual arrangement or the original/archival resources"
+#	  rdcp: 
+#	  dldp_sca: "In archival collections, use to point to a series or other intellectual grouping of the material for reference"
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Located in the series \"Correspondence\" in the Leo Szilard Papers, MSS 32."
+	property_uri: "bf:arrangement"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:arrangement"
+# comments - 
+
+- "note:biography":
+	display_label: 
+	defintion: "A biographical note related to the entity represented in the resource."
+	usage_guidelines: "Use when a biographical note is important to understanding the resource or collection "
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Edith Emerson (July 27, 1888 \u2013 November 21, 1981) was an American painter, muralist, illustrator, writer, and curator. She was the life partner of acclaimed muralist Violet Oakley and served as the vice-president, president, and curator of the Woodmere Art Museum in the Chestnut Hill neighborhood of Philadelphia, Pennsylvania, from 1940 to 1978."
+	property_uri: "ucsd:biography"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:biography"
+# comments - 
+
+- "brief description":
+	display_label: "N/A"
+	defintion: "A short description of a collection, specifically for use in the Collection Search results.  Only for use in collection level records and does not display in the full Collection level record view."
+	usage_guidelines: "Only used in the context of collection level records (viewed when browsing the collection). Character limit is enforced"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: "Around 200 character limit"
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Photographs and design drawings of the site-specific public sculptures in the UC San Diego Stuart Collection."
+	property_uri: "ucsd:briefDescription"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "Only in search results view"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Collection Description"
+	  dc: "dc:abstract"
+	  dams4_ingest_template: "Brief description"
+# comments - 
+
+- "note:credits":
+	display_label: "Credits"
+	defintion: "Information in note form of credits for persons or organizations who have participated in the creation and/or production of the resource."
+	usage_guidelines: "Only used when special recognition has been made in the source data, or when a data provider wishes to credit other entities. Not to be used to convey copyright-related information, or to record performers (that is recorded in note:performer)"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: "Used for performers and other people involved with the production. Use RDA text formatting."
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Roger Reynolds, Bryan Reynolds, Joshua Tonies, Nick Drashner, Andy Muehlhausen, Trevor Henthorn, Hunjoo Jung, Tracy Cornish"
+	property_uri: "bf:credits"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:credits"
+# comments - 
+
+- "note:custodial history":
+	display_label: 
+	defintion: "Information about the provenance, such as origin, ownership and custodial history (chain of custody), of a resource."
+	usage_guidelines: "Only use when the provenance or chain of custody is necessary for grasping the context of the resource"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Originally owned by the British Museum"
+	property_uri: "bf:custodialHistory"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Data Provider* (although this range is Agent, not Literal), Description"
+	  dc: "dc11:provenance"
+	  dams4_ingest_template: "Note:custodial history"
+# comments - 
+
+- "note:edition":
+	display_label: 
+	defintion: "Information identifying the edition or version of the resource and associated statements of responsibility for the edition; usually transcribed."
+	usage_guidelines: "Used primarily when the edition information is transcribed on the object"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "ICPSR ed., OSIRIS IV version."
+	property_uri: "bf:editionStatement"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:edition"
+# comments - 
+
+- "note:material details:finds":
+	display_label: 
+	defintion: "Reports \"finds\" in a scientific context about an object"
+	usage_guidelines: "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Some slag. No ceramics."
+	property_uri: "ucsd:finds"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:material details:finds"
+# comments - "revisit in light of current RDCP knowledge and practice"
+
+- "note:funding":
+	display_label: 
+	defintion: "Information identifying organizations that have funded the creation of a resource."
+	usage_guidelines: "Record any source of funding (grants etc.) the data provider thinks is relevant"
+#	  rdcp: "Federal and other research funding information is usually provided in the form. It's uncontrolled, but some standardization and expansion of acronyms can be helpful."
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "California Air Resources Board (Agreement No: 13-330)"
+	property_uri: "ucsd:funding"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:funding"
+# comments - 
+
+- "note:note":
+	display_label: "Note"
+	defintion: "General textual information relating to a resource"
+	usage_guidelines: "These are repeatable and can be formatted to have prefixes or hacky \"headers\". But, be advised that multiple general notes will be concatenated into one block of text with a header of \"Note\" in the UI"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Title derived from original collection inventory."
+	property_uri: "dc:abstract"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:note"
+# comments - 
+
+- "note:inscription":
+	display_label: 
+	defintion: "Records information that has been inscribed on the physical form represented by the resource. "
+	usage_guidelines: "Record exactly as inscribed on the object"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Mrs. D.J. Chase 613 Belden St. Peekskill New York"
+	property_uri: "ucsd:inscription"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:inscription"
+# comments - 
+
+- "note:material details:limits":
+	display_label: 
+	defintion: 
+	usage_guidelines: "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Installation walls, W-L14."
+	property_uri: "ucsd:limits"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:material details:limits"
+# comments - "revisit in light of current RDCP knowledge and practice"
+
+- "note:local attribution":
+	display_label: "Digital Object Made Available By"
+	defintion: "Denotes which library program is responsible for creating or providing the resource."
+	usage_guidelines: "Is selected at time of ingest from 3 controlled values: DLDP, RDCP, and SCA."
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: "Controlled vocab for UCSD units"
+	sample_value: "Digital Object Made Available By: Special Collections & Archives, UC San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/collections/sca/)"
+	property_uri: "ucsd:localAttribution"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "not in current template(batch export?)"
+# comments - 
+
+- "note:location of originals":
+	display_label: 
+	defintion: "Information on the physical arrangement of the source materials used to create the object. Can also contain location and contact information for the user to request access to the materials."
+	usage_guidelines: "Physical location and arrangement of the original/archival resources "
+#	  rdcp: 
+#	  dldp_sca: "In archival collections, make an unambiguous reference to the physical item's location that the object represents"
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "This digital image is a surrogate of an item from the Leo Szilard Papers (MSS 32, Box 18, Folder 30)."
+	property_uri: "ucsd:locationOfOriginals"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:location of originals"
+# comments - 
+
+- "note:material details":
+	display_label: 
+	defintion: "Records aspects about the object's physical representation that aren't strictly dimensions and measurements"
+	usage_guidelines: "Record aspects about the physical object being represented that aren't strictly physical dimensions/measurements"
+#	  rdcp: 
+#	  dldp_sca: "Can be used for information about physical objects relating to quality and integrity"
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Reel was in poor condition, side 2 could not be salvaged"
+	property_uri: "ucsd:materialDetails"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:material details"
+# comments - 
+
+- "note:methods":
+	display_label: "Methods"
+	defintion: "Information on the methods in which the researcher carried out their research, in relation to the resource."
+	usage_guidelines: "Use for when a collection was produced using certain scientific methodology"
+#	  rdcp: "This is where the researcher will expand on the methods in which they carried out their research. RDCP Project Manager will typically ask for this info."
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Acoustic backscattering data were collected between stations using a hull-mounted Simrad EK60 split-beam echo sounder"
+	property_uri: "ucsd:methodology"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:methods"
+# comments - 
+
+- "note:performer":
+	display_label: 
+	defintion: "Records informations about the performers of the resource, and can indicate their role, e.g. instruments used"
+	usage_guidelines: "If possible, record the performer(s) name as well as their role in the performace (e.g. violin)"
+#	  rdcp: 
+#	  dldp_sca: "Although uncontrolled, consistency of names should be maintained between objects"
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Janos Negyesy, violin ; Aleck Karis, piano"
+	property_uri: 
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:performers"
+# comments - 
+
+- "note:physical description":
+	display_label: 
+	defintion: "Physical dimensions or characteristics of the physical form of the object."
+	usage_guidelines: "Record physical dimensions/measurements of the object represented"
+#	  rdcp: 
+#	  dldp_sca: "Use note forms similar to MARC, but expand abbreviations whenever possible to avoid ambiguity"
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "1 sound tape reel : analog, 7 1/2 ips 5 in., 1/2 in. tape"
+	property_uri: "ucsd:physicalDescription"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Format"
+	  dc: "dc:format"
+	  dams4_ingest_template: "Note:physical description"
+# comments - 
+
+- "note:preferred citation":
+	display_label: "Cite This Work"
+	defintion: "Citation to the resource preferred by its custodian of the resource (i.e. UCSD)."
+	usage_guidelines: "Record a citation for the user in order for them to cite the resource at hand. Although there is no required format, it should adhere to general citation guidelines for internet resources, and use full/valid URLs when possible"
+#	  rdcp: "This note field is constructed in the order of: Creators/authors names. Year issued. DAMS Collection or object that is desired to be cited. Full hyperlink to DOI or resolvable ARK link  "
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Keen, Eric M; Wray, Janie; Meuter, Hermann; Thompson, Kim-Ly; Barlow, Jay P; Picard, Chris R (2017): Data from: 'Whale Wave': shifting strategies structure the complex use of critical fjord habitat by humpbacks. UC San Diego Library Digital Collections. http://doi.org/10.6075/J0GT5K3B"
+	property_uri: "bf:preferredCitation"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Replaced By"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:preferred citation"
+# comments - 
+
+- "note:publication":
+	display_label: 
+	defintion: "Information on the location and/or entity responsible for publication of the resource."
+	usage_guidelines: "This is a place for the uncontrolled \"place\", entity, etc. for a publisher. If the exact entity is known, use the more controlled agent:publisher"
+#	  rdcp: 
+#	  dldp_sca: "The format is typically the place, if available, followed by a name or other information"
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Shanghai: Shanghai ren min mei shu chu ban she (上海: 上海人民美术出版社)"
+	property_uri: "ucsd:publication"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:publication"
+# comments - 
+
+- "note:related publications":
+	display_label: 
+	defintion: "References and cites publications that are related to, or were derived from, or are otherwise related to the resource."
+	usage_guidelines: "Use a full citation to a publication (e.g. journal article) related to the object, and a DOI link if available"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Bushong EA, Martone ME, Ellisman MH (2004). Maturation of astrocyte morphology and the establishment of astrocyte domains during postnatal hippocampal development. Int J Dev Neurosci, 22(2):73-86. doi: 10.1016/j.ijdevneu.2003.12.008 PMID: 15036382"
+	property_uri: "ucsd:relatedPublications"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Relation"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:related publications"
+# comments - 
+
+- "note:material details:relationship to other loci":
+	display_label: 
+	defintion: "Information on the context of this locus as it relates to other loci in an archaeological site."
+	usage_guidelines: "Typically contains information about the locus immediately above, as well as the locus immediately below. Can also denote if it is equivalent to another locus."
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Matrix above: 19826 Matrix below: 19823 Equal to: 19824"
+	property_uri: "ucsd:relationshipToOtherLoci"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Relation"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:material details:relationship to other loci"
+# comments - "revisit in light of current RDCP knowledge and practice"
+
+- "note:scope and content":
+	display_label: "Scope and Content"
+	defintion: "Characterization that epitomizes the primary content of a resource, e.g., field recording of birdsong; combined time series analysis and graph plotting system. Can also reference information outside the scope of the specific object, and any relevant content."
+	usage_guidelines: "Typically this is broader of a note than arrangement, and contains information about scope and content in a general sense. To describe how a file or directory is strucured, for instance, an arrangement note is more appropriate"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: "Generally, use RDA text formatting; may incorporate movement titles following title of larger work."
+#	  collection: "Used to outline the content contained in the collection or object"
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "The dataMares Collection contains a selection of datasets associated with scientific research, some of which is featured at http://datamares.ucsd.edu. "
+	property_uri: "bf:natureOfContent"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description, Collection Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:scope and content"
+# comments - 
+
+- "note:statement of responsibility":
+	display_label: 
+	defintion: "Statement relating to any persons, families, or corporate bodies responsible for the creation of, or contributing to the content of a resource; usually transcribed."
+	usage_guidelines: "For most cases, this information will be taken from the source data, i.e. MARC data. Usually this information is transcribed: to credit people involved in the creation of a resource beyond transcribed information, use note:credits"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Gary Snyder ; preface by Nathaniel Tarn ; edited by Donald Allen."
+	property_uri: "bf:responsibilityStatement"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:statement of responsibility"
+# comments - 
+
+- "note:material details:storage method":
+	display_label: 
+	defintion: "Information about the physical storage method of a scientific sample"
+	usage_guidelines: "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "room temperature, dry"
+	property_uri: "ucsd:storageMethod"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:material details:storage method"
+# comments - "revisit in light of current RDCP knowledge and practice"
+
+- "note:series":
+	display_label: 
+	defintion: "Information relating to the publication of the resource, e.g. volume, number, issue"
+	usage_guidelines: "Although this information is uncontrolled, care should be taken to ensure this information is correct. The controlled series name is recorded in subject:series"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Volume 6, Issue 10"
+	property_uri: "ucsd:seriesNote"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: 
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:series"
+# comments - 
+
+- "note:technical details":
+	display_label: 
+	defintion: "Information that can reflect technical requirements needed to use the resource (both software and hardware). Can also provide information about anomalies, bugs, and other issues that are known about the files in the digital object."
+	usage_guidelines: "Use to record technical aspects or requirements for the resource"
+#	  rdcp: "For scripts and software, provide all information about hardware and software requirements to run it. This includes code language version (e.g. python 3.6), as well as any necessary softare libraries and their versions (e.g. matplotlib 2.1). Usually this information is contained in a readme, but can also be asked from the data provider"
+#	  dldp_sca: "Besides technical requirements, this note can be used to express details about the digital file itself, such as anomalies the user should be warned about (e.g. image corruption/artifacts, audio corruption)"
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "R routines were run in R 3.1.2 "
+	property_uri: "ucsd:technicalDetails"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:technical details"
+# comments - 
+
+- "note:venue":
+	display_label: 
+	defintion: "Information about where the object was created or performed. "
+	usage_guidelines: "Typically this records the place at which the resource was performed (usually an event). For a more controlled place/location, use subject:spatial"
+#	  rdcp: 
+#	  dldp_sca: "Although uncontrolled, consistency of names should be maintained between objects"
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Antin's poetry reading was recorded at Dr. Generosity's. Stark's reading was recorded at Ikon"
+	property_uri: "ucsd:venue"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:venue"
+# comments - 
+
+- "note:work featured":
+	display_label: 
+	defintion: "Information about entities and specific intellectual works that are featured in the object."
+	usage_guidelines: "Use a controlled form of the creator's name (including dates if part of the controlled name), and the controlled form of the work's name."
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: "Use for related/analytical author title. Create separate notes. Prepend with \"Work featured: \". Use form of access point as found in LC Authority File (without subfield characters) or, if access point has not been established, formulate string as for a controlled access point."
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Grapes of wrath (Steinbeck, John)"
+	property_uri: "ucsd:workFeatured"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Relation"
+	  dc: "dc:relation"
+	  dams4_ingest_template: "Note:work featured"
+# comments - 
+
+- "note:material details:water depth":
+	display_label: 
+	defintion: "Information about the depth at which an oceanographic sample was collected"
+	usage_guidelines: "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "1570-1425 meters"
+	property_uri: "ucsd:waterDepth"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Description"
+	  dc: "dc11:description"
+	  dams4_ingest_template: "Note:material details:water depth"
+# comments - "revisit in light of current RDCP knowledge and practice"
+
+- "identifier":
+	display_label: 
+	defintion: "A generic identifier for an object."
+	usage_guidelines: "Use a more specific identifier type if possible. If the identifier does not need to be displayed and/or makes no sense from a user perspectice, use identifier:local"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "c104"
+	property_uri: "dc:identifier"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:identifier"
+# comments - 
+
+- "identifier:accession":
+	display_label: 
+	defintion: "An archival accession number for the object."
+	usage_guidelines: "Only use when the original accession numbers are important (e.g. for collection maintenance)"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "40822459663"
+	property_uri: "ucsd:accessionId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:accession number"
+# comments - 
+
+- "identifier:ark":
+	display_label: 
+	defintion: "An ARK identifier for an object."
+	usage_guidelines: "If pointing to a related DAMS object, use related resource instead"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "bb1234567x"
+	property_uri: "ucsd:arkId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "Internal only"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:ARK"
+# comments - 
+
+- "identifier:basket number":
+	display_label: 
+	defintion: "A number for a basket in an archaeological site that the object represents"
+	usage_guidelines: "Use basket IDs as supplied by data provider"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "w09b0630"
+	property_uri: "ucsd:basketId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:basket number"
+# comments - 
+
+- "identifier:call number":
+	display_label: 
+	defintion: "A call number identifier for the object"
+	usage_guidelines: "Only use when the original call numbers are important, e.g. for collection management purposes"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "10.1000/182"
+	property_uri: "modsrdf:callNumber"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "Internal only"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:call number"
+# comments - 
+
+- "identifier:collection number":
+	display_label: 
+	defintion: 
+	usage_guidelines: 
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "3558"
+	property_uri: "ucsd:collectionNumberId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "Internal only"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:collection number"
+# comments - 
+
+- "identifier:doi":
+	display_label: 
+	defintion: "A Digital Object Identifier for the object"
+	usage_guidelines: "Do not use this identifier if already specified in a preferred citation"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "19671209__01"
+	property_uri: "locid:doi"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:DOI"
+# comments - 
+
+- "identifier:edm":
+	display_label: 
+	defintion: "The Electronic Distance Measurement ID for a resource, usually used in an archaeological dig"
+	usage_guidelines: "Use EDM IDs as supplied by data provider (only occurs in archaeological projects)"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "SIO001505"
+	property_uri: "ucsd:edmId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:EDM"
+# comments - 
+
+- "identifier:event number":
+	display_label: 
+	defintion: "A controlled identifier for an event; used to group objects in the same event together"
+	usage_guidelines: "The source data should contain the event IDs for objects. They are used to group objects from the same event (e.g. a day of concerts) into one grouping"
+#	  rdcp: 
+#	  dldp_sca: "Make sure that event IDs were requested as part of the object modeling on behalf of the data provider. These IDs drive specific functionality, where shared IDs have clickable links "
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "A 188"
+	property_uri: "ucsd:eventId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: "Canned search created for event numbers"
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:event ID"
+# comments - 
+
+- "identifier:file name":
+	display_label: 
+	defintion: "A source file name for the file of an object"
+	usage_guidelines: "Only use when the original filenames are important and have been altered"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "19600122"
+	property_uri: "ucsd:filenameId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "Internal only"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:filename"
+# comments - 
+
+- "identifier:igsn":
+	display_label: 
+	defintion: "The International Geo Sample Number for the object"
+	usage_guidelines: "Use IGSN IDs as supplied by data provider"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "580"
+	property_uri: "ucsd:igsnId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:IGSN"
+# comments - 
+
+- "identifier:local":
+	display_label: 
+	defintion: "An internally-used identifier"
+	usage_guidelines: "As a local identifier does not publically display, use only in cases where the identifier is necessary for administrative / collection management purposes"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "7TOW04WT-036D"
+	property_uri: "locid:local"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "Internal only"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:local"
+# comments - 
+
+- "identifier:locus number":
+	display_label: 
+	defintion: "A number for a locus in an archaeological site that the object represents"
+	usage_guidelines: "Use locus IDs as supplied by data provider"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "/20775/bb1234567x"
+	property_uri: "ucsd:locusId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:locus number"
+# comments - 
+
+- "identifier:negative":
+	display_label: 
+	defintion: "An identifier for a photo negative print"
+	usage_guidelines: "Only use when the original negative print IDs are important (e.g. essential for collection management)"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "FVLF-0052"
+	property_uri: "ucsd:negativeId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "Internal only"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:negative"
+# comments - 
+
+- "identifier:news release number":
+	display_label: 
+	defintion: "The assigned news release ID for an object"
+	usage_guidelines: "Use news release IDs as supplied by data provider"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "007-014"
+	property_uri: "ucsd:newsReleaseId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: 
+# comments - "not in current ingest template?"
+
+- "identifier:oclc number":
+	display_label: 
+	defintion: "The \"OCN\" or OCLC Control Number for an object"
+	usage_guidelines: "Only use when the OCLC numbers are important, e.g. for collection management purposes"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "caljsioa_ac608550030"
+	property_uri: "ucsd:oclcId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "Internal only"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:OCLC number"
+# comments - 
+
+- "identifier:registration number":
+	display_label: 
+	defintion: 
+	usage_guidelines: 
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "24631790"
+	property_uri: "ucsd:registrationId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:registration number"
+# comments - 
+
+- "identifier:catalog record":
+	display_label: 
+	defintion: "The identifier from the ILS or catalog (currently Roger records)"
+	usage_guidelines: "Only indicate the \"bib\" number. Do not include any hyperlink-specific IDs and suffixes, e.g. \"~9\""
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "b33478636"
+	property_uri: "ucsd:catalogId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "Internal only"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:roger record"
+# comments - 
+
+- "identifier:sample number":
+	display_label: 
+	defintion: "The identifier for the sample represented by the object"
+	usage_guidelines: "Use sample IDs as supplied by data provider"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "256"
+	property_uri: "ucsd:sampleId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:samplenumber"
+# comments - 
+
+- "identifier:sequence":
+	display_label: 
+	defintion: "An identifier for the group of objects that this resource belongs to"
+	usage_guidelines: "Use sequence IDs as supplied by data provider"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "41"
+	property_uri: "ucsd:sequenceId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "Internal only"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:sequence"
+# comments - 
+
+- "identifier:shared shelf":
+	display_label: 
+	defintion: "The identifier for this object taken from a Shared Shelf instance"
+	usage_guidelines: "Use for resources that have explicit IDs in Shared Shelf"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "24953"
+	property_uri: "ucsd:sharedShelfId"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "Internal only"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Identifier"
+	  dc: "dc:identifier"
+	  dams4_ingest_template: "Identifier:shared shelf"
+# comments - 
+
+- "language":
+	display_label: 
+	defintion: "Language(s) of described resource. Strongly recommended for text materials."
+	usage_guidelines: "Resources can have multiple languages represented. It is not necessary to record the language of non-texual or non-audiovisual content."
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: "ISO 639-2"
+	sample_value: "eng"
+	property_uri: "dc11:language"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "xsd:anyURI  "
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "1"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y?"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Language"
+	  dc: "dc11:language"
+	  dams4_ingest_template: "Language"
+# comments - 
+
+- "related resource":
+	display_label: 
+	defintion: "A related resource; specifically its title and URL."
+	usage_guidelines: "For web resources, provide a label as close to the title of the web site as possible. Otherwise, provide a helpful label that conveys context on how the resource is related"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: "Depending on type, can display on the CLR page and all collection objects (e.g. \"online finding aid\" type will display on all objects). \"related\" type will only display on CLR"
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Baja California and the West Postcard Collection @{type=online finding aid; uri=http://roger.ucsd.edu/record=b3528703~S9}"
+	property_uri: "dc:relation"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "ucsd:relatedResource"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Relation"
+	  dc: "dc:relation"
+	  dams4_ingest_template: "Related resource"
+# comments - 
+
+- "subject:topic":
+	display_label: 
+	defintion: "A topic or subject of the resource."
+	usage_guidelines: "For sources of information that are genres (e.g. FAST genres), record them as topics."
+#	  rdcp: "Many topics in RDCP collections can be found in Wikidata, especially when not found in FAST or LoC"
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "American poetry"
+	property_uri: "dc11:subject"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "skos:Concept"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Topic"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Subject"
+	  dc: "dc:subject"
+	  dams4_ingest_template: "Subject:topic"
+# comments - 
+
+- "subject:anatomy":
+	display_label: 
+	defintion: "An anotomical part that is a subject of the resource."
+	usage_guidelines: "Use for resources that are about a certain part of anatomy"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Protoplasmic astrocyte"
+	property_uri: "ucsd:anatomy"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "skos:Concept"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Anatomy"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Subject"
+	  dc: "dc:subject"
+	  dams4_ingest_template: "Subject:anatomy"
+# comments - 
+
+- "subject:cruise":
+	display_label: 
+	defintion: "A research event, bounded by a start and end point (both in time and space)."
+	usage_guidelines: "As much as possible, use a controlled form of the cruise / ship / expedition"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: 
+	property_uri: "olcruise:hasCruise"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "ucsd:Event"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Cruise"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Subject"
+	  dc: "dc:subject"
+	  dams4_ingest_template: "Subject:cruise"
+# comments - 
+
+- "subject:cultural context":
+	display_label: 
+	defintion: "The cultural group represented in the resource."
+	usage_guidelines: "As much as possible, use a controlled form of the cultural context, using vocabularies like Getty AAT"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Egyptian (ancient)"
+	property_uri: "vra:culturalContext"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "skos:Concept"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Cultural Context"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Subject"
+	  dc: "dc:subject"
+	  dams4_ingest_template: "Subject:culturalContext"
+# comments - 
+
+- "subject:genre form":
+	display_label: 
+	defintion: "Form category or genre to which a resource belongs"
+	usage_guidelines: "DMPS decided to not encode a difference between genre and topic, the D4 to D5 migration will need to account for the mapping"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: 
+	property_uri: "bf:genreForm"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "skos:Concept"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: 
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Topic"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Genre"
+	  dc: "dc:subject"
+	  dams4_ingest_template: 
+# comments - 
+
+- "subject:lithology":
+	display_label: 
+	defintion: "The combination of all litho-stratigraphic names for the rock from which the cataloged item was collected."
+	usage_guidelines: "Typically, an archaeological collection will provide these somewhat controlled terms"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "terrigenous"
+	property_uri: "dwc:lithostratigraphicTerms"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "skos:Concept"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Lithology"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Subject"
+	  dc: "dc:subject"
+	  dams4_ingest_template: "Subject:lithology"
+# comments - 
+
+- "subject:name":
+	display_label: 
+	defintion: "A name of the person that the resource is about."
+	usage_guidelines: "Ensure that if a name occurs more than once in a collection, it appears in the exact same form to avoid creation of duplicate authority records"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Einstein, Albert, 1879-1955"
+	property_uri: "foaf:name"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "ucsd:Agent"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Topic"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Subject"
+	  dc: "dc:subject"
+	  dams4_ingest_template: "Subject:common name; Subject:conference name; Subject:corporate name; Subject:family name; Subject:personal name"
+# comments - 
+
+- "subject:scientific name":
+	display_label: 
+	defintion: "The full scientific name of a species that the object is about."
+	usage_guidelines: "This only applies to the species (and equivalent) level of classification, and certainly not higher orders of classification, i.e. not group, family, etc."
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Rattus norvegicus"
+	property_uri: "dwc:scientificName"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "skos:Concept"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Scientific Name"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Subject"
+	  dc: "dc:subject"
+	  dams4_ingest_template: "Subject:scientific name"
+# comments - 
+
+- "subject:series":
+	display_label: 
+	defintion: "Contains the (standardized/authoritative/prefLabel) title of the serial, group of elated items, or event"
+	usage_guidelines: "Use the controlled form of the series name if adding to an existing series. If creating a new series, ensure all object have the same series name"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Experiment title: Intracellular injection of an astrocyte"
+	property_uri: "ucsd:series"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "skos:Concept"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Topic?"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Subject"
+	  dc: "dc:subject"
+	  dams4_ingest_template: "Subject:series"
+# comments - 
+
+- "title":
+	display_label: 
+	defintion: "The title of the resource."
+	usage_guidelines: "Preferrably, make the titles of resources unique within a collection. However, there is no hard rule against duplicate object titles"
+#	  rdcp: "Currently, objects from a research paper have \"Data from: \" prefixes in the title of the object and collection"
+#	  dldp_sca: 
+#	  music: "Remove \"[ ]\". Remove author from Title. Merge Subtitle into Title"
+#	  collection: "Use the exact desired title for the collection"
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Sun God: decorated as Rambird, 1986: front view"
+	property_uri: "dc:title"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "1"
+	  maximum_occurrence: "1"
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Title"
+	  dc: "dc:title"
+	  dams4_ingest_template: "Title"
+# comments - 
+
+- "title:alternative":
+	display_label: 
+	defintion: "An alternative title for the resource."
+	usage_guidelines: "For alternate transcribed titles, it may be more appropriate to record that in the statement of responsibility, depending on the source data"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Rambird, 1986"
+	property_uri: "dc:alternative"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: "?"
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Alternate Title"
+	  dc: "dc:alternative"
+	  dams4_ingest_template: "Variant; Translation"
+# comments - 
+
+- "title:part name":
+	display_label: 
+	defintion: "A part or section name of a title"
+	usage_guidelines: "Use a string that designates the part name"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: "do not use"
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: 
+	property_uri: "modsrdf:partName"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: 
+	  dc: "dc:alternative"
+	  dams4_ingest_template: "Part name"
+# comments - 
+
+- "title:part number":
+	display_label: 
+	defintion: "A part or section number of a title"
+	usage_guidelines: "Use a string that designates the part number"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: "do not use"
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: 
+	property_uri: "modsrdf:partNumber"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: 
+	  dc: "dc:alternative"
+	  dams4_ingest_template: "Part number"
+# comments - 
+
+- "title:subtitle":
+	display_label: 
+	defintion: "A subtitle for the resource (usually transcribed)."
+	usage_guidelines: "Use a string that captures the subtitle"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: "do not use"
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "front view"
+	property_uri: "modsrdf:subTitle"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: "1"
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: 
+	  dc: 
+	  dams4_ingest_template: "Subtitle"
+# comments - 
+
+- "type of resource":
+	display_label: 
+	defintion: "The nature or genre of the resource."
+	usage_guidelines: "Emphasis is placed on the nature of the resource, not the strict digital form. For instance, although a file may technically be a binary object, its nature is might be as text."
+#	  rdcp: "The lines between data, software, and text can be thin, but in general: scripts are considered software, while e.g. a readme about the script is considered text, and a delimited file output from running the script is considered data"
+#	  dldp_sca: 
+#	  music: "Map RDA content terms to an appropriate DAMS type of resource"
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: "id.loc Resource Types"
+	sample_value: "Still Image"
+	property_uri: "dc:type"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "skos:Concept"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "1"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "y"
+#	  facet_group: "Format"
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Type"
+	  dc: "dc:type"
+	  dams4_ingest_template: "Type of Resource"
+# comments - 
+
+- "copyright status":
+	display_label: 
+	defintion: "Information on the known copyright status of a resource."
+	usage_guidelines: "Selected from controlled values: Under copyright, Public domain, or Unknown. Generates boilerplate text."
+#	  rdcp: "The usual value that is selected for RDCP projects is \"Under copyright\""
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: "id.loc copyrightStatus - http://id.loc.gov/vocabulary/preservation/copyrightStatus.html"
+	sample_value: "Under copyright"
+	property_uri: "premis:hasCopyrightStatus"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "xsd:anyURI"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "1"
+	  maximum_occurrence: "1"
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Standardized Rights Statement"
+	  dc: "dc:rights"
+	  dams4_ingest_template: "Copyright status"
+# comments - 
+
+- "rights statement":
+	display_label: 
+	defintion: "Statement about various property rights associated with the resource, including intellectual property rights"
+	usage_guidelines: "Use when specific information regarding intellectual property rights, and e.g. information about how permission was sought and obtained to use the resource"
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Use: This work is available from the UC San Diego Library. This digital copy of the work is intended to support research, teaching, and private study."
+	property_uri: "edm:rights"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: 
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Rights"
+	  dc: "dc:rights"
+	  dams4_ingest_template: 
+# comments - 
+
+- "rights note":
+	display_label: 
+	defintion: "A free text note capturing copyright information"
+	usage_guidelines: 
+#	  rdcp: 
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "Gypsy's Window, Beyond the End, Homage, A Ring of Changes by Denise Levertov, from COLLECTED EARLIER POEMS 1940-1960, copyright © 1957 by Denise Levertov. Used by permission of New Directions Publishing Corp. "
+	property_uri: "dc:rights "
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "rdfs:Literal"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: "0"
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: 
+	  dc: 
+	  dams4_ingest_template: 
+# comments - 
+
+- "rights holder":
+	display_label: 
+	defintion: "A person or organization owning or managing rights over the resource."
+	usage_guidelines: "Use a controlled name for the entity. New entities will be created as agent authorities"
+#	  rdcp: "Unless otherwise stated, \"UC Regents\" is the default rights holder for RDCP collections."
+#	  dldp_sca: 
+#	  music: 
+#	  collection: 
+	requirement: 
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: 
+	sample_value: "UC Regents"
+	property_uri: "dc:rightsHolder"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "ucsd:Agent"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: 
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: "Rights Holder"
+	  dc: "dc:rightsHolder"
+	  dams4_ingest_template: "Copyright holder"
+# comments - 
+
+- "license":
+	display_label: 
+	defintion: "An associated license for the object (i.e. Creative Commons license, software licenses, etc.)"
+	usage_guidelines: "It is most often used for RDCP collections, and can be used by the owner to license their software. Licenses must be granted by the owner of the resource"
+#	  rdcp: "The default license for UC Regents RDCP collections is the Creative Commons Attribution License, or \"CC-BY\""
+#	  dldp_sca: "Use of a specific license is not required, and is currently not common for DLDP and SC&A collections"
+#	  music: 
+#	  collection: "For RDCP CLRs, select the CC-BY license at time of object ingest"
+	requirement: "Required when applicable"
+	controlled_values:
+#	  controlled_value_format:
+	  controlled_value_sources: "DAMS licenses controlled vocabulary"
+	sample_value: "CC-BY"
+	property_uri: "dc:license"
+	available_on_object: "ucsd:Object"
+	validations:
+	  range: "xsd:anyURI"
+#	  data_type: 
+#	  syntax: 
+#	  validation: regex:
+	  minimum_occurrence: 
+	  maximum_occurrence: 
+	index_documentation:
+#	  faceted: "n"
+#	  facet_group: 
+#	  display: 
+#	  indexed_searching: 
+#	  other: 
+	mapping:
+	  dpla: 
+	  dc: "dc:license"
+	  dams4_ingest_template: "CC license"
+# comments - 
+
