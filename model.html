@@ -19,36 +19,32 @@ title: Glorious Model
     </tr>
     {% for e in site.data.m3.profile %}
         {% for item in e %}
-		    {% if forloop.first %}<tr>{% endif %}
+		    {% if forloop.first %}<tr>
+            {% endif %}
             <td>{{item}}</td>
-        {% if forloop.last %}</tr>{% endif %}
+        {% if item == profile.version %}
+            {% break %}
+        {% endif %}
         {% endfor %}
     {% endfor %}
 </table>
 
 <h2>Class Definitions</h2>
 <h3>Classes</h3>
-<table>
-      {% for e in site.data.m3.classes %}
-          {% if forloop.first == true %}
-          <tr>
-          {% for item in e %}
-              <th>{{item[0]}}</th>
-          {% endfor %}
-          </tr>
-          {% endif %}
-          <tr>
-          {% for item in e %}
-              <td>{{item[1]}}</td>
-          {% endfor %}
-          </tr>
-      {% endfor %}
-</table>
 
+{% for e in site.data.m3.classes %}
+    {% for item in e %}
+    <ul>
+        <li>{{item}}</li>
+    {% endfor %}
+	</ul>
+{% endfor %}
+
+<p>Break</p>
 <h2>Property Definitions</h2>
-<h3>Roles</h3>
+
 <table>
-      {% for e in site.data.m3.roles %}
+      {% for e in site.data.m3.properties %}
           {% if forloop.first == true %}
           <tr>
           {% for item in e %}
@@ -64,4 +60,5 @@ title: Glorious Model
       {% endfor %}
 </table>
 
+<p>test link: https://github.com/Shopify/liquid/wiki/Liquid-for-Designers</p>
 <p>The End</p>

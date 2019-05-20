@@ -31,8 +31,10 @@ profile:
 classes:
 - Collection:
   display_label: "Collection"
+  schema_uri: m3:Collection
 - MyCustomWorkType:
   display_label: "Custom Work Type"
+  schema_uri: m3:MyCustomWorkType
 
 # Property Definitions
 
@@ -69,7 +71,7 @@ classes:
 #       "dpla" : "URI for target property"
 #       "otherthing" : "URI for target property"
 
-roles:
+properties:
 - creator:
     display_label: "Creator(s)"
     definition: "A person or organization responsible for creating the resource. (This is an example definition for a creator metadata field.)"

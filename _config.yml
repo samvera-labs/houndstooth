@@ -22,7 +22,11 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  samvera-labs
 
 # Build settings
-markdown: kramdown
+markdown: CommonMarkGhPages
+commonmark:
+  options: ["DEFAULT", "SMART", "FOOTNOTES", "SAFE", "SOURCEPOS"]
+  extensions: ["strikethrough", "autolink", "table", "tagfilter"]
+
 theme: jekyll-theme-slate
 plugins:
   - jekyll-feed
