@@ -1,0 +1,121 @@
+#-------------------
+# M3 Metadata Model
+#-------------------
+# Administrative information about the profile/model
+# profile:
+#   responsibility:  "the organization or individual responsible for maintaining the profile
+#   responsibility_statement:  "statement of the organization or individual responsible for maintaining the profile
+#   date_modified:  "the date the profile was last altered
+#   type:  "what type of thing does the profile describe?
+#   version:  "what version of the profile is this?
+profile:
+  responsibility: https://www.wikidata.org/wiki/Q131454
+  responsibility statement: Library of Congress
+  date_modified: 2019-01-31
+  type: concept
+  version: 1.1
+
+# Mapping Definitions
+
+# mappings: "what mappings are expressed in the profile?"
+# - dpla:
+#   name: Digital Public Library of America
+# - datacite:
+#   name: DataCite
+
+# Class Definitions
+
+# classes:
+# - class_name:  "stable generic local name for the class"
+#   display_label:  "human-readable label for the property"
+classes:
+- Collection:
+  display_label: "Collection"
+- MyCustomWorkType:
+  display_label: "Custom Work Type"
+
+# Property Definitions
+
+# - property_name:  "stable generic local name for the property"
+#     display_label:  "human-readable label for the property"
+#     definition:  "The definition for the metadata property being described."
+#     usage_guidelines:  "description of how the defined property should be used (helper text, hints, deposit text, etc.)"
+#     requirement:  "separate from system obligation/cardinality --> the requirement of the property from a best practices standpoint"
+#     controlled_values:
+#       format:  "controlled vocabulary constraint on the property's value"
+#       sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values"
+#        - value 1
+#        - value 2
+#     sample_value:  "exemplar values"
+#     property_uri:  "URI for the property, from a local or shared ontology"
+#     available_on:  "what PCDM objects and/or work types is this property available on"
+#       class:
+#         - Collection
+#         - MyCustomWorkType
+#       resource_type:
+#         - image
+#         - thesis
+#     range:
+#       class_uri: "class constraint on the property's value"
+#     data_type:  "type constraint on the property's value"
+#     syntax:  "syntax standard constraint on the property's value"
+#     cardinality:
+#       minimum:  "minimum number of values the property must have"
+#       maximum:  "maximum number of values the property may have"
+#     index_documentation: "free text metadata specialist facing documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc."
+#     validations:
+#       match_regex:  "pattern each value must match to be valid"
+#     mapping: "pair values for different services"
+#       "dpla" : "URI for target property"
+#       "otherthing" : "URI for target property"
+
+- creator:
+    display_label: "Creator(s)"
+    definition: "A person or organization responsible for creating the resource. (This is an example definition for a creator metadata field.)"
+    usage_guidelines: "Record in lastname, firstname order."
+    requirement: "recommended, if applicable"
+    controlled_value:
+      format: "xsd:literal"
+      sources:
+        - "/qa/terms/local/roles/"
+    sample_value: Smith, John
+    property_uri: http://purl.org/dc/elements/1.1/creator
+    available_on:
+      class:
+        - Collection
+        - MyCustomWorkType
+    range:
+      class_uri: http://id.loc.gov/ontologies/bibframe/Agent
+    data_type: xsd:string
+    syntax: edtf
+    cardinality:
+      minimum: 0
+      maximum: 100
+    index_documentation: "searchable, displayable, creator facet"
+    validations:
+      match_regex: [\\d]{4}
+    mapping:
+      dpla: "http://purl.org/dc/elements/1.1/creator"
+
+- title:
+    display_label: "Title"
+    definition: "The title of the resource. (From Hyrax): A name to aid in identifying a work."
+    #usage_guidelines:
+    requirement: "required"
+    #controlled_values:
+      #controlled_value_format:
+      #controlled_value_sources:
+    sample_value: "The Tell-Tale Heart"
+    property_uri: http://purl.org/dc/terms/title
+    available_on_object:
+      - Collection
+      - MyCustomWorkType
+    range:
+      class_uri: http://www.w3.org/2000/01/rdf-schema#Literal
+    data_type: http://www.w3.org/2001/XMLSchema#string
+    cardinality:
+      minimum: 1
+      maximum: 100
+   #index_documentation:
+   #mapping:
+     #mapping_service: mapping_property_uri:
