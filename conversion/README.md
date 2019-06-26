@@ -1,16 +1,17 @@
-# Conversion instructions
-## OpenRefine, spreadsheet -> m3.yaml
-### 1) In OpenRefine, under the **Export** menu (top right) select **Templating...**
+# Converting a spreadsheet -> m3.yaml format in OpenRefine
+## 1) 
+In OpenRefine, under the **Export** menu (top right) select **Templating...**
 
-### 2) In the **Templating Export** window you'll want to edit the four text fields on the left: 
-#### Prefix
+## 2) 
+In the **Templating Export** window you'll want to edit the four text fields on the left: 
+### Prefix
 ```
 ---
 rows:
 	
 ```
 
-#### Row Template
+### Row Template
 You'll want to either edit your column headers to match the M3 meta-properties (easier before importing into OpenRefine) or edit the template text to add in your column headers.
 
 ```
@@ -45,21 +46,23 @@ You'll want to either edit your column headers to match the M3 meta-properties (
   # {{cells["Comments"].value}}	
 	
 ```
-You will get a preview of your output in the *Templating Export* window.
+You will get a preview of your output in the **Templating Export** window.
 	
-#### Row Separator
+### Row Separator
 Change the row separator from the default comma (,) to a blank line.
 
-#### Suffix
+### Suffix
 ```
 ...
 ```
-### 3. Export
-### 4. Clean-up your output file
+Export 
+
+## 4. Export and Clean-up 
+   - export and save your file with a `.yaml` extension 
    - remove unwanted nulls
    - check formatting
 
-### Editing the template text
+# Editing the template text
 * rename your column headers (in a copy of your spreadsheet) to match the M3 meta-properties
 * edit the template text replacing the text in "paranthesis" with your column headers
 ```	{{cells["column name"].value}}
