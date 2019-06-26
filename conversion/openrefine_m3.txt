@@ -1,0 +1,38 @@
+
+--- 
+
+rows:
+
+- {{cells["property_name"].value}}:
+    display_label: "{{cells["display_label"].value}}"
+    definition: "{{cells["definition"].value}}" 
+    usage_guidelines: "{{cells["usage_guidelines"].value}}"
+    requirement: "{{cells["requirement"].value}}"
+    controlled_value: 
+      format:  "{{cells["controlled_values_format"].value}}"
+      sources: 
+        -  "{{cells["controlled_values_sources"].value}}"
+    sample_value: "{{cells["sample_value"].value}}"
+    property_uri: {{cells["property_uri"].value}}
+    available_on: 
+      class: 
+        -  {{cells["available_on_class"].value}}
+      resource_type: 
+        -  {{cells["available_on_resource"].value}}
+    range: 
+      class_uri: {{cells["class_uri"].value}}
+    data_type: {{cells["data_type"].value}}
+    syntax: {{cells["syntax"].value}}
+    cardinality: 
+      minimum:  {{cells["minimum"].value}}
+      maximum:  {{cells["maximum"].value}}
+    index_documentation:  "{{cells["index_documentation"].value}}"
+    validations: 
+      match_regex:  {{cells["match_regex"].value}}
+    mapping: 
+      dpla: "{{cells["dpla_mapping"].value}}"
+      dc: "{{cells["dc_mapping"].value}}"		
+      ucsd_d4: "{{cells["dams4_ingest_template_mapping"].value}}"
+  # {{cells["Comments"].value}}
+  
+...
