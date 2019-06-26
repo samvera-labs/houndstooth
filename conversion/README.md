@@ -57,7 +57,8 @@ Change the row separator from the default comma (,) to a blank line.
 ```
 Export 
 
-## 4. Export and Clean-up 
+## 3. 
+Export and Clean-up 
    - export and save your file with a `.yaml` extension 
    - remove unwanted nulls
    - check formatting
