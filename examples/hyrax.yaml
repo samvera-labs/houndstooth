@@ -39,12 +39,13 @@ properties:
           - GenericWork
           - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
-      minimum_occurrence: 1
-  #    maximum_occurrence:
+      cardinality:
+        minimum: 1
+        maximum:
      index_documentation: "Creator should be indexed as searchable, displayable, and facetable."
       mapping:
         dpla: http://purl.org/dc/terms/creator
-   
+
   - keyword:
       display_label: "Keyword"
       definition: "Words or phrases you select to describe what the work is about. These are used to search for content."
@@ -54,11 +55,13 @@ properties:
       available_on:
         class:
           - GenericWork
-          - Image  
+          - Image
           - Collection
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Keyword should be indexed as searchable."
 
   - rights_statement:
@@ -75,11 +78,12 @@ properties:
       available_on:
         class:
           - GenericWork
-          - Image  
+          - Image
       range: http://purl.org/dc/terms/RightsStatement
       data_type: http://www.w3.org/2001/XMLSchema#anyURI
-      minimum_occurrence: 1
-      maximum_occurrence: 1
+      cardinality:
+        minimum: 1
+        maximum: 1
       index_documentation: "Rights statement should be indexed as facetable. "
       mapping:
         dpla: http://www.europeana.eu/schemas/edm/rights
@@ -93,10 +97,12 @@ properties:
       available_on:
         class:
           - GenericWork
-          - Image  
+          - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Contributor should be indexed as searchable and displayable."
       mapping:
         dpla: http://purl.org/dc/terms/contributor
@@ -110,11 +116,13 @@ properties:
       available_on:
         class:
           - GenericWork
-          - Image 
+          - Image
           - Collection
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Description should be indexed as searchable and for display in search results."
       mapping:
         dpla: http://purl.org/dc/terms/description
@@ -133,8 +141,9 @@ properties:
           - GenericWork
           - Image
       data_type: http://www.w3.org/2001/XMLSchema#anyURI
-      minimum_occurrence: 0
-      maximum_occurrence: 1
+      cardinality:
+        minimum: 0
+        maximum: 1
       index_documentation: "License should be indexed as a facetable field."
 
   - publisher:
@@ -149,12 +158,14 @@ properties:
           - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Publisher should be indexed as a searchable and facetable field."
       mapping:
         dpla: http://purl.org/dc/terms/publisher
 
-  - date_created:    
+  - date_created:
       display_label: "Date Created"
       definition: "The date on which the work was created."
       usage_guidelines: "Enter in yyyy-mm-dd format."
@@ -166,15 +177,17 @@ properties:
           - GenericWork
           - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
-      data_type: 
+      data_type:
         - http://www.w3.org/2001/XMLSchema#string
         - http://www.w3.org/2001/XMLSchema#date
         - http://www.w3.org/2001/XMLSchema#dateTime
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Date created should be indexed as a searchable, displayable, and facetable field."
       mapping:
         dpla: http://purl.org/dc/elements/1.1/date
-        
+
   - subject:
       display_label: "Subject"
       definition: "Headings or index terms describing what the work is about; these do need to conform to an existing vocabulary."
@@ -187,11 +200,13 @@ properties:
           - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Subject should be indexed as searchable and facetable."
       mapping:
         dpla: http://purl.org/dc/terms/subject
-   
+
   - language:
       display_label: "Language"
       definition: "The language of the work's content."
@@ -204,11 +219,13 @@ properties:
           - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Language should be indexed as searchable and facetable."
       mapping:
         dpla: http://purl.org/dc/terms/language
- 
+
   - identifier:
       display_label: "Identifier"
       definition: "A unique handle identifying the work. An example would be a DOI for a journal article, or an ISBN or OCLC number for a book."
@@ -221,7 +238,9 @@ properties:
           - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Identifier should be indexed as searchable."
       mapping:
         dpla: http://purl.org/dc/terms/identifier
@@ -241,7 +260,9 @@ properties:
           - Image
       range: http://www.geonames.org/ontology#Feature
       data_type: http://www.w3.org/2001/XMLSchema#anyURI
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Location should be indexed as searchable and facetable."
       mapping:
         dpla: http://purl.org/dc/terms/spatial
@@ -257,10 +278,12 @@ properties:
           - GenericWork
           - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
-      data_type: 
+      data_type:
         - http://www.w3.org/2001/XMLSchema#string
         - http://www.w3.org/2001/XMLSchema#anyURI
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Related URL should be indexed as searchable." # Should it though?
       mapping:
         dpla: http://purl.org/dc/elements/1.1/relation
@@ -276,7 +299,9 @@ properties:
           - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Source should be indexed as searchable."
 
   - resource_type:
@@ -294,11 +319,13 @@ properties:
           - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
       index_documentation: "Resource type should be indexed as searchable, displayable, and facetable."
       mapping:
         dpla: http://purl.org/dc/terms/type
-        
+
   - title:
       display_label: "Title"
       definition: "A name to aid in identifying a work or collection."
@@ -313,8 +340,9 @@ properties:
           - Collection
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 1
-      maximum_occurrence: 1 #https://github.com/samvera/hyrax/issues/3299
+      cardinality:
+        minimum: 1
+        maximum: 1 #https://github.com/samvera/hyrax/issues/3299
       index_documentation: "Title should be indexed as searchable and displayable."
       mapping:
         dpla: http://purl.org/dc/terms/title
@@ -329,8 +357,9 @@ properties:
           - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 1
-      maximum_occurrence: 1
+      cardinality:
+        minimum: 1
+        maximum: 1
 
   - date_uploaded:
       requirement: required
@@ -342,8 +371,9 @@ properties:
             - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 1
-      maximum_occurrence: 1
+      cardinality:
+        minimum: 1
+        maximum: 1
 
   - date_modified:
       display_label: "Last modified"
@@ -356,8 +386,9 @@ properties:
             - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
-      maximum_occurrence: 1
+      cardinality:
+        minimum: 0
+        maximum:
 
   - rights_note:
       display_label: "Rights note"
@@ -367,7 +398,9 @@ properties:
       property_uri: http://purl.org/dc/elements/1.1/rights #https://github.com/samvera/hyrax/issues/3294 (this is Done in Hyrax 3.0.0)
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
 
   - access_rights:
       display_label: "Access rights"
@@ -381,7 +414,9 @@ properties:
             - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum:
 
   - abstract:
       display_label: "Abstract"
@@ -395,4 +430,6 @@ properties:
             - Image
       range: http://www.w3.org/2000/01/rdf-schema#Literal
       data_type: http://www.w3.org/2001/XMLSchema#string
-      minimum_occurrence: 0
+      cardinality:
+        minimum: 0
+        maximum: 
