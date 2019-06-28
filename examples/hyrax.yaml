@@ -109,7 +109,7 @@ properties:
 
   - description:
       display_label: "Description" #https://github.com/samvera/hyrax/issues/3296 (this is Done in Hyrax 3.0.0) How do we indicate that it's a different label on Collection.
-      definition: "Free-text notes about the work. Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource." # Again, if it's differently on Collection?
+      definition: "For GenericWork and Image: Free-text notes about the work. Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource. For Collection: A brief overarching description that applies to all works collected in this set. For example, \"Theses and supplementary files created by the School of Earth Sciences graduate students.\"" # Again, if it's differently on Collection?
       requirement: recommended
       sample_value: "This image has been taken from scan 000361 from volume 02 of \"Nouvelle Histoire de Lyon et des provinces de Lyonnais, Forez, Beaujolais, etc.\""
       property_uri: http://purl.org/dc/elements/1.1/description
@@ -328,7 +328,7 @@ properties:
 
   - title:
       display_label: "Title"
-      definition: "A name to aid in identifying a work or collection."
+      definition: "For GenericWork and Image: A name to aid in identifying a work or collection. For Collection: A name to aid in identifying the Administrative Set and to distinguish it from other Administrative Sets in the repository."
     #  definition: "A name to aid in identifying the Administrative Set and to distinguish it from other Administrative Sets in the repository." #Collection
       requirement: required
       sample_value: "On the Road"
