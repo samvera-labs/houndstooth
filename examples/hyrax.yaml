@@ -44,7 +44,7 @@ properties:
         maximum:
      index_documentation: "Creator should be indexed as searchable, displayable, and facetable."
       mapping:
-        dpla: http://purl.org/dc/terms/creator
+        dpla: "http://purl.org/dc/terms/creator"
 
   - keyword:
       display_label: "Keyword"
@@ -86,7 +86,7 @@ properties:
         maximum: 1
       index_documentation: "Rights statement should be indexed as facetable. "
       mapping:
-        dpla: http://www.europeana.eu/schemas/edm/rights
+        dpla: "http://www.europeana.eu/schemas/edm/rights"
 
 - contributor:
       display_label: "Contributors"
@@ -105,7 +105,7 @@ properties:
         maximum:
       index_documentation: "Contributor should be indexed as searchable and displayable."
       mapping:
-        dpla: http://purl.org/dc/terms/contributor
+        dpla: "http://purl.org/dc/terms/contributor"
 
   - description:
       display_label: "Description" #https://github.com/samvera/hyrax/issues/3296 (this is Done in Hyrax 3.0.0) How do we indicate that it's a different label on Collection.
@@ -125,7 +125,7 @@ properties:
         maximum:
       index_documentation: "Description should be indexed as searchable and for display in search results."
       mapping:
-        dpla: http://purl.org/dc/terms/description
+        dpla: "http://purl.org/dc/terms/description"
 
   - license:
       display_label: "License"
@@ -163,7 +163,7 @@ properties:
         maximum:
       index_documentation: "Publisher should be indexed as a searchable and facetable field."
       mapping:
-        dpla: http://purl.org/dc/terms/publisher
+        dpla: "http://purl.org/dc/terms/publisher"
 
   - date_created:
       display_label: "Date Created"
@@ -186,7 +186,7 @@ properties:
         maximum:
       index_documentation: "Date created should be indexed as a searchable, displayable, and facetable field."
       mapping:
-        dpla: http://purl.org/dc/elements/1.1/date
+        dpla: "http://purl.org/dc/elements/1.1/date"
 
   - subject:
       display_label: "Subject"
@@ -205,7 +205,7 @@ properties:
         maximum:
       index_documentation: "Subject should be indexed as searchable and facetable."
       mapping:
-        dpla: http://purl.org/dc/terms/subject
+        dpla: "http://purl.org/dc/terms/subject"
 
   - language:
       display_label: "Language"
@@ -224,7 +224,7 @@ properties:
         maximum:
       index_documentation: "Language should be indexed as searchable and facetable."
       mapping:
-        dpla: http://purl.org/dc/terms/language
+        dpla: "http://purl.org/dc/terms/language"
 
   - identifier:
       display_label: "Identifier"
@@ -243,7 +243,7 @@ properties:
         maximum:
       index_documentation: "Identifier should be indexed as searchable."
       mapping:
-        dpla: http://purl.org/dc/terms/identifier
+        dpla: "http://purl.org/dc/terms/identifier"
 
   - based_near:
       display_label: "Location"
@@ -265,7 +265,7 @@ properties:
         maximum:
       index_documentation: "Location should be indexed as searchable and facetable."
       mapping:
-        dpla: http://purl.org/dc/terms/spatial
+        dpla: "http://purl.org/dc/terms/spatial"
 
   - related_url:
       display_label: "Related URL"
@@ -286,7 +286,7 @@ properties:
         maximum:
       index_documentation: "Related URL should be indexed as searchable." # Should it though?
       mapping:
-        dpla: http://purl.org/dc/elements/1.1/relation
+        dpla: "http://purl.org/dc/elements/1.1/relation"
 
   - source:
       display_label: "Source"
@@ -324,7 +324,7 @@ properties:
         maximum:
       index_documentation: "Resource type should be indexed as searchable, displayable, and facetable."
       mapping:
-        dpla: http://purl.org/dc/terms/type
+        dpla: "http://purl.org/dc/terms/type"
 
   - title:
       display_label: "Title"
@@ -345,7 +345,7 @@ properties:
         maximum: 1 #https://github.com/samvera/hyrax/issues/3299
       index_documentation: "Title should be indexed as searchable and displayable."
       mapping:
-        dpla: http://purl.org/dc/terms/title
+        dpla: "http://purl.org/dc/terms/title"
 
   - depositor:
       requirement: required
