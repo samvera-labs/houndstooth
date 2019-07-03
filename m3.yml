@@ -28,7 +28,7 @@ profile:
 # Definition of the mappings to different services or target schemas referenced in the profile.
 #
 # mappings: 
-# - [prefix]: the abbreviation used to indicate the mapping target
+# - prefix: the abbreviation used to indicate the mapping target
 #   name: a fuller name of the mapping
  
 mappings:
@@ -58,39 +58,45 @@ classes:
 # Property Definitions
 #---------------------------------------------------------
 # Definition of the properties used in the model.
+#
 # properties:
-# - property_name:  "stable generic local name for the property"
-#     display_label:  "human-readable label for the property"
-#     definition:  "The definition for the metadata property being described."
-#     usage_guidelines:  "description of how the defined property should be used (helper text, hints, deposit text, etc.)"
-#     requirement:  "separate from system obligation/cardinality --> the requirement of the property from a best practices standpoint"
+# - property_name:  Stable generic local name for the property.
+#     display_label:  Human-readable label for the property.  Context specific display_labels provided as a list using the class and value.
+#        - default: Default display label.
+#        - MyCustomWorkType: Context dependent display label.
+#     definition:  The definition for the metadata property being described.
+#        - default: Default definition.
+#        - MyCustomWorkType: Context dependent definition.
+#     usage_guidelines:  description of how the defined property should be used (helper text, hints, deposit text, etc.)
+#        - default: Default usage guidelines.
+#        - MyCustomWorkType: Context dependent usage guidelines.
+#     requirement:  separate from system obligation/cardinality --> the requirement of the property from a best practices standpoint
 #     controlled_values:
-#       format:  "controlled vocabulary constraint on the property's value"
-#       sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values"
+#       format:  controlled vocabulary constraint on the property's value
+#       sources:  references to a controlled vocabulary list OR list/ref to a config file listing accepted values
 #        - value 1
 #        - value 2
-#     sample_value:  "exemplar values"
-#     property_uri:  "URI for the property, from a local or shared ontology"
-#     available_on:  "what PCDM objects and/or work types is this property available on"
+#     sample_value:  exemplar values
+#     property_uri:  URI for the property, from a local or shared ontology
+#     available_on:  what PCDM objects and/or work types is this property available on
 #       class:
 #         - Collection
 #         - MyCustomWorkType
 #       resource_type:
 #         - image
 #         - thesis
-#     range:
-#       class_uri: "class constraint on the property's value"
-#     data_type:  "type constraint on the property's value"
-#     syntax:  "syntax standard constraint on the property's value"
+#     range: Class constraint on the property's value.  If there is no value provided, the assumed default range is http://www.w3.org/2000/01/rdf-schema#Literal
+#     data_type:  Type constraint on the property's value. If there is no value provided, the assumed default data_type is http://www.w3.org/2001/XMLSchema#string
+#     syntax:  Syntax standard constraint on the property's value (e.g. edtf.)
 #     cardinality:
-#       minimum:  "minimum number of values the property must have"
-#       maximum:  "maximum number of values the property may have"
-#     index_documentation: "free text metadata specialist facing documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc."
+#       minimum:  Minimum number of values the property must have.  If there is no value provided, the assumed default minimum is 0.
+#       maximum:  Maximum number of values the property may have.  If there is no value provided, the assumed default maximum is unlimited. 
+#     index_documentation: Free text documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc.
 #     validations:
-#       match_regex:  "pattern each value must match to be valid"
-#     mapping: "pair values for different services"
-#       "dpla" : "URI for target property"
-#       "otherthing" : "URI for target property"
+#       match_regex:  Regular Expression pattern each value must match to be valid.
+#     mapping: A pair value defining the target property for a mapping (defined in "mapping definitions" section).  
+#       dpla : URI for target property
+#       datacite : URI for target property
 
 properties:
   - creator:
