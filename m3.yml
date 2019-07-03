@@ -76,10 +76,9 @@ classes:
 #       sources:  references to a controlled vocabulary list OR list/ref to a config file listing accepted values
 #        - value 1
 #        - value 2
-#     sample_value:  exemplar values
-#     property_uri:  URI for the property, from a local or shared ontology
-#     available_on:  what PCDM objects and/or work types is this property available on
-#       class:
+#     sample_value:  Example value(s) for the property. 
+#     property_uri:  URI for the property, from a local or shared ontology.
+#     available_on:  The objects and/or work types is this property available on (defined in "class definitions" section.)
 #         - Collection
 #         - MyCustomWorkType
 #     range: Class constraint on the property's value.  If there is no value provided, the assumed default range is http://www.w3.org/2000/01/rdf-schema#Literal
@@ -91,7 +90,7 @@ classes:
 #     index_documentation: Free text documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc.
 #     validations:
 #       match_regex:  Regular Expression pattern each value must match to be valid.
-#     mapping: A pair value defining the target property for a mapping (defined in "mapping definitions" section).  
+#     mapping: A pair value defining the target property for a mapping (defined in "mapping definitions" section.)  
 #       dpla : URI for target property
 #       datacite : URI for target property
 
