@@ -83,7 +83,7 @@ classes:
 #         - Collection
 #         - MyCustomWorkType
 #     range: Class constraint on the property's value.  If there is no value provided, the assumed default range is http://www.w3.org/2000/01/rdf-schema#Literal
-#     data_type:  Type constraint on the property's value. If there is no value provided, the assumed default data_type is http://www.w3.org/2001/XMLSchema#string
+#     data_type:  Type constraint on the property's value. If there is no value provided, the assumed default data_type is http://www.w3.org/2001/XMLSchema#string. If multiple data types are possible, general best practice is to use the most specific type that applies to all values.  If multiple types are listed, the lowest common denominator will be used for validation.  
 #     syntax:  Syntax standard constraint on the property's value (e.g. edtf.)
 #     cardinality:
 #       minimum:  Minimum number of values the property must have.  If there is no value provided, the assumed default minimum is 0.
