@@ -1,3 +1,5 @@
+---
+
 #-------------------
 # M3 Metadata Model
 #-------------------
@@ -10,7 +12,7 @@
 #   version:  "what version of the profile is this?
 profile:
   responsibility: https://www.wikidata.org/wiki/Q131454
-  responsibility statement: Library of Congress
+  responsibility_statement: Library of Congress
   date_modified: 2019-01-31
   type: concept
   version: 1.1
@@ -29,13 +31,14 @@ profile:
 # - class_name:  "stable generic local name for the class"
 #   display_label:  "human-readable label for the property"
 classes:
-- Collection:
-  display_label: "Collection"
-- MyCustomWorkType:
-  display_label: "Custom Work Type"
+  - Collection:
+    display_label: "Collection"
+  - MyCustomWorkType:
+    display_label: "Custom Work Type"
 
 # Property Definitions
 
+# properties:
 # - property_name:  "stable generic local name for the property"
 #     display_label:  "human-readable label for the property"
 #     definition:  "The definition for the metadata property being described."
@@ -69,7 +72,8 @@ classes:
 #       "dpla" : "URI for target property"
 #       "otherthing" : "URI for target property"
 
-- creator:
+properties:
+  - creator:
     display_label: "Creator(s)"
     definition: "A person or organization responsible for creating the resource. (This is an example definition for a creator metadata field.)"
     usage_guidelines: "Record in lastname, firstname order."
@@ -93,11 +97,11 @@ classes:
       maximum: 100
     index_documentation: "searchable, displayable, creator facet"
     validations:
-      match_regex: [\\d]{4}
+      match_regex: "[\\d]{4}"
     mapping:
       dpla: "http://purl.org/dc/elements/1.1/creator"
 
-- title:
+  - title:
     display_label: "Title"
     definition: "The title of the resource. (From Hyrax): A name to aid in identifying a work."
     #usage_guidelines:
