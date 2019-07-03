@@ -3,6 +3,7 @@ extends: default
 
 rules:
   comments: disable
+  comments-indentation: disable
   line-length: disable
   trailing-spaces:
     level: warning
