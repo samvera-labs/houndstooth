@@ -1,43 +1,63 @@
 ---
-
 #-------------------
 # M3 Metadata Model
 #-------------------
-# Administrative information about the profile/model
+
+#---------------------------------------------------------
+# Profile Information
+#---------------------------------------------------------
+# Administrative information about the profile or model defined in the file.
+#
 # profile:
-#   responsibility:  "the organization or individual responsible for maintaining the profile
-#   responsibility_statement:  "statement of the organization or individual responsible for maintaining the profile
-#   date_modified:  "the date the profile was last altered
-#   type:  "what type of thing does the profile describe?
-#   version:  "what version of the profile is this?
+#   responsibility:  uri for the organization or individual responsible for maintaining the profile
+#   responsibility_statement:  statement of the organization or individual responsible for maintaining the profile
+#   date_modified:  the date the profile was last altered
+#   type:  type of thing does the profile describe
+#   version:  version of the profile
+ 
 profile:
-  responsibility: https://www.wikidata.org/wiki/Q131454
-  responsibility_statement: Library of Congress
-  date_modified: 2019-01-31
-  type: concept
-  version: 1.1
-
+  responsibility: https://wiki.duraspace.org/display/samvera/Samvera+Metadata+Interest+Group
+  responsibility_statement: Samvera Metadata Interest Group
+  date_modified: 2019-07-03
+  type: metadata models
+  version: 0.8
+  
+#---------------------------------------------------------
 # Mapping Definitions
+#---------------------------------------------------------
+# Definition of the mappings to different services or target schemas referenced in the profile.
+#
+# mappings: 
+# - [prefix]: the abbreviation used to indicate the mapping target
+#   name: a fuller name of the mapping
+ 
+mappings:
+ - dpla:
+   name: Digital Public Library of America
+ - datacite:
+   name: DataCite
+ - dc:
+   name: Dublin Core
 
-# mappings: "what mappings are expressed in the profile?"
-# - dpla:
-#   name: Digital Public Library of America
-# - datacite:
-#   name: DataCite
-
+#---------------------------------------------------------
 # Class Definitions
-
+#---------------------------------------------------------
+# Definition of the classes used in the profile.  
+#
 # classes:
-# - class_name:  "stable generic local name for the class"
-#   display_label:  "human-readable label for the property"
+# - class_name:  stable generic local name for the class
+#   display_label:  human-readable label for the property
+
 classes:
   - Collection:
     display_label: "Collection"
   - MyCustomWorkType:
     display_label: "Custom Work Type"
 
+#---------------------------------------------------------
 # Property Definitions
-
+#---------------------------------------------------------
+# Definition of the properties used in the model.
 # properties:
 # - property_name:  "stable generic local name for the property"
 #     display_label:  "human-readable label for the property"
