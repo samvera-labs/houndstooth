@@ -1,125 +1,178 @@
 ---
-
 #-------------------
 # M3 Metadata Model
 #-------------------
-# Administrative information about the profile/model
+
+#---------------------------------------------------------
+# Profile Information
+#---------------------------------------------------------
+# Administrative information about the profile or model defined in the file.
+#
 # profile:
-#   responsibility:  "the organization or individual responsible for maintaining the profile
-#   responsibility_statement:  "statement of the organization or individual responsible for maintaining the profile
-#   date_modified:  "the date the profile was last altered
-#   type:  "what type of thing does the profile describe?
-#   version:  "what version of the profile is this?
+#   responsibility:  uri for the organization or individual responsible for maintaining the profile
+#   responsibility_statement:  statement of the organization or individual responsible for maintaining the profile
+#   date_modified:  the date the profile was last altered
+#   type:  type of thing does the profile describe
+#   version:  version of the profile
+ 
 profile:
-  responsibility: https://www.wikidata.org/wiki/Q131454
-  responsibility_statement: Library of Congress
-  date_modified: 2019-01-31
-  type: concept
-  version: 1.1
-
+  responsibility: https://wiki.duraspace.org/display/samvera/Samvera+Metadata+Interest+Group
+  responsibility_statement: Samvera Metadata Interest Group
+  date_modified: 2019-07-03
+  type: metadata models
+  version: 0.8
+  
+#---------------------------------------------------------
 # Mapping Definitions
+#---------------------------------------------------------
+# Definition of the mappings to different services or target schemas referenced in the profile.
+#
+# mappings: 
+# - prefix: the abbreviation used to indicate the mapping target
+#   name: a fuller name of the mapping
+ 
+mappings:
+ - dpla:
+   name: Digital Public Library of America
+ - datacite:
+   name: DataCite
+ - dc:
+   name: Dublin Core
 
-# mappings: "what mappings are expressed in the profile?"
-# - dpla:
-#   name: Digital Public Library of America
-# - datacite:
-#   name: DataCite
-
+#---------------------------------------------------------
 # Class Definitions
-
+#---------------------------------------------------------
+# Definition of the classes used in the profile.  
+#
 # classes:
-# - class_name:  "stable generic local name for the class"
-#   display_label:  "human-readable label for the property"
+# - class_name:  Stable generic local name for the class.
+#   display_label:  Human-readable label for the class.
+#   schema_uri:  URI for the class, from a local or shared ontology.
+
 classes:
+  - GenericWork:
+    display_label: "Generic Work"
   - Collection:
     display_label: "Collection"
-  - MyCustomWorkType:
-    display_label: "Custom Work Type"
+  - Agent:
+    display_label: "Agent"
+    schema_uri: http://id.loc.gov/ontologies/bibframe/Agent
 
+#---------------------------------------------------------
 # Property Definitions
-
+#---------------------------------------------------------
+# Definition of the properties used in the model.
+#
 # properties:
-# - property_name:  "stable generic local name for the property"
-#     display_label:  "human-readable label for the property"
-#     definition:  "The definition for the metadata property being described."
-#     usage_guidelines:  "description of how the defined property should be used (helper text, hints, deposit text, etc.)"
-#     requirement:  "separate from system obligation/cardinality --> the requirement of the property from a best practices standpoint"
+# - property_name:  Stable generic local name for the property.
+#     display_label:  Human-readable label for the property.  Context specific display_labels provided as a list using the class and value.
+#        - default: Default display label.
+#        - MyCustomWorkType: Context dependent display label.
+#     definition:  The definition for the metadata property being described.
+#        - default: Default definition.
+#        - MyCustomWorkType: Context dependent definition.
+#     usage_guidelines:  Description of how the defined property should be used (helper text, hints, deposit text, etc.)
+#        - default: Default usage guidelines.
+#        - MyCustomWorkType: Context dependent usage guidelines.
+#     requirement:  Whether the property is required, optional, recommended, etc. from a best practices standpoint.   
 #     controlled_values:
-#       format:  "controlled vocabulary constraint on the property's value"
-#       sources:  "references to a controlled vocabulary list OR list/ref to a config file listing accepted values"
+#       format:  Controlled vocabulary constraint on the property's value.
+#       sources:  Link to a controlled vocabulary source list or file path to a config file listing accepted values.
 #        - value 1
 #        - value 2
-#     sample_value:  "exemplar values"
-#     property_uri:  "URI for the property, from a local or shared ontology"
-#     available_on:  "what PCDM objects and/or work types is this property available on"
-#       class:
+#     sample_value:  Example value(s) for the property. 
+#     property_uri:  URI for the property, from a local or shared ontology.
+#     available_on:  The objects and/or work types is this property available on (defined in "class definitions" section.)
 #         - Collection
 #         - MyCustomWorkType
-#       resource_type:
-#         - image
-#         - thesis
-#     range:
-#       class_uri: "class constraint on the property's value"
-#     data_type:  "type constraint on the property's value"
-#     syntax:  "syntax standard constraint on the property's value"
-#     cardinality:
-#       minimum:  "minimum number of values the property must have"
-#       maximum:  "maximum number of values the property may have"
-#     index_documentation: "free text metadata specialist facing documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc."
+#     range: Class constraint on the property's value.  If there is no value provided, the assumed default range is http://www.w3.org/2000/01/rdf-schema#Literal
+#     data_type:  Type constraint on the property's value. If there is no value provided, the assumed default data_type is http://www.w3.org/2001/XMLSchema#string. If multiple data types are possible, general best practice is to use the most specific type that applies to all values.  If multiple types are listed, the lowest common denominator will be used for validation.  
+#     syntax:  Syntax standard constraint on the property's value (e.g. edtf.)
+#     cardinality:  System cardinality and obligation.
+#       minimum:  Minimum number of values the property must have.  If there is no value provided, the assumed default minimum is 0.
+#       maximum:  Maximum number of values the property may have.  If there is no value provided, the assumed default maximum is unlimited. 
+#     index_documentation: Free text documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc.
 #     validations:
-#       match_regex:  "pattern each value must match to be valid"
-#     mapping: "pair values for different services"
-#       "dpla" : "URI for target property"
-#       "otherthing" : "URI for target property"
+#       match_regex:  Regular Expression pattern each value must match to be valid.
+#     mapping: A pair value defining the target property for a mapping (defined in "mapping definitions" section.)  
+#       dpla : URI for target property
+#       datacite : URI for target property
+
+# The following are example property definitions:
 
 properties:
   - creator:
-    display_label: "Creator(s)"
-    definition: "A person or organization responsible for creating the resource. (This is an example definition for a creator metadata field.)"
-    usage_guidelines: "Record in lastname, firstname order."
-    requirement: "recommended, if applicable"
-    controlled_value:
-      format: "xsd:literal"
-      sources:
-        - "/qa/terms/local/roles/"
-    sample_value: Smith, John
-    property_uri: http://purl.org/dc/elements/1.1/creator
-    available_on:
-      class:
-        - Collection
-        - MyCustomWorkType
-    range:
-      class_uri: http://id.loc.gov/ontologies/bibframe/Agent
-    data_type: xsd:string
-    syntax: edtf
-    cardinality:
-      minimum: 0
-      maximum: 100
-    index_documentation: "searchable, displayable, creator facet"
-    validations:
-      match_regex: "[\\d]{4}"
-    mapping:
-      dpla: "http://purl.org/dc/elements/1.1/creator"
+      display_label: 
+        - default: "Creator(s)"
+      definition: 
+        - default: "A person or organization responsible for creating the resource."
+      usage_guidelines: 
+        - default: "Record in lastname, firstname order."
+      requirement: "recommended, if applicable"
+#     controlled_value:
+#       format: http://www.w3.org/2001/XMLSchema#anyURI
+#       sources:
+#         - "/qa/terms/local/roles/"
+      sample_value: Smith, John
+      property_uri: http://purl.org/dc/elements/1.1/creator
+      available_on:
+        class:
+         - Collection
+         - MyCustomWorkType
+      range: http://www.w3.org/2000/01/rdf-schema#Literal
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
+        minimum: 0
+        maximum: 100
+      index_documentation: "searchable, displayable, creator facet"
+      mapping:
+        dpla: http://purl.org/dc/elements/1.1/creator
 
+  - date_created:
+      display_label: 
+        - default: "Date Created"
+      definition: 
+        - default: "The date on which the work was created."
+      usage_guidelines: 
+        - default: "Enter in yyyy-mm-dd format."
+      requirement: recommended
+      sample_value: "2019-04-11"
+      property_uri: http://purl.org/dc/terms/created
+      available_on:
+        class:
+          - GenericWork
+          - Image
+      range: http://www.w3.org/2000/01/rdf-schema#Literal
+      data_type: http://www.w3.org/2001/XMLSchema#date
+      syntax: edtf
+      cardinality:
+        minimum: 0
+        maximum:
+      index_documentation: "Date created should be indexed as a searchable, displayable, and facetable field."
+      validations:
+        match_regex: "[\\d]{4}"
+      mapping:
+      dpla: "http://purl.org/dc/elements/1.1/date"
+      
   - title:
-    display_label: "Title"
-    definition: "The title of the resource. (From Hyrax): A name to aid in identifying a work."
-    #usage_guidelines:
-    requirement: "required"
-    #controlled_values:
-      #controlled_value_format:
-      #controlled_value_sources:
-    sample_value: "The Tell-Tale Heart"
-    property_uri: http://purl.org/dc/terms/title
-    available_on_object:
-      - Collection
-      - MyCustomWorkType
-    range:
-      class_uri: http://www.w3.org/2000/01/rdf-schema#Literal
-    data_type: http://www.w3.org/2001/XMLSchema#string
-    cardinality:
-      minimum: 1
-      maximum: 100
-   #index_documentation:
-   #mapping:
-     #mapping_service: mapping_property_uri:
+     display_label: 
+       - default: "Title"
+     definition: 
+       - default: "A name to aid in identifying a work or collection." 
+       - collection: "A name to aid in identifying the Administrative Set and to distinguish it from other Administrative Sets in the repository."
+     requirement: required
+     sample_value: "On the Road"
+     property_uri: http://purl.org/dc/terms/title
+     available_on:
+       class:
+         - GenericWork
+         - Image
+         - Collection
+     range: http://www.w3.org/2000/01/rdf-schema#Literal
+     data_type: http://www.w3.org/2001/XMLSchema#string
+     cardinality:
+       minimum: 1
+       maximum: 1 
+     index_documentation: "Title should be indexed as searchable and displayable."
+     mapping:
+       dpla: "http://purl.org/dc/terms/title"
