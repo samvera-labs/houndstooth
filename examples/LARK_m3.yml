@@ -1,3 +1,5 @@
+---
+
 #-------------------
 # M3 Metadata Definitions
 #-------------------
@@ -30,15 +32,15 @@ profile:
 #     schema_uri:  "URI for the class, from a local or shared ontology"
 
 classes:
-- Agent:
+  - Agent:
     display_label: "Agent"
     schema_uri: lark:Agent
-- Concept:
+  - Concept:
     display_label: "Concept"
     schema_uri: lark:Concept
-- Label:  
+  - Label:
     display_label: "Label"
-    schema_uri: lark:Label 
+    schema_uri: lark:Label
 
 # Property Definitions
 
@@ -76,339 +78,356 @@ classes:
 
 properties:
 # label related stuff
-- pref_label:
-    display_label: Preferred label
-    definition: "Preferred label from the external authority identified as exact match.  For local authorities (those with no exactMatch) the preflabel provided by user creating the authority."
-    requirement: required
-    property_uri: http://www.w3.org/2008/05/skos-xl#prefLabel
-    available_on:
+  - pref_label:
+      display_label: Preferred label
+      definition: "Preferred label from the external authority identified as exact match.  For local authorities (those with no exactMatch) the preflabel provided by user creating the authority."
+      requirement: required
+      property_uri: http://www.w3.org/2008/05/skos-xl#prefLabel
+      available_on:
         class:
-            - "lark:Agent"
-            - "lark:Concept"
-    range: 
+          - "lark:Agent"
+          - "lark:Concept"
+      range:
         class: lark:Label
-    cardinality: 
+      cardinality:
         minimum: 1
         maximum: 1
 
-- alternate_label:
-    display_label: Alternate label(s)
-    definition: "Alternative labels which may be displayed - e.g. language variants, campus variants."
-    property_uri: http://www.w3.org/2008/05/skos-xl#altLabel
-    available_on:
+  - alternate_label:
+      display_label: Alternate label(s)
+      definition: "Alternative labels which may be displayed - e.g. language variants, campus variants."
+      property_uri: http://www.w3.org/2008/05/skos-xl#altLabel
+      available_on:
         class:
-            - "lark:Agent"
-            - "lark:Concept"
-    range: # I'm not sure if the range for this and pref_label should be the class label or the specific properties that are part of that class (or if we need a label property in addition or instead of the class)
+          - "lark:Agent"
+          - "lark:Concept"
+      range: # I'm not sure if the range for this and pref_label should be the class label or the specific properties that are part of that class (or if we need a label property in addition or instead of the class)
         class: lark:Label
-    cardinality: 
+      cardinality:
         minimum: 0
         maximum:
-- hidden_label:
-    display_label: Hidden label(s)
-    definition: "Character string to be accessible to applications performing text-based indexing and search operations, but would not like that label to be visible otherwise."
-    property_uri: http://www.w3.org/2004/02/skos/core#hiddenLabel
-    available_on:
-        class:
-            - "lark:Agent"
-            - "lark:Concept"
-    range:
-        uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
 
-    cardinality: 
-        minimum: 0  
-        maximum:
-- campus:
-    display_label: Campus
-    definition: Used to indicate campus preference for display label 
-#   controlled_values:
-#       format:  
-#       sources:  # definition from M3: references to a controlled vocabulary list OR list/ref to a config file listing accepted values
-#           - UC San Diego  # at some point we had discussed being able to include lists of actual values in the yaml file, I'm not sure if that's still an option (if so "sources" probably isn't the place)
-#           - UC Santa Barbara
-#           - UC Santa Cruz
-#           - etc.
-    property_uri: lark:campus
-        # needs lark predicate 
-    available_on:
+  - hidden_label:
+      display_label: Hidden label(s)
+      definition: "Character string to be accessible to applications performing text-based indexing and search operations, but would not like that label to be visible otherwise."
+      property_uri: http://www.w3.org/2004/02/skos/core#hiddenLabel
+      available_on:
+        class:
+          - "lark:Agent"
+          - "lark:Concept"
+        range:
+          uri: http://www.w3.org/2001/XMLSchema#string
+        data_type: http://www.w3.org/2001/XMLSchema#string
+
+        cardinality:
+          minimum: 0
+          maximum:
+
+  - campus:
+      display_label: Campus
+      definition: Used to indicate campus preference for display label
+      # controlled_values:
+      #   format:
+      #   sources:
+      #     # definition from M3: references to a controlled vocabulary list OR list/ref to a config file listing accepted values
+      #     - UC San Diego  # at some point we had discussed being able to include lists of actual values in the yaml file, I'm not sure if that's still an option (if so "sources" probably isn't the place)
+      #     - UC Santa Barbara
+      #     - UC Santa Cruz
+      #     - etc.
+      property_uri: lark:campus
+          # needs lark predicate
+      available_on:
         class: lark:Label
-    range:
+      range:
         uri: http://www.w3.org/2001/XMLSchema#anyURI
-    data_type: http://www.w3.org/2001/XMLSchema#anyURI 
-    cardinality: 
+      data_type: http://www.w3.org/2001/XMLSchema#anyURI
+      cardinality:
         minimum: 0
-        maximum:    
-#"this could be either a URI or a controlled value list --> whatever is easier to implement". Needs Lark predicate.    
+        maximum:
+    #"this could be either a URI or a controlled value list --> whatever is easier to implement". Needs Lark predicate.
 
-- label_source:
-    display_label: Label source
-    definition: "Reference to the external source of the label.  Used to select display label (\"We always want the FAST label, if there is one\") and automatically update label from source vocabulary"
-    property_uri: lark:label_source          
-        # needs lark predicate 
-    available_on:
+  - label_source:
+      display_label: Label source
+      definition: "Reference to the external source of the label.  Used to select display label (\"We always want the FAST label, if there is one\") and automatically update label from source vocabulary"
+      property_uri: lark:label_source
+          # needs lark predicate
+      available_on:
         class: lark:Label
-    sample_value: "http://id.loc.gov/authorities/names"
-    range: 
-        uri: http://www.w3.org/2001/XMLSchema#anyURI  
-        # not sure if range and data_type should have the same value
-    data_type: http://www.w3.org/2001/XMLSchema#anyURI  
-        # not sure about restricting data_type to URIs for label_source
-    cardinality:
+      sample_value: "http://id.loc.gov/authorities/names"
+      range:
+        uri: http://www.w3.org/2001/XMLSchema#anyURI
+      # not sure if range and data_type should have the same value
+      data_type: http://www.w3.org/2001/XMLSchema#anyURI
+      # not sure about restricting data_type to URIs for label_source
+      cardinality:
         minimum: 0
         maximum: 1
-        
-- literal_form:
-    definition: "String value of the skos-xl Label. Can include language qualifier, e.g., \"Picasso, Pablo\"@en-US"
-    property_uri: http://www.w3.org/2008/05/skos-xl#literalForm
-    available_on:
+
+  - literal_form:
+      definition: "String value of the skos-xl Label. Can include language qualifier, e.g., \"Picasso, Pablo\"@en-US"
+      property_uri: http://www.w3.org/2008/05/skos-xl#literalForm
+      available_on:
         class: lark:Label
-    range:
+      range:
         uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string 
-    cardinality: 
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
         minimum: 1
-        maximum: 1 
+        maximum: 1
 
-- annotation:
-    display_label: Annotation
-    definition: "Admin note for information on reason for creating or using an alternative label, i.e., cultural sensitivity"
-    property_uri: lark:annotation
-        # needs lark predicate 
-    available_on:
+  - annotation:
+      display_label: Annotation
+      definition: "Admin note for information on reason for creating or using an alternative label, i.e., cultural sensitivity"
+      property_uri: lark:annotation
+          # needs lark predicate
+      available_on:
         class: lark:Label
-    range:
+      range:
         uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string 
-    cardinality: 
-        minimum: 0
-        maximum: 
-
-# link/match related stuff
-- exact_match:
-    display_label: Exact match
-    definition: "Reference(s) to an external vocabulary term (FAST, LCSH, etc.) which has an equivalent meaning, relationships are transitive so exact matches on the linked terms can also be applied to the Lark authority"
-    property_uri: http://www.w3.org/2004/02/skos/core#exactMatch
-    available_on: 
-        class:
-            - "lark:Agent"
-            - "lark:Concept"
-    sample_value: "http://id.loc.gov/authorities/names/n91129149"
-    range: 
-        uri: http://www.w3.org/2001/XMLSchema#anyURI
-    data_type: http://www.w3.org/2001/XMLSchema#anyURI  
-    cardinality:
-        minimum: 0
-        maximum:
-    #From skos:Primer "note on skos:exactMatch vs. owl:sameAs: SKOS provides skos:exactMatch to map concepts with equivalent meaning, and intentionally does not use owl:sameAs from the OWL ontology language [OWL]. When two resources are linked with owl:sameAs they are considered to be the same resource, and triples involving these resources are merged. This does not fit what is needed in most SKOS applications. In the above example, ex1:animal is said to be equivalent to ex2:animals. If this equivalence relation were represented using owl:sameAs, the following statements would hold for ex:animal"
-    #May want to restrict the addition of multiple exact matches to those brought in programmatically (e.g., an exact match to an LCSH term that includes an exactMatch)"
-
-- close_match:
-    display_label: Close match(es)
-    definition: "Reference(s) to an external vocabulary term (FAST, LCSH, etc.) skos:closeMatch is used to link two entities that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two entity schemes, skos:closeMatch is not declared to be a transitive property."
-    property_uri: http://www.w3.org/2004/02/skos/core#closeMatch
-    available_on: 
-        class:
-            - "lark:Agent"  
-                # does close_match apply to agents? LCNAF uses closeMatch, e.g., http://id.loc.gov/authorities/names/n78086005.rdf
-            - "lark:Concept"
-    sample_value: "http://id.loc.gov/authorities/subjects/sh92006148"
-    range: 
-        uri: http://www.w3.org/2001/XMLSchema#anyURI
-    data_type: http://www.w3.org/2001/XMLSchema#anyURI  
-    cardinality:
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
         minimum: 0
         maximum:
 
-- nonURI_identifier: # added a little to the property name here since generic "identifier" might be confusing in a larger context (could also be "other_match" or something else)
-    display_label: Close match(es)
-    definition: "Reference to an external (or internal identifier) that is not a URI."
-    usage_guidelines: "include an indication of the id source"
-    property_uri: http://purl.org/dc/elements/1.1/identifier
-    available_on: 
+  # link/match related stuff
+  - exact_match:
+      display_label: Exact match
+      definition: "Reference(s) to an external vocabulary term (FAST, LCSH, etc.) which has an equivalent meaning, relationships are transitive so exact matches on the linked terms can also be applied to the Lark authority"
+      property_uri: http://www.w3.org/2004/02/skos/core#exactMatch
+      available_on:
         class:
-            - "lark:Agent"  
-            - "lark:Concept"
-    sample_value: "CIL:36068" # this probably isn't a great example
-    range:
-        uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
-    cardinality:
+          - "lark:Agent"
+          - "lark:Concept"
+      sample_value: "http://id.loc.gov/authorities/names/n91129149"
+      range:
+        uri: http://www.w3.org/2001/XMLSchema#anyURI
+      data_type: http://www.w3.org/2001/XMLSchema#anyURI
+      cardinality:
         minimum: 0
-        maximum:                
+        maximum:
 
-# notes about the entity
-- scope_note:
-    display_label: Scope note
-    definition: "A note that helps to clarify the meaning and/or the use of a concept, or the identity of an agent."
-    property_uri: http://www.w3.org/2004/02/skos/core#scopeNote
-    available_on: 
+    # From skos:Primer "note on skos:exactMatch vs. owl:sameAs: SKOS provides
+    # skos:exactMatch to map concepts with equivalent meaning, and intentionally
+    # does not use owl:sameAs from the OWL ontology language [OWL]. When two
+    # resources are linked with owl:sameAs they are considered to be the same
+    # resource, and triples involving these resources are merged. This does not
+    # fit what is needed in most SKOS applications. In the above example,
+    # ex1:animal is said to be equivalent to ex2:animals. If this equivalence
+    # relation were represented using owl:sameAs, the following statements would
+    # hold for ex:animal"
+    #
+    # May want to restrict the addition of multiple exact matches to those brought
+    # in programmatically (e.g., an exact match to an LCSH term that includes an
+    # exactMatch)"
+  - close_match:
+      display_label: Close match(es)
+      definition: "Reference(s) to an external vocabulary term (FAST, LCSH, etc.) skos:closeMatch is used to link two entities that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two entity schemes, skos:closeMatch is not declared to be a transitive property."
+      property_uri: http://www.w3.org/2004/02/skos/core#closeMatch
+      available_on:
         class:
-            - "lark:Agent"  
-            - "lark:Concept"
-    range:
-        uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
-    cardinality:
+          - "lark:Agent"
+          # does close_match apply to agents? LCNAF uses closeMatch, e.g., http://id.loc.gov/authorities/names/n78086005.rdf
+          - "lark:Concept"
+      sample_value: "http://id.loc.gov/authorities/subjects/sh92006148"
+      range:
+        uri: http://www.w3.org/2001/XMLSchema#anyURI
+      data_type: http://www.w3.org/2001/XMLSchema#anyURI
+      cardinality:
         minimum: 0
-        maximum: 1      
-        
-- definition: # redundant with scope_note?
-    display_label: Definition
-    definition: "A statement or formal explanation of the meaning of a concept."
-    property_uri: http://www.w3.org/2004/02/skos/core#definition
-    available_on: 
-        class:
-            - "lark:Concept"
-    range:
-        uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
-    cardinality:
-        minimum: 0
-        maximum: 1  
-        
-- note:
-    display_label: Note(s)
-    definition: "A general note, for any purpose."
-    property_uri: http://www.w3.org/2004/02/skos/core#note
-    available_on: 
-        class:
-            - "lark:Agent"  
-            - "lark:Concept"
-    range:
-        uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
-    cardinality:
-        minimum: 0
-        maximum:    
-        
-- editorial_note:
-    display_label: Editorial Note(s)
-    definition: "Used for information about the entity/concept, possibly documenting information that would help establish a heading, distinguish from similar but non-matching ideas."
-    property_uri: http://www.w3.org/2004/02/skos/core#editorialNote
-    available_on: 
-        class:
-            - "lark:Agent"  
-            - "lark:Concept"
-    range:
-        uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
-    cardinality:
-        minimum: 0
-        maximum:    
-    
-- history_note:
-    display_label: History Note(s)
-    definition: "A note that provides information related to the the context a concept record was created for, e.g. collection context, fields, etc, or how it was modified over time."
-    property_uri: http://www.w3.org/2004/02/skos/core#historyNote
-    available_on: 
-        class:
-            - "lark:Agent"  
-            - "lark:Concept"
-    range:
-        uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
-    cardinality:
-        minimum: 0
-        maximum:    
-        
-# hodge podge         
-        
-- agent_type:
-    display_label: History Note(s)
-    definition: "Used for encoding what kind of agent is represented (person, organization, group, family, etc.)"
-#   controlled_values: # agent_type should be controlled, we'll need to talk about what values we want here (these are just examples)
-#       format:  
-#       sources:  # definition from M3: references to a controlled vocabulary list OR list/ref to a config file listing accepted values
-                  # at some point we had discussed being able to include lists of actual values in the yaml file, I'm not sure if that's still an option (if so "sources" probably isn't the right place/label)
-#           - person  
-#           - organization
-#           - family
-#           - group
-    property_uri: lark:agent_type 
-        # needs lark predicate 
-    available_on: 
-        class:
-            - "lark:Agent"  
-    range:
-        uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
-    cardinality:
-        minimum: 0
-        maximum: 1       
-        
-- begin_date: # added "date" to make this a little more descriptive
-    display_label: Begin date 
-    definition: "The beginning date of the entity (e.g. birth, founding, establishment, etc.)"
-    property_uri: http://www.europeana.eu/schemas/edm/
-        # uri isn't for the property
-    available_on: 
-        class:
-            - "lark:Agent"  
-    range:
-        uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
-    cardinality:
-        minimum: 0
-        maximum: 1         
+        maximum:
 
-- end_date: # added "date" to make this a little more descriptive
-    display_label: End date
-    definition: "The ending date of the entity (e.g. death, dissolution, etc.)"
-    property_uri: http://www.europeana.eu/schemas/edm/ 
-        # uri isn't for the property
-    available_on: 
+  - nonURI_identifier: # added a little to the property name here since generic "identifier" might be confusing in a larger context (could also be "other_match" or something else)
+      display_label: Close match(es)
+      definition: "Reference to an external (or internal identifier) that is not a URI."
+      usage_guidelines: "include an indication of the id source"
+      property_uri: http://purl.org/dc/elements/1.1/identifier
+      available_on:
         class:
-            - "lark:Agent"  
-    range:
+          - "lark:Agent"
+          - "lark:Concept"
+      sample_value: "CIL:36068" # this probably isn't a great example
+      range:
         uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
-    cardinality:
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
         minimum: 0
-        maximum: 1     
+        maximum:
 
-        
-# I wasn't sure about how/where these properties were to be used, so values below are either from previous version or shot in the dark
-- family_name:
-    display_label: Family name
-    definition: "Name that indicates a person's family, tribe or community."
-    property_uri: http://xmlns.com/foaf/0.1/
-        # uri isn't for the property
-    available_on:
+  # notes about the entity
+  - scope_note:
+      display_label: Scope note
+      definition: "A note that helps to clarify the meaning and/or the use of a concept, or the identity of an agent."
+      property_uri: http://www.w3.org/2004/02/skos/core#scopeNote
+      available_on:
         class:
-            - "lark:Agent"
-    range:
+          - "lark:Agent"
+          - "lark:Concept"
+      range:
         uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
-    cardinality:
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
         minimum: 0
-        maximum: 1     
+        maximum: 1
 
-- given_name:
-    display_label: Given name
-    definition: "Name that identifies a specific person, and differentiates that person from the other members of a group."
-    property_uri: http://xmlns.com/foaf/0.1/
-        # uri isn't for the property
-    available_on:
+  - definition: # redundant with scope_note?
+      display_label: Definition
+      definition: "A statement or formal explanation of the meaning of a concept."
+      property_uri: http://www.w3.org/2004/02/skos/core#definition
+      available_on:
         class:
-            - "lark:Agent" 
-                # or lark:Label?
-    range:
+          - "lark:Concept"
+      range:
         uri: http://www.w3.org/2001/XMLSchema#string
-    data_type: http://www.w3.org/2001/XMLSchema#string  
-    cardinality:
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
         minimum: 0
-        maximum: 1          
-       
-- scheme:  
-   definition: "include this for others consuming our data. The scheme being something like <lark..../authorities/concepts>?"
-   predicate: "http://www.w3.org/2004/02/skos/core#inScheme"
-   available_on: 
-       class:
-           - "lark:Agent"  
-           - "lark:Concept"
-   range: 
-       uri: skos:ConceptScheme
-   cardinality:
+        maximum: 1
+
+  - note:
+      display_label: Note(s)
+      definition: "A general note, for any purpose."
+      property_uri: http://www.w3.org/2004/02/skos/core#note
+      available_on:
+        class:
+          - "lark:Agent"
+          - "lark:Concept"
+      range:
+        uri: http://www.w3.org/2001/XMLSchema#string
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
         minimum: 0
-        maximum: 1         
+        maximum:
+
+  - editorial_note:
+      display_label: Editorial Note(s)
+      definition: "Used for information about the entity/concept, possibly documenting information that would help establish a heading, distinguish from similar but non-matching ideas."
+      property_uri: http://www.w3.org/2004/02/skos/core#editorialNote
+      available_on:
+        class:
+          - "lark:Agent"
+          - "lark:Concept"
+      range:
+        uri: http://www.w3.org/2001/XMLSchema#string
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
+        minimum: 0
+        maximum:
+
+  - history_note:
+      display_label: History Note(s)
+      definition: "A note that provides information related to the the context a concept record was created for, e.g. collection context, fields, etc, or how it was modified over time."
+      property_uri: http://www.w3.org/2004/02/skos/core#historyNote
+      available_on:
+        class:
+          - "lark:Agent"
+          - "lark:Concept"
+      range:
+        uri: http://www.w3.org/2001/XMLSchema#string
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
+        minimum: 0
+        maximum:
+
+  # hodge podge
+  - agent_type:
+      display_label: History Note(s)
+      definition: "Used for encoding what kind of agent is represented (person, organization, group, family, etc.)"
+      # controlled_values: # agent_type should be controlled, we'll need to talk about what values we want here (these are just examples)
+      #   format:
+      #   sources:
+      #     # definition from M3: references to a controlled vocabulary list OR list/ref to a config file listing accepted values
+      #     #
+      #     # at some point we had discussed being able to include lists of actual
+      #     # values in the yaml file, I'm not sure if that's still an option (if
+      #     # so "sources" probably isn't the right place/label)
+      #     - person
+      #     - organization
+      #     - family
+      #     - group
+      property_uri: lark:agent_type
+      # needs lark predicate
+      available_on:
+        class:
+          - "lark:Agent"
+      range:
+        uri: http://www.w3.org/2001/XMLSchema#string
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
+        minimum: 0
+        maximum: 1
+
+  - begin_date: # added "date" to make this a little more descriptive
+      display_label: Begin date
+      definition: "The beginning date of the entity (e.g. birth, founding, establishment, etc.)"
+      property_uri: http://www.europeana.eu/schemas/edm/
+      # uri isn't for the property
+      available_on:
+        class:
+          - "lark:Agent"
+      range:
+        uri: http://www.w3.org/2001/XMLSchema#string
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
+        minimum: 0
+        maximum: 1
+
+  - end_date: # added "date" to make this a little more descriptive
+      display_label: End date
+      definition: "The ending date of the entity (e.g. death, dissolution, etc.)"
+      property_uri: http://www.europeana.eu/schemas/edm/
+      # uri isn't for the property
+      available_on:
+        class:
+          - "lark:Agent"
+      range:
+        uri: http://www.w3.org/2001/XMLSchema#string
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
+        minimum: 0
+        maximum: 1
+
+  # I wasn't sure about how/where these properties were to be used, so values
+  # below are either from previous version or shot in the dark
+  - family_name:
+      display_label: Family name
+      definition: "Name that indicates a person's family, tribe or community."
+      property_uri: http://xmlns.com/foaf/0.1/
+      # uri isn't for the property
+      available_on:
+        class:
+          - "lark:Agent"
+      range:
+        uri: http://www.w3.org/2001/XMLSchema#string
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
+        minimum: 0
+        maximum: 1
+
+  - given_name:
+      display_label: Given name
+      definition: "Name that identifies a specific person, and differentiates that person from the other members of a group."
+      property_uri: http://xmlns.com/foaf/0.1/
+      # uri isn't for the property
+      available_on:
+        class:
+          # or lark:Label?
+          - "lark:Agent"
+      range:
+        uri: http://www.w3.org/2001/XMLSchema#string
+      data_type: http://www.w3.org/2001/XMLSchema#string
+      cardinality:
+        minimum: 0
+        maximum: 1
+
+  - scheme:
+      definition: "include this for others consuming our data. The scheme being something like <lark..../authorities/concepts>?"
+      predicate: "http://www.w3.org/2004/02/skos/core#inScheme"
+      available_on:
+        class:
+          - "lark:Agent"
+          - "lark:Concept"
+      range:
+        uri: skos:ConceptScheme
+      cardinality:
+        minimum: 0
+        maximum: 1

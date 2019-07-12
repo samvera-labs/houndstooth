@@ -1,2878 +1,2695 @@
-﻿#----------------------------
+﻿---
+#----------------------------
 # UCSD DAMS 5 Metadata Model
 #----------------------------
 
-profile: 
-    responsibility: http://ucsd.edu
-    responsibility_statement: UC San Diego Library
-    date_modified: 2019-06-28
-    type: base
-    version: 0.1
-    
+profile:
+  responsibility: http://ucsd.edu
+  responsibility_statement: UC San Diego Library
+  date_modified: 2019-06-28
+  type: base
+  version: 0.1
+
     # 2019-06-28 update made to sync with current m3.yaml format
-    
+
 # Mapping Definitions
 mappings:
-- dpla:
+  dpla:
     name: Digital Public Library of American
-- dc:
+  dc:
     name: Dublin Core
-- ucsd_d4:
+  ucsd_d4:
     name: UCSD DAMS 4 template header mapping
-    
+
 # Class Definitions
 classes:
-- Object:
+  Object:
     display_label: "object"
     schema_uri: ucsd:object
 
 # Property Definitions
-properties:  # add to spec?
-- "agent:contributor": # I think the quotes here are causing problems - which might be the colon in the property names is an issue...
+properties: # add to spec?
+  "agent:contributor": # I think the quotes here are causing problems - which might be the colon in the property names is an issue...
     display_label: "Contributor"
-    definition: "A person or organization responsible for making contributions to the resource." 
+    definition: "A person or organization responsible for making contributions to the resource."
     usage_guidelines: # I think the formatting of this list is wrong, and I need to either put everything in quotes, or turn it into a list of key/value pairs
-      - General "Use as the broadest possible role, i.e. when lacking specific information on an agent's role, or the role is unclear or unknown. If a more specific role is available, prefer that, e.g. editor, compiler, illustrator."
-      - RDCP "Use for institutions, centers in addition to individuals that contribute to a resource (e.g. SIO, CAICE)"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+      General: "Use as the broadest possible role, i.e. when lacking specific information on an agent's role, or the role is unclear or unknown. If a more specific role is available, prefer that, e.g. editor, compiler, illustrator."
+      RDCP: "Use for institutions, centers in addition to individuals that contribute to a resource (e.g. SIO, CAICE)"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: # need to add format with literal or string URI for 
-      sources: 
-        -  "null"
+    controlled_value: # need to add format with literal or string URI for
+      sources:
+        - "null"
     sample_value: "Smith, Joe S."
     property_uri: "dc11:contributor"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "ucsd:Agent"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Creator); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Creator); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Contributor"
-      dc: "dc:contributor"		
+      dc: "dc:contributor"
       ucsd_d4: "Person:Contributor; Corporate:Contributor"
   # null
 
 
-- "agent:creator":
+  "agent:creator":
     display_label: "Creator"
-    definition: "A person or organization responsible for creating the resource." 
-    usage_guidelines: 
-      - General "Can be used when lacking specific information on an agent's exact role in creating the resource."
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A person or organization responsible for creating the resource."
+    usage_guidelines:
+      General: "Can be used when lacking specific information on an agent's exact role in creating the resource."
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Alphabet, Inc."
     property_uri: "dc11:creator"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "ucsd:Agent"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Creator); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Creator); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Creator"
-      dc: "dc:creator"		
+      dc: "dc:creator"
       ucsd_d4: "Person:Creator; Corporate:Creator"
   # null
 
 
-- "agent:publisher":
+  "agent:publisher":
     display_label: "Publisher"
-    definition: "A person or organization responsible for publishing the resource." 
-    usage_guidelines: 
-      - General "Used when the exact publishing entity is known, since these will become authorities"
-      - RDCP "null"
-      - DLDP/SCA "For cases where an exact entity's information is not known, record relevant information in note:publication"
-      - Music "null"
-      - CLR "null"
+    definition: "A person or organization responsible for publishing the resource."
+    usage_guidelines:
+      General: "Used when the exact publishing entity is known, since these will become authorities"
+      RDCP: "null"
+      "DLDP/SCA": "For cases where an exact entity's information is not known, record relevant information in note:publication"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "null"
     property_uri: "dc11:publisher"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "ucsd:Agent"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Creator); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Creator); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Publisher"
-      dc: "dc:publisher"		
+      dc: "dc:publisher"
       ucsd_d4: "Person:Publisher; Corporate:Publisher"
   # null
 
 
-- "agent:[role]":
+  "agent:[role]":
     display_label: "[Role]"
-    definition: "This isn't an actual property, but a representation of agent roles. " 
-    usage_guidelines: 
-      - General "See Agent Types list for full valid list of roles"
-      - RDCP "Roles are selected by researchers when they fill out the form, but we can propose new roles if necessary"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "This isn't an actual property, but a representation of agent roles. "
+    usage_guidelines:
+      General: "See Agent Types list for full valid list of roles"
+      RDCP: "Roles are selected by researchers when they fill out the form, but we can propose new roles if necessary"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "MARC Relator codes/URIs and also local roles"
+    controlled_value:
+      sources:
+        - "MARC Relator codes/URIs and also local roles"
     sample_value: "Smith, Joe S."
     property_uri: "[Agent Types Predicate] e.g. agent:author"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "ucsd:Agent"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Creator); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Creator); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Contributor, Creator"
-      dc: "dc:contributor, dc:creator"		
+      dc: "dc:contributor, dc:creator"
       ucsd_d4: "Person:Corporate"
-  # null
 
-
-- "subject:spatial":
+  "subject:spatial":
     display_label: "Geographics"
-    definition: "Spatial characteristics of described resource, such as acountry, city, region, address or other geographical term. Captures aboutness." 
-    usage_guidelines: 
-      - General "In general, LoC's label is close to our ideal label. But, the ideal format is the place followed in parentheses by its next highest division (so a state for a city in the US, a country or region for other cities)."
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Spatial characteristics of described resource, such as acountry, city, region, address or other geographical term. Captures aboutness."
+    usage_guidelines:
+      General: "In general, LoC's label is close to our ideal label. But, the ideal format is the place followed in parentheses by its next highest division (so a state for a city in the US, a country or region for other cities)."
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Jalisco (Mexico)"
     property_uri: "dc:spatial"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "ucsd:Place"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Topic); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Topic); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Place"
-      dc: "dc:spatial"		
+      dc: "dc:spatial"
       ucsd_d4: "Geographic(reference system, point, line, polygon, projection, scale)"
-  # null
 
-
-- "subject:temporal":
+  "subject:temporal":
     display_label: "Temporal"
-    definition: "Temporal characteristics of the described resource. Captures aboutness." 
-    usage_guidelines: 
-      - General "These can be geological time periods, or humanistic ones associated with e.g. artistic movements"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Temporal characteristics of the described resource. Captures aboutness."
+    usage_guidelines:
+      General: "These can be geological time periods, or humanistic ones associated with e.g. artistic movements"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Pleistocene Era"
     property_uri: "dc:temporal"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "edm:TimeSpan"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Topic); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Topic); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Temporal Coverage"
-      dc: "dc:temporal"		
+      dc: "dc:temporal"
       ucsd_d4: "Subject:temporal"
-  # null
 
-
-- "date":
+  "date":
     display_label: "Date"
-    definition: "A point or period of time associated with an event in the lifecycle of the resource." 
-    usage_guidelines: 
-      - General "If you have a more specific date, use the more specific types, e.g. collection date, event date"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "Inclusive of all objects in the collection"
+    definition: "A point or period of time associated with an event in the lifecycle of the resource."
+    usage_guidelines:
+      General: "If you have a more specific date, use the more specific types, e.g. collection date, event date"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "Inclusive of all objects in the collection"
     requirement: "Recommended"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "July 14, 1971"
     property_uri: "dc11:date"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "edm:TimeSpan"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Date"
-      dc: "dc11:date"		
+      dc: "dc11:date"
       ucsd_d4: "null"
-  # null
 
-
-- "date:created":
+  "date:created":
     display_label: "Creation Date"
-    definition: "A date associated with the creation of the resource. " 
-    usage_guidelines: 
-      - General "The date the resource was created"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A date associated with the creation of the resource. "
+    usage_guidelines:
+      General: "The date the resource was created"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "null"
     property_uri: "dc:created"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "edm:TimeSpan"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Date"
-      dc: "dc:created"		
+      dc: "dc:created"
       ucsd_d4: "Date:creation"
-  # null
 
-
-- "date:event":
+  "date:event":
     display_label: "Event Date"
-    definition: "The date of the event depicted in the resource." 
-    usage_guidelines: 
-      - General "Typically these dates are for objects representing a performance or other event"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The date of the event depicted in the resource."
+    usage_guidelines:
+      General: "Typically these dates are for objects representing a performance or other event"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "April 8, 1908"
     property_uri: "ucsd:eventDate"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "edm:TimeSpan"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Date"
-      dc: "dc11:date"		
+      dc: "dc11:date"
       ucsd_d4: "Date:event"
-  # null
 
-
-- "date:collection":
+  "date:collection":
     display_label: "Date Collected"
-    definition: "The date that the physical or digital materials represented by the object were collected." 
-    usage_guidelines: 
-      - General "Can be used from an archival context to record when materials were collected, or when a researcher or other entity collected research materials or findings."
-      - RDCP "Typically used for a date at which a researcher observed/collected/analyzed something"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The date that the physical or digital materials represented by the object were collected."
+    usage_guidelines:
+      General: "Can be used from an archival context to record when materials were collected, or when a researcher or other entity collected research materials or findings."
+      RDCP: "Typically used for a date at which a researcher observed/collected/analyzed something"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "June 1, 2013 to July, 18 2013"
     property_uri: "ucsd:collectionDate"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "edm:TimeSpan"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Date"
-      dc: "dc11:date"		
+      dc: "dc11:date"
       ucsd_d4: "Date:collected"
-  # null
 
-
-- "date:copyrighted":
+  "date:copyrighted":
     display_label: "Copyright Date"
-    definition: "The date that the resource was copyrighted." 
-    usage_guidelines: 
-      - General "Used when the exact copyright date is crucial to the object's context"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The date that the resource was copyrighted."
+    usage_guidelines:
+      General: "Used when the exact copyright date is crucial to the object's context"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "1963"
     property_uri: "dc:dateCopyrighted"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "edm:TimeSpan"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Date"
-      dc: "dc:dateCopyrighted"		
+      dc: "dc:dateCopyrighted"
       ucsd_d4: "Date:copyright"
-  # null
 
-
-- "date:issue":
+  "date:issue":
     display_label: "Date Issued"
-    definition: "The year in which the resource was issued (e.g., the year a digital collection was first viewable by the public)." 
-    usage_guidelines: 
-      - General "Primarily used for minting DOIs and to work with external services, but can also be used to indicate when the resource was issued"
-      - RDCP "Use for all RDCP collections. YYYY only. Only use the year the collection will be published, and for continuing collections (i.e., ongoing collections with no set end date), use the year in which the collection was first published"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "If minting DOIs, format is 'YYYY'"
+    definition: "The year in which the resource was issued (e.g., the year a digital collection was first viewable by the public)."
+    usage_guidelines:
+      General: "Primarily used for minting DOIs and to work with external services, but can also be used to indicate when the resource was issued"
+      RDCP: "Use for all RDCP collections. YYYY only. Only use the year the collection will be published, and for continuing collections (i.e., ongoing collections with no set end date), use the year in which the collection was first published"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "If minting DOIs, format is 'YYYY'"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "2017"
     property_uri: "dc:issued"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "edm:TimeSpan"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Date"
-      dc: "dc:issued"		
+      dc: "dc:issued"
       ucsd_d4: "Date:issued"
-  # null
 
-
-- "note:description":
+  "note:description":
     display_label: "Description"
-    definition: "A description or summary of a resource" 
-    usage_guidelines: 
-      - General "This note is more specialized than a general note. It gives the overall summary of the item, in a more detailed manner than the brief description"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "The description in a CLR is the fuller version of the brief description. There are no character limits."
+    definition: "A description or summary of a resource"
+    usage_guidelines:
+      General: "This note is more specialized than a general note. It gives the overall summary of the item, in a more detailed manner than the brief description"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "The description in a CLR is the fuller version of the brief description. There are no character limits."
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "A alteration by unnamed student(s) intended as a parody of De Saint Phalle's Sun God."
     property_uri: "dc11:description"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description, Collection Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:description"
-  # null
 
-
-- "note:bibliographic citation":
+  "note:bibliographic citation":
     display_label: "Bibliography"
-    definition: "A bibliographic reference for the resource." 
-    usage_guidelines: 
-      - General "Include sufficient bibliographic detail to identify the resource as unambiguously as possible."
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A bibliographic reference for the resource."
+    usage_guidelines:
+      General: "Include sufficient bibliographic detail to identify the resource as unambiguously as possible."
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "[Title, Date]. Leo Szilard Papers. MSS 32. Special Collections & Archives, UC San Diego Library."
     property_uri: "dc:bibliographicCitation"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc:bibliographicCitation"		
+      dc: "dc:bibliographicCitation"
       ucsd_d4: "Note:bibliography"
-  # null
 
-
-- "note:table of contents":
+  "note:table of contents":
     display_label: "Table of Contents"
-    definition: "A list of subunits of the resource." 
-    usage_guidelines: 
-      - General "Mainly used in context of a book or physical music piece"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A list of subunits of the resource."
+    usage_guidelines:
+      General: "Mainly used in context of a book or physical music piece"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "1. Beginnings 2. The Academic Plan 3. The 1966 Revision 4. Conclusion"
     property_uri: "dc:tableOfContents"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc:tableOfContents"		
+      dc: "dc:tableOfContents"
       ucsd_d4: "Note:table of contents"
-  # null
 
-
-- "note:arrangement":
+  "note:arrangement":
     display_label: "Arrangement"
-    definition: "Information about the organization and arrangement of a collection of items represented by the object." 
-    usage_guidelines: 
-      - General "Intellectual arrangement or the original/archival resources"
-      - RDCP "null"
-      - DLDP/SCA "In archival collections, use to point to a series or other intellectual grouping of the material for reference"
-      - Music "null"
-      - CLR "null"
+    definition: "Information about the organization and arrangement of a collection of items represented by the object."
+    usage_guidelines:
+      General: "Intellectual arrangement or the original/archival resources"
+      RDCP: "null"
+      "DLDP/SCA": "In archival collections, use to point to a series or other intellectual grouping of the material for reference"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
-    sample_value: "Located in the series "Correspondence" in the Leo Szilard Papers, MSS 32."
+    controlled_value:
+      sources:
+        - "null"
+    sample_value: "Located in the series 'Correspondence' in the Leo Szilard Papers, MSS 32."
     property_uri: "bf:arrangement"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:arrangement"
-  # null
 
-
-- "note:biography":
+  "note:biography":
     display_label: "Biography"
-    definition: "A biographical note related to the entity represented in the resource." 
-    usage_guidelines: 
-      - General "Use when a biographical note is important to understanding the resource or collection "
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A biographical note related to the entity represented in the resource."
+    usage_guidelines:
+      General: "Use when a biographical note is important to understanding the resource or collection "
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Edith Emerson (July 27, 1888 – November 21, 1981) was an American painter, muralist, illustrator, writer, and curator. She was the life partner of acclaimed muralist Violet Oakley and served as the vice-president, president, and curator of the Woodmere Art Museum in the Chestnut Hill neighborhood of Philadelphia, Pennsylvania, from 1940 to 1978."
     property_uri: "ucsd:biography"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:biography"
-  # null
 
-
-- "brief description":
+  "brief description":
     display_label: "N/A"
-    definition: "A short description of a collection, specifically for use in the Collection Search results.  Only for use in collection level records and does not display in the full Collection level record view." 
-    usage_guidelines: 
-      - General "Only used in the context of collection level records (viewed when browsing the collection). Character limit is enforced"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "Around 200 character limit"
+    definition: "A short description of a collection, specifically for use in the Collection Search results.  Only for use in collection level records and does not display in the full Collection level record view."
+    usage_guidelines:
+      General: "Only used in the context of collection level records (viewed when browsing the collection). Character limit is enforced"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "Around 200 character limit"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Photographs and design drawings of the site-specific public sculptures in the UC San Diego Stuart Collection."
     property_uri: "ucsd:briefDescription"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Only in search results view); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Only in search results view); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Collection Description"
-      dc: "dc:abstract"		
+      dc: "dc:abstract"
       ucsd_d4: "Brief description"
-  # null
 
-
-- "note:credits":
+  "note:credits":
     display_label: "Credits"
-    definition: "Information in note form of credits for persons or organizations who have participated in the creation and/or production of the resource." 
-    usage_guidelines: 
-      - General "Only used when special recognition has been made in the source data, or when a data provider wishes to credit other entities. Not to be used to convey copyright-related information, or to record performers (that is recorded in note:performer)"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "Used for performers and other people involved with the production. Use RDA text formatting."
-      - CLR "null"
+    definition: "Information in note form of credits for persons or organizations who have participated in the creation and/or production of the resource."
+    usage_guidelines:
+      General: "Only used when special recognition has been made in the source data, or when a data provider wishes to credit other entities. Not to be used to convey copyright-related information, or to record performers (that is recorded in note:performer)"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "Used for performers and other people involved with the production. Use RDA text formatting."
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Roger Reynolds, Bryan Reynolds, Joshua Tonies, Nick Drashner, Andy Muehlhausen, Trevor Henthorn, Hunjoo Jung, Tracy Cornish"
     property_uri: "bf:credits"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:credits"
-  # null
 
-
-- "note:custodial history":
+  "note:custodial history":
     display_label: "Custodial History"
-    definition: "Information about the provenance, such as origin, ownership and custodial history (chain of custody), of a resource." 
-    usage_guidelines: 
-      - General "Only use when the provenance or chain of custody is necessary for grasping the context of the resource"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Information about the provenance, such as origin, ownership and custodial history (chain of custody), of a resource."
+    usage_guidelines:
+      General: "Only use when the provenance or chain of custody is necessary for grasping the context of the resource"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Originally owned by the British Museum"
     property_uri: "bf:custodialHistory"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Data Provider* (although this range is Agent, not Literal), Description"
-      dc: "dc11:provenance"		
+      dc: "dc11:provenance"
       ucsd_d4: "Note:custodial history"
-  # null
 
-
-- "note:edition":
+  "note:edition":
     display_label: "Edition"
-    definition: "Information identifying the edition or version of the resource and associated statements of responsibility for the edition; usually transcribed." 
-    usage_guidelines: 
-      - General "Used primarily when the edition information is transcribed on the object"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Information identifying the edition or version of the resource and associated statements of responsibility for the edition; usually transcribed."
+    usage_guidelines:
+      General: "Used primarily when the edition information is transcribed on the object"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "ICPSR ed., OSIRIS IV version."
     property_uri: "bf:editionStatement"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:edition"
-  # null
 
-
-- "note:material details:finds":
+  "note:material details:finds":
     display_label: "Material Details:Finds"
-    definition: "Reports "finds" in a scientific context about an object" 
-    usage_guidelines: 
-      - General "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Reports 'finds' in a scientific context about an object"
+    usage_guidelines:
+      General: "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Some slag. No ceramics."
     property_uri: "ucsd:finds"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:material details:finds"
   # revisit in light of current RDCP knowledge and practice
 
-
-- "note:funding":
+  "note:funding":
     display_label: "Funding"
-    definition: "Information identifying organizations that have funded the creation of a resource." 
-    usage_guidelines: 
-      - General "Record any source of funding (grants etc.) the data provider thinks is relevant"
-      - RDCP "Federal and other research funding information is usually provided in the form. It's uncontrolled, but some standardization and expansion of acronyms can be helpful."
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Information identifying organizations that have funded the creation of a resource."
+    usage_guidelines:
+      General: "Record any source of funding (grants etc.) the data provider thinks is relevant"
+      RDCP: "Federal and other research funding information is usually provided in the form. It's uncontrolled, but some standardization and expansion of acronyms can be helpful."
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "California Air Resources Board (Agreement No: 13-330)"
     property_uri: "ucsd:funding"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:funding"
-  # null
 
-
-- "note:note":
+  "note:note":
     display_label: "Note"
-    definition: "General textual information relating to a resource" 
-    usage_guidelines: 
-      - General "These are repeatable and can be formatted to have prefixes or hacky "headers". But, be advised that multiple general notes will be concatenated into one block of text with a header of "Note" in the UI"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "General textual information relating to a resource"
+    usage_guidelines:
+      General: 'These are repeatable and can be formatted to have prefixes or hacky "headers". But, be advised that multiple general notes will be concatenated into one block of text with a header of "Note" in the UI'
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Title derived from original collection inventory."
     property_uri: "dc:abstract"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:note"
-  # null
 
-
-- "note:inscription":
+  "note:inscription":
     display_label: "Inscription"
-    definition: "Records information that has been inscribed on the physical form represented by the resource. " 
-    usage_guidelines: 
-      - General "Record exactly as inscribed on the object"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Records information that has been inscribed on the physical form represented by the resource. "
+    usage_guidelines:
+      General: "Record exactly as inscribed on the object"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Mrs. D.J. Chase 613 Belden St. Peekskill New York"
     property_uri: "ucsd:inscription"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:inscription"
-  # null
 
-
-- "note:material details:limits":
+  "note:material details:limits":
     display_label: "Material Details:Limits"
-    definition: "null" 
-    usage_guidelines: 
-      - General "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "null"
+    usage_guidelines:
+      General: "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Installation walls, W-L14."
     property_uri: "ucsd:limits"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:material details:limits"
   # revisit in light of current RDCP knowledge and practice
 
 
-- "note:local attribution":
+  "note:local attribution":
     display_label: "Digital Object Made Available By"
-    definition: "Denotes which library program is responsible for creating or providing the resource." 
-    usage_guidelines: 
-      - General "Is selected at time of ingest from 3 controlled values: DLDP, RDCP, and SCA."
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Denotes which library program is responsible for creating or providing the resource."
+    usage_guidelines:
+      General: "Is selected at time of ingest from 3 controlled values: DLDP, RDCP, and SCA."
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "Controlled vocab for UCSD units"
+    controlled_value:
+      sources:
+        - "Controlled vocab for UCSD units"
     sample_value: "Digital Object Made Available By: Special Collections & Archives, UC San Diego, La Jolla, 92093-0175 (http://libraries.ucsd.edu/collections/sca/)"
     property_uri: "ucsd:localAttribution"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "not in current template(batch export?)"
-  # null
 
-
-- "note:location of originals":
+  "note:location of originals":
     display_label: "Location of Originals"
-    definition: "Information on the physical arrangement of the source materials used to create the object. Can also contain location and contact information for the user to request access to the materials." 
-    usage_guidelines: 
-      - General "Physical location and arrangement of the original/archival resources "
-      - RDCP "null"
-      - DLDP/SCA "In archival collections, make an unambiguous reference to the physical item's location that the object represents"
-      - Music "null"
-      - CLR "null"
+    definition: "Information on the physical arrangement of the source materials used to create the object. Can also contain location and contact information for the user to request access to the materials."
+    usage_guidelines:
+      General: "Physical location and arrangement of the original/archival resources "
+      RDCP: "null"
+      "DLDP/SCA": "In archival collections, make an unambiguous reference to the physical item's location that the object represents"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "This digital image is a surrogate of an item from the Leo Szilard Papers (MSS 32, Box 18, Folder 30)."
     property_uri: "ucsd:locationOfOriginals"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:location of originals"
-  # null
 
-
-- "note:material details":
+  "note:material details":
     display_label: "Material Details"
-    definition: "Records aspects about the object's physical representation that aren't strictly dimensions and measurements" 
-    usage_guidelines: 
-      - General "Record aspects about the physical object being represented that aren't strictly physical dimensions/measurements"
-      - RDCP "null"
-      - DLDP/SCA "Can be used for information about physical objects relating to quality and integrity"
-      - Music "null"
-      - CLR "null"
+    definition: "Records aspects about the object's physical representation that aren't strictly dimensions and measurements"
+    usage_guidelines:
+      General: "Record aspects about the physical object being represented that aren't strictly physical dimensions/measurements"
+      RDCP: "null"
+      "DLDP/SCA": "Can be used for information about physical objects relating to quality and integrity"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Reel was in poor condition, side 2 could not be salvaged"
     property_uri: "ucsd:materialDetails"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:material details"
-  # null
 
-
-- "note:methods":
+  "note:methods":
     display_label: "Methods"
-    definition: "Information on the methods in which the researcher carried out their research, in relation to the resource." 
-    usage_guidelines: 
-      - General "Use for when a collection was produced using certain scientific methodology"
-      - RDCP "This is where the researcher will expand on the methods in which they carried out their research. RDCP Project Manager will typically ask for this info."
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Information on the methods in which the researcher carried out their research, in relation to the resource."
+    usage_guidelines:
+      General: "Use for when a collection was produced using certain scientific methodology"
+      RDCP: "This is where the researcher will expand on the methods in which they carried out their research. RDCP Project Manager will typically ask for this info."
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Acoustic backscattering data were collected between stations using a hull-mounted Simrad EK60 split-beam echo sounder"
     property_uri: "ucsd:methodology"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:methods"
-  # null
 
-
-- "note:performer":
+  "note:performer":
     display_label: "Performer"
-    definition: "Records informations about the performers of the resource, and can indicate their role, e.g. instruments used" 
-    usage_guidelines: 
-      - General "If possible, record the performer(s) name as well as their role in the performace (e.g. violin)"
-      - RDCP "null"
-      - DLDP/SCA "Although uncontrolled, consistency of names should be maintained between objects"
-      - Music "null"
-      - CLR "null"
+    definition: "Records informations about the performers of the resource, and can indicate their role, e.g. instruments used"
+    usage_guidelines:
+      General: "If possible, record the performer(s) name as well as their role in the performace (e.g. violin)"
+      RDCP: "null"
+      "DLDP/SCA": "Although uncontrolled, consistency of names should be maintained between objects"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Janos Negyesy, violin ; Aleck Karis, piano"
     property_uri: "null"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:performers"
-  # null
 
-
-- "note:physical description":
+  "note:physical description":
     display_label: "Physical Description"
-    definition: "Physical dimensions or characteristics of the physical form of the object." 
-    usage_guidelines: 
-      - General "Record physical dimensions/measurements of the object represented"
-      - RDCP "null"
-      - DLDP/SCA "Use note forms similar to MARC, but expand abbreviations whenever possible to avoid ambiguity"
-      - Music "null"
-      - CLR "null"
+    definition: "Physical dimensions or characteristics of the physical form of the object."
+    usage_guidelines:
+      General: "Record physical dimensions/measurements of the object represented"
+      RDCP: "null"
+      "DLDP/SCA": "Use note forms similar to MARC, but expand abbreviations whenever possible to avoid ambiguity"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "1 sound tape reel : analog, 7 1/2 ips 5 in., 1/2 in. tape"
     property_uri: "ucsd:physicalDescription"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Format"
-      dc: "dc:format"		
+      dc: "dc:format"
       ucsd_d4: "Note:physical description"
-  # null
 
-
-- "note:preferred citation":
+  "note:preferred citation":
     display_label: "Cite This Work"
-    definition: "Citation to the resource preferred by its custodian of the resource (i.e. UCSD)." 
-    usage_guidelines: 
-      - General "Record a citation for the user in order for them to cite the resource at hand. Although there is no required format, it should adhere to general citation guidelines for internet resources, and use full/valid URLs when possible"
-      - RDCP "This note field is constructed in the order of: Creators/authors names. Year issued. DAMS Collection or object that is desired to be cited. Full hyperlink to DOI or resolvable ARK link  "
-      - DLDP/SCA "The format generally is '[Title, Date]', followed by the collection title, followed by the accession or other archival identifier, followed by the unit"
-      - Music "null"
-      - CLR "null"
+    definition: "Citation to the resource preferred by its custodian of the resource (i.e. UCSD)."
+    usage_guidelines:
+      General: "Record a citation for the user in order for them to cite the resource at hand. Although there is no required format, it should adhere to general citation guidelines for internet resources, and use full/valid URLs when possible"
+      RDCP: "This note field is constructed in the order of: Creators/authors names. Year issued. DAMS Collection or object that is desired to be cited. Full hyperlink to DOI or resolvable ARK link  "
+      "DLDP/SCA": "The format generally is '[Title, Date]', followed by the collection title, followed by the accession or other archival identifier, followed by the unit"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Keen, Eric M; Wray, Janie; Meuter, Hermann; Thompson, Kim-Ly; Barlow, Jay P; Picard, Chris R (2017): Data from: 'Whale Wave': shifting strategies structure the complex use of critical fjord habitat by humpbacks. UC San Diego Library Digital Collections. http://doi.org/10.6075/J0GT5K3B"
     property_uri: "bf:preferredCitation"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Replaced By"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:preferred citation"
-  # null
 
-
-- "note:publication":
+  "note:publication":
     display_label: "Publication Information"
-    definition: "Information on the location and/or entity responsible for publication of the resource." 
-    usage_guidelines: 
-      - General "This is a place for the uncontrolled "place", entity, etc. for a publisher. If the exact entity is known, use the more controlled agent:publisher"
-      - RDCP "null"
-      - DLDP/SCA "The format is typically the place, if available, followed by a name or other information"
-      - Music "null"
-      - CLR "null"
+    definition: "Information on the location and/or entity responsible for publication of the resource."
+    usage_guidelines:
+      General: 'This is a place for the uncontrolled "place", entity, etc. for a publisher. If the exact entity is known, use the more controlled agent:publisher'
+      RDCP: "null"
+      "DLDP/SCA": "The format is typically the place, if available, followed by a name or other information"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Shanghai: Shanghai ren min mei shu chu ban she (上海: 上海人民美术出版社)"
     property_uri: "ucsd:publication"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:publication"
-  # null
 
-
-- "note:related publications":
+  "note:related publications":
     display_label: "Related Publications"
-    definition: "References and cites publications that are related to, or were derived from, or are otherwise related to the resource." 
-    usage_guidelines: 
-      - General "Use a full citation to a publication (e.g. journal article) related to the object, and a DOI link if available"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "References and cites publications that are related to, or were derived from, or are otherwise related to the resource."
+    usage_guidelines:
+      General: "Use a full citation to a publication (e.g. journal article) related to the object, and a DOI link if available"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Bushong EA, Martone ME, Ellisman MH (2004). Maturation of astrocyte morphology and the establishment of astrocyte domains during postnatal hippocampal development. Int J Dev Neurosci, 22(2):73-86. doi: 10.1016/j.ijdevneu.2003.12.008 PMID: 15036382"
     property_uri: "ucsd:relatedPublications"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Relation"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:related publications"
-  # null
 
-
-- "note:material details:relationship to other loci":
+  "note:material details:relationship to other loci":
     display_label: "Material Details:Relationship To Other Loci"
-    definition: "Information on the context of this locus as it relates to other loci in an archaeological site." 
-    usage_guidelines: 
-      - General "Typically contains information about the locus immediately above, as well as the locus immediately below. Can also denote if it is equivalent to another locus."
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Information on the context of this locus as it relates to other loci in an archaeological site."
+    usage_guidelines:
+      General: "Typically contains information about the locus immediately above, as well as the locus immediately below. Can also denote if it is equivalent to another locus."
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Matrix above: 19826 Matrix below: 19823 Equal to: 19824"
     property_uri: "ucsd:relationshipToOtherLoci"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Relation"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:material details:relationship to other loci"
   # revisit in light of current RDCP knowledge and practice
 
 
-- "note:scope and content":
+  "note:scope and content":
     display_label: "Scope and Content"
-    definition: "Characterization that epitomizes the primary content of a resource, e.g., field recording of birdsong; combined time series analysis and graph plotting system. Can also reference information outside the scope of the specific object, and any relevant content." 
-    usage_guidelines: 
-      - General "Typically this is broader of a note than arrangement, and contains information about scope and content in a general sense. To describe how a file or directory is strucured, for instance, an arrangement note is more appropriate"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "Generally, use RDA text formatting; may incorporate movement titles following title of larger work."
-      - CLR "Used to outline the content contained in the collection or object"
+    definition: "Characterization that epitomizes the primary content of a resource, e.g., field recording of birdsong; combined time series analysis and graph plotting system. Can also reference information outside the scope of the specific object, and any relevant content."
+    usage_guidelines:
+      General: "Typically this is broader of a note than arrangement, and contains information about scope and content in a general sense. To describe how a file or directory is strucured, for instance, an arrangement note is more appropriate"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "Generally, use RDA text formatting; may incorporate movement titles following title of larger work."
+      CLR: "Used to outline the content contained in the collection or object"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "The dataMares Collection contains a selection of datasets associated with scientific research, some of which is featured at http://datamares.ucsd.edu. "
     property_uri: "bf:natureOfContent"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description, Collection Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:scope and content"
-  # null
 
-
-- "note:statement of responsibility":
+  "note:statement of responsibility":
     display_label: "Statement Of Responsibility"
-    definition: "Statement relating to any persons, families, or corporate bodies responsible for the creation of, or contributing to the content of a resource; usually transcribed." 
-    usage_guidelines: 
-      - General "For most cases, this information will be taken from the source data, i.e. MARC data. Usually this information is transcribed: to credit people involved in the creation of a resource beyond transcribed information, use note:credits"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Statement relating to any persons, families, or corporate bodies responsible for the creation of, or contributing to the content of a resource; usually transcribed."
+    usage_guidelines:
+      General: "For most cases, this information will be taken from the source data, i.e. MARC data. Usually this information is transcribed: to credit people involved in the creation of a resource beyond transcribed information, use note:credits"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Gary Snyder ; preface by Nathaniel Tarn ; edited by Donald Allen."
     property_uri: "bf:responsibilityStatement"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:statement of responsibility"
-  # null
 
-
-- "note:material details:storage method":
+  "note:material details:storage method":
     display_label: "Material Details:Storage Method"
-    definition: "Information about the physical storage method of a scientific sample" 
-    usage_guidelines: 
-      - General "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Information about the physical storage method of a scientific sample"
+    usage_guidelines:
+      General: "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "room temperature, dry"
     property_uri: "ucsd:storageMethod"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:material details:storage method"
-  # revisit in light of current RDCP knowledge and practice
 
-
-- "note:series":
+  "note:series":
     display_label: "Series"
-    definition: "Information relating to the publication of the resource, e.g. volume, number, issue" 
-    usage_guidelines: 
-      - General "Although this information is uncontrolled, care should be taken to ensure this information is correct. The controlled series name is recorded in subject:series"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Information relating to the publication of the resource, e.g. volume, number, issue"
+    usage_guidelines:
+      General: "Although this information is uncontrolled, care should be taken to ensure this information is correct. The controlled series name is recorded in subject:series"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Volume 6, Issue 10"
     property_uri: "ucsd:seriesNote"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Series); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Series); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:series"
-  # null
 
-
-- "note:technical details":
+  "note:technical details":
     display_label: "Technical Details"
-    definition: "Information that can reflect technical requirements needed to use the resource (both software and hardware). Can also provide information about anomalies, bugs, and other issues that are known about the files in the digital object." 
-    usage_guidelines: 
-      - General "Use to record technical aspects or requirements for the resource"
-      - RDCP "For scripts and software, provide all information about hardware and software requirements to run it. This includes code language version (e.g. python 3.6), as well as any necessary softare libraries and their versions (e.g. matplotlib 2.1). Usually this information is contained in a readme, but can also be asked from the data provider"
-      - DLDP/SCA "Besides technical requirements, this note can be used to express details about the digital file itself, such as anomalies the user should be warned about (e.g. image corruption/artifacts, audio corruption)"
-      - Music "null"
-      - CLR "null"
+    definition: "Information that can reflect technical requirements needed to use the resource (both software and hardware). Can also provide information about anomalies, bugs, and other issues that are known about the files in the digital object."
+    usage_guidelines:
+      General: "Use to record technical aspects or requirements for the resource"
+      RDCP: "For scripts and software, provide all information about hardware and software requirements to run it. This includes code language version (e.g. python 3.6), as well as any necessary softare libraries and their versions (e.g. matplotlib 2.1). Usually this information is contained in a readme, but can also be asked from the data provider"
+      "DLDP/SCA": "Besides technical requirements, this note can be used to express details about the digital file itself, such as anomalies the user should be warned about (e.g. image corruption/artifacts, audio corruption)"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "R routines were run in R 3.1.2 "
     property_uri: "ucsd:technicalDetails"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:technical details"
-  # null
 
-
-- "note:venue":
+  "note:venue":
     display_label: "Venue"
-    definition: "Information about where the object was created or performed. " 
-    usage_guidelines: 
-      - General "Typically this records the place at which the resource was performed (usually an event). For a more controlled place/location, use subject:spatial"
-      - RDCP "null"
-      - DLDP/SCA "Although uncontrolled, consistency of names should be maintained between objects"
-      - Music "null"
-      - CLR "null"
+    definition: "Information about where the object was created or performed. "
+    usage_guidelines:
+      General: "Typically this records the place at which the resource was performed (usually an event). For a more controlled place/location, use subject:spatial"
+      RDCP: "null"
+      "DLDP/SCA": "Although uncontrolled, consistency of names should be maintained between objects"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Antin's poetry reading was recorded at Dr. Generosity's. Stark's reading was recorded at Ikon"
     property_uri: "ucsd:venue"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:venue"
-  # null
 
-
-- "note:work featured":
+  "note:work featured":
     display_label: "Work Featured"
-    definition: "Information about entities and specific intellectual works that are featured in the object." 
-    usage_guidelines: 
-      - General "Use a controlled form of the creator's name (including dates if part of the controlled name), and the controlled form of the work's name."
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "Use for related/analytical author title. Create separate notes. Prepend with "Work featured: ". Use form of access point as found in LC Authority File (without subfield characters) or, if access point has not been established, formulate string as for a controlled access point."
-      - CLR "null"
+    definition: "Information about entities and specific intellectual works that are featured in the object."
+    usage_guidelines:
+      General: "Use a controlled form of the creator's name (including dates if part of the controlled name), and the controlled form of the work's name."
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: 'Use for related/analytical author title. Create separate notes. Prepend with "Work featured: ". Use form of access point as found in LC Authority File (without subfield characters) or, if access point has not been established, formulate string as for a controlled access point.'
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Grapes of wrath (Steinbeck, John)"
     property_uri: "ucsd:workFeatured"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Relation"
-      dc: "dc:relation"		
+      dc: "dc:relation"
       ucsd_d4: "Note:work featured"
-  # null
 
-
-- "note:material details:water depth":
+  "note:material details:water depth":
     display_label: "Material Details:Water Depth"
-    definition: "Information about the depth at which an oceanographic sample was collected" 
-    usage_guidelines: 
-      - General "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Information about the depth at which an oceanographic sample was collected"
+    usage_guidelines:
+      General: "This will normally be taken from a data provider or researcher who is noting aspects of the physical thing that the resource represents"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "1570-1425 meters"
     property_uri: "ucsd:waterDepth"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Description"
-      dc: "dc11:description"		
+      dc: "dc11:description"
       ucsd_d4: "Note:material details:water depth"
   # revisit in light of current RDCP knowledge and practice
 
 
-- "identifier":
+  "identifier":
     display_label: "Identifier"
-    definition: "A generic identifier for an object." 
-    usage_guidelines: 
-      - General "Use a more specific identifier type if possible. If the identifier does not need to be displayed and/or makes no sense from a user perspectice, use identifier:local"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A generic identifier for an object."
+    usage_guidelines:
+      General: "Use a more specific identifier type if possible. If the identifier does not need to be displayed and/or makes no sense from a user perspectice, use identifier:local"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "c104"
     property_uri: "dc:identifier"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:identifier"
-  # null
 
-
-- "identifier:accession":
+  "identifier:accession":
     display_label: "Accession Number"
-    definition: "An archival accession number for the object." 
-    usage_guidelines: 
-      - General "Only use when the original accession numbers are important (e.g. for collection maintenance)"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "An archival accession number for the object."
+    usage_guidelines:
+      General: "Only use when the original accession numbers are important (e.g. for collection maintenance)"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "40822459663"
     property_uri: "ucsd:accessionId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:accession number"
-  # null
 
-
-- "identifier:ark":
+  "identifier:ark":
     display_label: "ARK"
-    definition: "An ARK identifier for an object." 
-    usage_guidelines: 
-      - General "If pointing to a related DAMS object, use related resource instead"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "An ARK identifier for an object."
+    usage_guidelines:
+      General: "If pointing to a related DAMS object, use related resource instead"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "bb1234567x"
     property_uri: "ucsd:arkId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:ARK"
-  # null
 
-
-- "identifier:basket number":
+  "identifier:basket number":
     display_label: "Basket Number"
-    definition: "A number for a basket in an archaeological site that the object represents" 
-    usage_guidelines: 
-      - General "Use basket IDs as supplied by data provider"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A number for a basket in an archaeological site that the object represents"
+    usage_guidelines:
+      General: "Use basket IDs as supplied by data provider"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "w09b0630"
     property_uri: "ucsd:basketId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:basket number"
-  # null
 
-
-- "identifier:call number":
+  "identifier:call number":
     display_label: "Call Number"
-    definition: "A call number identifier for the object" 
-    usage_guidelines: 
-      - General "Only use when the original call numbers are important, e.g. for collection management purposes"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A call number identifier for the object"
+    usage_guidelines:
+      General: "Only use when the original call numbers are important, e.g. for collection management purposes"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "10.1000/182"
     property_uri: "modsrdf:callNumber"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:call number"
-  # null
 
-
-- "identifier:collection number":
+  "identifier:collection number":
     display_label: "Collection Number"
-    definition: "null" 
-    usage_guidelines: 
-      - General "null"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "null"
+    usage_guidelines:
+      General: "null"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "3558"
     property_uri: "ucsd:collectionNumberId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:collection number"
-  # null
 
-
-- "identifier:doi":
+  "identifier:doi":
     display_label: "Doi"
-    definition: "A Digital Object Identifier for the object" 
-    usage_guidelines: 
-      - General "Do not use this identifier if already specified in a preferred citation"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A Digital Object Identifier for the object"
+    usage_guidelines:
+      General: "Do not use this identifier if already specified in a preferred citation"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "19671209__01"
     property_uri: "locid:doi"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:DOI"
   # d4 display label needs fixing
 
 
-- "identifier:edm":
+  "identifier:edm":
     display_label: "Edm"
-    definition: "The Electronic Distance Measurement ID for a resource, usually used in an archaeological dig" 
-    usage_guidelines: 
-      - General "Use EDM IDs as supplied by data provider (only occurs in archaeological projects)"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The Electronic Distance Measurement ID for a resource, usually used in an archaeological dig"
+    usage_guidelines:
+      General: "Use EDM IDs as supplied by data provider (only occurs in archaeological projects)"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "SIO001505"
     property_uri: "ucsd:edmId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:EDM"
   # d4 display label needs fixing
 
-
-- "identifier:event number":
+  "identifier:event number":
     display_label: "Event ID"
-    definition: "A controlled identifier for an event; used to group objects in the same event together" 
-    usage_guidelines: 
-      - General "The source data should contain the event IDs for objects. They are used to group objects from the same event (e.g. a day of concerts) into one grouping"
-      - RDCP "null"
-      - DLDP/SCA "Make sure that event IDs were requested as part of the object modeling on behalf of the data provider. These IDs drive specific functionality, where shared IDs have clickable links "
-      - Music "null"
-      - CLR "null"
+    definition: "A controlled identifier for an event; used to group objects in the same event together"
+    usage_guidelines:
+      General: "The source data should contain the event IDs for objects. They are used to group objects from the same event (e.g. a day of concerts) into one grouping"
+      RDCP: "null"
+      "DLDP/SCA": "Make sure that event IDs were requested as part of the object modeling on behalf of the data provider. These IDs drive specific functionality, where shared IDs have clickable links "
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "A 188"
     property_uri: "ucsd:eventId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (Canned search created for event numbers)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (Canned search created for event numbers)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:event ID"
-  # null
 
-
-- "identifier:file name":
+  "identifier:file name":
     display_label: "Filename"
-    definition: "A source file name for the file of an object" 
-    usage_guidelines: 
-      - General "Only use when the original filenames are important and have been altered"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A source file name for the file of an object"
+    usage_guidelines:
+      General: "Only use when the original filenames are important and have been altered"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "19600122"
     property_uri: "ucsd:filenameId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:filename"
-  # null
 
-
-- "identifier:igsn":
+  "identifier:igsn":
     display_label: "IGSN"
-    definition: "The International Geo Sample Number for the object" 
-    usage_guidelines: 
-      - General "Use IGSN IDs as supplied by data provider"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The International Geo Sample Number for the object"
+    usage_guidelines:
+      General: "Use IGSN IDs as supplied by data provider"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "580"
     property_uri: "ucsd:igsnId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:IGSN"
-  # null
 
-
-- "identifier:local":
+  "identifier:local":
     display_label: "Local"
-    definition: "An internally-used identifier" 
-    usage_guidelines: 
-      - General "As a local identifier does not publically display, use only in cases where the identifier is necessary for administrative / collection management purposes"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "An internally-used identifier"
+    usage_guidelines:
+      General: "As a local identifier does not publically display, use only in cases where the identifier is necessary for administrative / collection management purposes"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "7TOW04WT-036D"
     property_uri: "locid:local"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:local"
-  # null
 
-
-- "identifier:locus number":
+  "identifier:locus number":
     display_label: "Locus Number"
-    definition: "A number for a locus in an archaeological site that the object represents" 
-    usage_guidelines: 
-      - General "Use locus IDs as supplied by data provider"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A number for a locus in an archaeological site that the object represents"
+    usage_guidelines:
+      General: "Use locus IDs as supplied by data provider"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "/20775/bb1234567x"
     property_uri: "ucsd:locusId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:locus number"
-  # null
 
-
-- "identifier:negative":
+  "identifier:negative":
     display_label: "Negative"
-    definition: "An identifier for a photo negative print" 
-    usage_guidelines: 
-      - General "Only use when the original negative print IDs are important (e.g. essential for collection management)"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "An identifier for a photo negative print"
+    usage_guidelines:
+      General: "Only use when the original negative print IDs are important (e.g. essential for collection management)"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "FVLF-0052"
     property_uri: "ucsd:negativeId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:negative"
-  # null
 
-
-- "identifier:news release number":
+  "identifier:news release number":
     display_label: "?"
-    definition: "The assigned news release ID for an object" 
-    usage_guidelines: 
-      - General "Use news release IDs as supplied by data provider"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The assigned news release ID for an object"
+    usage_guidelines:
+      General: "Use news release IDs as supplied by data provider"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "007-014"
     property_uri: "ucsd:newsReleaseId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "null"
   # not in current ingest template?
 
-
-- "identifier:oclc number":
+  "identifier:oclc number":
     display_label: "OCLC Number"
-    definition: "The "OCN" or OCLC Control Number for an object" 
-    usage_guidelines: 
-      - General "Only use when the OCLC numbers are important, e.g. for collection management purposes"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The 'OCN' or OCLC Control Number for an object"
+    usage_guidelines:
+      General: "Only use when the OCLC numbers are important, e.g. for collection management purposes"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "caljsioa_ac608550030"
     property_uri: "ucsd:oclcId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:OCLC number"
-  # null
 
-
-- "identifier:registration number":
+  "identifier:registration number":
     display_label: "Registration Number"
-    definition: "null" 
-    usage_guidelines: 
-      - General "null"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "null"
+    usage_guidelines:
+      General: "null"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "24631790"
     property_uri: "ucsd:registrationId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:registration number"
-  # null
 
-
-- "identifier:catalog record":
+  "identifier:catalog record":
     display_label: "Roger Record"
-    definition: "The identifier from the ILS or catalog (currently Roger records)" 
-    usage_guidelines: 
-      - General "Only indicate the "bib" number. Do not include any hyperlink-specific IDs and suffixes, e.g. "~9""
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The identifier from the ILS or catalog (currently Roger records)"
+    usage_guidelines:
+      General: 'Only indicate the "bib" number. Do not include any hyperlink-specific IDs and suffixes, e.g. "~9"'
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "b33478636"
     property_uri: "ucsd:catalogId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:roger record"
-  # null
 
-
-- "identifier:sample number":
+  "identifier:sample number":
     display_label: "Samplenumber"
-    definition: "The identifier for the sample represented by the object" 
-    usage_guidelines: 
-      - General "Use sample IDs as supplied by data provider"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The identifier for the sample represented by the object"
+    usage_guidelines:
+      General: "Use sample IDs as supplied by data provider"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "256"
     property_uri: "ucsd:sampleId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:samplenumber"
   # d4 display label needs fixing
 
-
-- "identifier:sequence":
+  "identifier:sequence":
     display_label: "Sequence"
-    definition: "An identifier for the group of objects that this resource belongs to" 
-    usage_guidelines: 
-      - General "Use sequence IDs as supplied by data provider"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "An identifier for the group of objects that this resource belongs to"
+    usage_guidelines:
+      General: "Use sequence IDs as supplied by data provider"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "41"
     property_uri: "ucsd:sequenceId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:sequence"
-  # null
 
-
-- "identifier:shared shelf":
+  "identifier:shared shelf":
     display_label: "Shared Shelf"
-    definition: "The identifier for this object taken from a Shared Shelf instance" 
-    usage_guidelines: 
-      - General "Use for resources that have explicit IDs in Shared Shelf"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The identifier for this object taken from a Shared Shelf instance"
+    usage_guidelines:
+      General: "Use for resources that have explicit IDs in Shared Shelf"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "24953"
     property_uri: "ucsd:sharedShelfId"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Internal only); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Identifier"
-      dc: "dc:identifier"		
+      dc: "dc:identifier"
       ucsd_d4: "Identifier:shared shelf"
   # d4 display label needs fixing
 
 
-- "language":
+  "language":
     display_label: "Language"
-    definition: "Language(s) of described resource. Strongly recommended for text materials." 
-    usage_guidelines: 
-      - General "Resources can have multiple languages represented. It is not necessary to record the language of non-texual or non-audiovisual content."
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Language(s) of described resource. Strongly recommended for text materials."
+    usage_guidelines:
+      General: "Resources can have multiple languages represented. It is not necessary to record the language of non-texual or non-audiovisual content."
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "Required"
-    controlled_value: 
-      sources: 
-        -  "ISO 639-2"
+    controlled_value:
+      sources:
+        - "ISO 639-2"
     sample_value: "eng"
     property_uri: "dc11:language"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "xsd:anyURI  "
     data_type: null
-    cardinality: 
-      minimum:  1
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 1
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Language"
-      dc: "dc11:language"		
+      dc: "dc11:language"
       ucsd_d4: "Language"
   # d4 does not currently facet on language, but it seems like it could be useful...
 
 
-- "related resource":
+  "related resource":
     display_label: "Related Resources"
-    definition: "A related resource; specifically its title and URL." 
-    usage_guidelines: 
-      - General "For web resources, provide a label as close to the title of the web site as possible. Otherwise, provide a helpful label that conveys context on how the resource is related"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "Depending on type, can display on the CLR page and all collection objects (e.g. "online finding aid" type will display on all objects). "related" type will only display on CLR"
+    definition: "A related resource; specifically its title and URL."
+    usage_guidelines:
+      General: "For web resources, provide a label as close to the title of the web site as possible. Otherwise, provide a helpful label that conveys context on how the resource is related"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: 'Depending on type, can display on the CLR page and all collection objects (e.g. "online finding aid" type will display on all objects). "related" type will only display on CLR'
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Baja California and the West Postcard Collection @{type=online finding aid; uri=http://roger.ucsd.edu/record=b3528703~S9}"
     property_uri: "dc:relation"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "ucsd:relatedResource"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Relation"
-      dc: "dc:relation"		
+      dc: "dc:relation"
       ucsd_d4: "Related resource"
-  # null
 
-
-- "subject:topic":
+  "subject:topic":
     display_label: "Topic"
-    definition: "A topic or subject of the resource." 
-    usage_guidelines: 
-      - General "For sources of information that are genres (e.g. FAST genres), record them as topics."
-      - RDCP "Many topics in RDCP collections can be found in Wikidata, especially when not found in FAST or LoC"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A topic or subject of the resource."
+    usage_guidelines:
+      General: "For sources of information that are genres (e.g. FAST genres), record them as topics."
+      RDCP: "Many topics in RDCP collections can be found in Wikidata, especially when not found in FAST or LoC"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "American poetry"
     property_uri: "dc11:subject"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "skos:Concept"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Topic); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Topic); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Subject"
-      dc: "dc:subject"		
+      dc: "dc:subject"
       ucsd_d4: "Subject:topic"
-  # null
 
-
-- "subject:anatomy":
+  "subject:anatomy":
     display_label: "Anatomy"
-    definition: "An anotomical part that is a subject of the resource." 
-    usage_guidelines: 
-      - General "Use for resources that are about a certain part of anatomy"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "An anotomical part that is a subject of the resource."
+    usage_guidelines:
+      General: "Use for resources that are about a certain part of anatomy"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Protoplasmic astrocyte"
     property_uri: "ucsd:anatomy"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "skos:Concept"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Anatomy); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Anatomy); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Subject"
-      dc: "dc:subject"		
+      dc: "dc:subject"
       ucsd_d4: "Subject:anatomy"
-  # null
 
-
-- "subject:cruise":
+  "subject:cruise":
     display_label: "Cruise"
-    definition: "A research event, bounded by a start and end point (both in time and space)." 
-    usage_guidelines: 
-      - General "As much as possible, use a controlled form of the cruise / ship / expedition"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A research event, bounded by a start and end point (both in time and space)."
+    usage_guidelines:
+      General: "As much as possible, use a controlled form of the cruise / ship / expedition"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "null"
     property_uri: "olcruise:hasCruise"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "ucsd:Event"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Cruise); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Cruise); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Subject"
-      dc: "dc:subject"		
+      dc: "dc:subject"
       ucsd_d4: "Subject:cruise"
-  # null
 
-
-- "subject:cultural context":
+  "subject:cultural context":
     display_label: "Cultural Context"
-    definition: "The cultural group represented in the resource." 
-    usage_guidelines: 
-      - General "As much as possible, use a controlled form of the cultural context, using vocabularies like Getty AAT"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The cultural group represented in the resource."
+    usage_guidelines:
+      General: "As much as possible, use a controlled form of the cultural context, using vocabularies like Getty AAT"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Egyptian (ancient)"
     property_uri: "vra:culturalContext"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "skos:Concept"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Cultural Context); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Cultural Context); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Subject"
-      dc: "dc:subject"		
+      dc: "dc:subject"
       ucsd_d4: "Subject:culturalContext"
-  # null
 
-
-- "subject:genre form":
+  "subject:genre form":
     display_label: "null"
-    definition: "Form category or genre to which a resource belongs" 
-    usage_guidelines: 
-      - General "DMPS decided to not encode a difference between genre and topic, the D4 to D5 migration will need to account for the mapping"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Form category or genre to which a resource belongs"
+    usage_guidelines:
+      General: "DMPS decided to not encode a difference between genre and topic, the D4 to D5 migration will need to account for the mapping"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "null"
     property_uri: "bf:genreForm"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "skos:Concept"
     data_type: null
-    cardinality: 
-      minimum:  null
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Topic); UI display (null); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: null
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Topic); UI display (null); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Genre"
-      dc: "dc:subject"		
+      dc: "dc:subject"
       ucsd_d4: "null"
-  # null
 
-
-- "subject:lithology":
+  "subject:lithology":
     display_label: "Lithology"
-    definition: "The combination of all litho-stratigraphic names for the rock from which the cataloged item was collected." 
-    usage_guidelines: 
-      - General "Typically, an archaeological collection will provide these somewhat controlled terms"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The combination of all litho-stratigraphic names for the rock from which the cataloged item was collected."
+    usage_guidelines:
+      General: "Typically, an archaeological collection will provide these somewhat controlled terms"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "terrigenous"
     property_uri: "dwc:lithostratigraphicTerms"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "skos:Concept"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Lithology); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Lithology); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Subject"
-      dc: "dc:subject"		
+      dc: "dc:subject"
       ucsd_d4: "Subject:lithology"
-  # null
 
-
-- "subject:name":
+  "subject:name":
     display_label: "Name"
-    definition: "A name of the person that the resource is about." 
-    usage_guidelines: 
-      - General "Ensure that if a name occurs more than once in a collection, it appears in the exact same form to avoid creation of duplicate authority records"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A name of the person that the resource is about."
+    usage_guidelines:
+      General: "Ensure that if a name occurs more than once in a collection, it appears in the exact same form to avoid creation of duplicate authority records"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Einstein, Albert, 1879-1955"
     property_uri: "foaf:name"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "ucsd:Agent"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Topic); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Topic); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Subject"
-      dc: "dc:subject"		
+      dc: "dc:subject"
       ucsd_d4: "Subject:common name; Subject:conference name; Subject:corporate name; Subject:family name; Subject:personal name"
-  # null
 
-
-- "subject:scientific name":
+  "subject:scientific name":
     display_label: "Scientific Name"
-    definition: "The full scientific name of a species that the object is about." 
-    usage_guidelines: 
-      - General "This only applies to the species (and equivalent) level of classification, and certainly not higher orders of classification, i.e. not group, family, etc."
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "The full scientific name of a species that the object is about."
+    usage_guidelines:
+      General: "This only applies to the species (and equivalent) level of classification, and certainly not higher orders of classification, i.e. not group, family, etc."
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Rattus norvegicus"
     property_uri: "dwc:scientificName"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "skos:Concept"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Scientific Name); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Scientific Name); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Subject"
-      dc: "dc:subject"		
+      dc: "dc:subject"
       ucsd_d4: "Subject:scientific name"
-  # null
 
-
-- "subject:series":
+  "subject:series":
     display_label: "Series"
-    definition: "Contains the (standardized/authoritative/prefLabel) title of the serial, group of elated items, or event" 
-    usage_guidelines: 
-      - General "Use the controlled form of the series name if adding to an existing series. If creating a new series, ensure all object have the same series name"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Contains the (standardized/authoritative/prefLabel) title of the serial, group of elated items, or event"
+    usage_guidelines:
+      General: "Use the controlled form of the series name if adding to an existing series. If creating a new series, ensure all object have the same series name"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Experiment title: Intracellular injection of an astrocyte"
     property_uri: "ucsd:series"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "skos:Concept"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Series); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Series); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Subject"
-      dc: "dc:subject"		
+      dc: "dc:subject"
       ucsd_d4: "Subject:series"
-  # null
 
-
-- "title":
+  "title":
     display_label: "n/a"
-    definition: "The title of the resource." 
-    usage_guidelines: 
-      - General "Preferrably, make the titles of resources unique within a collection. However, there is no hard rule against duplicate object titles"
-      - RDCP "Currently, objects from a research paper have "Data from: " prefixes in the title of the object and collection"
-      - DLDP/SCA "null"
-      - Music "Remove "[ ]". Remove author from Title. Merge Subtitle into Title"
-      - CLR "Use the exact desired title for the collection"
+    definition: "The title of the resource."
+    usage_guidelines:
+      General: "Preferrably, make the titles of resources unique within a collection. However, there is no hard rule against duplicate object titles"
+      RDCP: 'Currently, objects from a research paper have "Data from: " prefixes in the title of the object and collection'
+      "DLDP/SCA": "null"
+      Music: 'Remove "[ ]". Remove author from Title. Merge Subtitle into Title'
+      CLR: "Use the exact desired title for the collection"
     requirement: "Required"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Sun God: decorated as Rambird, 1986: front view"
     property_uri: "dc:title"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  1
-      maximum:  1
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 1
+      maximum: 1
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Title"
-      dc: "dc:title"		
+      dc: "dc:title"
       ucsd_d4: "Title"
-  # null
 
-
-- "title:alternative":
+  "title:alternative":
     display_label: "n/a"
-    definition: "An alternative title for the resource." 
-    usage_guidelines: 
-      - General "For alternate transcribed titles, it may be more appropriate to record that in the statement of responsibility, depending on the source data"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "An alternative title for the resource."
+    usage_guidelines:
+      General: "For alternate transcribed titles, it may be more appropriate to record that in the statement of responsibility, depending on the source data"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Rambird, 1986"
     property_uri: "dc:alternative"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (None); Indexed for searching (Yes); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (None); Indexed for searching (Yes); Other (null)"
+    mapping:
       dpla: "Alternate Title"
-      dc: "dc:alternative"		
+      dc: "dc:alternative"
       ucsd_d4: "Variant"
-  # null
 
-
-- "null":
+  "title:part name":
     display_label: "n/a"
-    definition: "null" 
-    usage_guidelines: 
-      - General "null"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A part or section name of a title"
+    usage_guidelines:
+      General: "Use a string that designates the part name"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "do not use"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
-    sample_value: "null"
-    property_uri: "null"
-    available_on: 
-      class: 
-        -  "null"
-    range: 
-      class_uri: "null"
-    data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
-      dpla: "null"
-      dc: "null"		
-      ucsd_d4: "Translation"
-  # null
-
-
-- "title:part name":
-    display_label: "n/a"
-    definition: "A part or section name of a title" 
-    usage_guidelines: 
-      - General "Use a string that designates the part name"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "do not use"
-      - CLR "null"
-    requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "null"
     property_uri: "modsrdf:partName"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "null"
-      dc: "dc:alternative"		
+      dc: "dc:alternative"
       ucsd_d4: "Part name"
-  # null
 
-
-- "title:part number":
+  "title:part number":
     display_label: "n/a"
-    definition: "A part or section number of a title" 
-    usage_guidelines: 
-      - General "Use a string that designates the part number"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "do not use"
-      - CLR "null"
+    definition: "A part or section number of a title"
+    usage_guidelines:
+      General: "Use a string that designates the part number"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "do not use"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "null"
     property_uri: "modsrdf:partNumber"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "null"
-      dc: "dc:alternative"		
+      dc: "dc:alternative"
       ucsd_d4: "Part number"
-  # null
 
-
-- "title:subtitle":
+  "title:subtitle":
     display_label: "n/a"
-    definition: "A subtitle for the resource (usually transcribed)." 
-    usage_guidelines: 
-      - General "Use a string that captures the subtitle"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "do not use"
-      - CLR "null"
+    definition: "A subtitle for the resource (usually transcribed)."
+    usage_guidelines:
+      General: "Use a string that captures the subtitle"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "do not use"
+      CLR: "null"
     requirement: "Required"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "front view"
     property_uri: "modsrdf:subTitle"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  1
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: 1
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "null"
-      dc: "null"		
+      dc: "null"
       ucsd_d4: "Subtitle"
-  # null
 
-
-- "type of resource":
+  "type of resource":
     display_label: "Formats"
-    definition: "The nature or genre of the resource." 
-    usage_guidelines: 
-      - General "Emphasis is placed on the nature of the resource, not the strict digital form. For instance, although a file may technically be a binary object, its nature is might be as text."
-      - RDCP "The lines between data, software, and text can be thin, but in general: scripts are considered software, while e.g. a readme about the script is considered text, and a delimited file output from running the script is considered data"
-      - DLDP/SCA "null"
-      - Music "Map RDA content terms to an appropriate DAMS type of resource"
-      - CLR "null"
+    definition: "The nature or genre of the resource."
+    usage_guidelines:
+      General: "Emphasis is placed on the nature of the resource, not the strict digital form. For instance, although a file may technically be a binary object, its nature is might be as text."
+      RDCP: "The lines between data, software, and text can be thin, but in general: scripts are considered software, while e.g. a readme about the script is considered text, and a delimited file output from running the script is considered data"
+      "DLDP/SCA": "null"
+      Music: "Map RDA content terms to an appropriate DAMS type of resource"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "id.loc Resource Types"
+    controlled_value:
+      sources:
+        - "id.loc Resource Types"
     sample_value: "Still Image"
     property_uri: "dc:type"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "skos:Concept"
     data_type: null
-    cardinality: 
-      minimum:  1
-      maximum:  null
-    index_documentation:  "Faceted (y); Facet group (Format); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 1
+      maximum: null
+    index_documentation: "Faceted (y); Facet group (Format); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Type"
-      dc: "dc:type"		
+      dc: "dc:type"
       ucsd_d4: "Type of Resource"
-  # null
 
-
-- "copyright status":
+  "copyright status":
     display_label: "Copyright"
-    definition: "Information on the known copyright status of a resource." 
-    usage_guidelines: 
-      - General "Selected from controlled values: Under copyright, Public domain, or Unknown. Generates boilerplate text."
-      - RDCP "The usual value that is selected for RDCP projects is "Under copyright""
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Information on the known copyright status of a resource."
+    usage_guidelines:
+      General: "Selected from controlled values: Under copyright, Public domain, or Unknown. Generates boilerplate text."
+      RDCP: 'The usual value that is selected for RDCP projects is "Under copyright"'
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "Required"
-    controlled_value: 
-      sources: 
-        -  "id.loc copyrightStatus - http://id.loc.gov/vocabulary/preservation/copyrightStatus.html"
+    controlled_value:
+      sources:
+        - "id.loc copyrightStatus - http://id.loc.gov/vocabulary/preservation/copyrightStatus.html"
     sample_value: "Under copyright"
     property_uri: "premis:hasCopyrightStatus"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "xsd:anyURI"
     data_type: null
-    cardinality: 
-      minimum:  1
-      maximum:  1
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 1
+      maximum: 1
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Standardized Rights Statement"
-      dc: "dc:rights"		
+      dc: "dc:rights"
       ucsd_d4: "Copyright status"
-  # null
 
-
-- "rights statement":
+  "rights statement":
     display_label: "Copyright"
-    definition: "Statement about various property rights associated with the resource, including intellectual property rights" 
-    usage_guidelines: 
-      - General "Use when specific information regarding intellectual property rights, and e.g. information about how permission was sought and obtained to use the resource"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "Statement about various property rights associated with the resource, including intellectual property rights"
+    usage_guidelines:
+      General: "Use when specific information regarding intellectual property rights, and e.g. information about how permission was sought and obtained to use the resource"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "Required"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Use: This work is available from the UC San Diego Library. This digital copy of the work is intended to support research, teaching, and private study."
     property_uri: "edm:rights"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  1
-      maximum:  1
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 1
+      maximum: 1
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Rights"
-      dc: "dc:rights"		
+      dc: "dc:rights"
       ucsd_d4: "null"
   # these are "boiler plate" currently -- not sure if it needs to include "required" in guidelines if automatically created
 
-
-- "rights note":
+  "rights note":
     display_label: "Copyright"
-    definition: "A free text note capturing copyright information" 
-    usage_guidelines: 
-      - General "null"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A free text note capturing copyright information"
+    usage_guidelines:
+      General: "null"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "Required"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "Gypsy's Window, Beyond the End, Homage, A Ring of Changes by Denise Levertov, from COLLECTED EARLIER POEMS 1940-1960, copyright © 1957 by Denise Levertov. Used by permission of New Directions Publishing Corp. "
     property_uri: "dc:rights "
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "rdfs:Literal"
     data_type: null
-    cardinality: 
-      minimum:  1
-      maximum:  1
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 1
+      maximum: 1
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "null"
-      dc: "null"		
+      dc: "null"
       ucsd_d4: "null"
   # these are "boiler plate" currently -- not sure if it needs to include "required" in guidelines if automatically created
 
 
-- "rights holder":
+  "rights holder":
     display_label: "Rights Holder"
-    definition: "A person or organization owning or managing rights over the resource." 
-    usage_guidelines: 
-      - General "Use a controlled name for the entity. New entities will be created as agent authorities"
-      - RDCP "Unless otherwise stated, "UC Regents" is the default rights holder for RDCP collections."
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "A person or organization owning or managing rights over the resource."
+    usage_guidelines:
+      General: "Use a controlled name for the entity. New entities will be created as agent authorities"
+      RDCP: "Unless otherwise stated, 'UC Regents' is the default rights holder for RDCP collections."
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "UC Regents"
     property_uri: "dc:rightsHolder"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "ucsd:Agent"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "Rights Holder"
-      dc: "dc:rightsHolder"		
+      dc: "dc:rightsHolder"
       ucsd_d4: "Copyright holder"
-  # null
 
-
-- "license":
+  "license":
     display_label: "License"
-    definition: "An associated license for the object (i.e. Creative Commons license, software licenses, etc.)" 
-    usage_guidelines: 
-      - General "It is most often used for RDCP collections, and can be used by the owner to license their software. Licenses must be granted by the owner of the resource"
-      - RDCP "The default license for UC Regents RDCP collections is the Creative Commons Attribution License, or "CC-BY""
-      - DLDP/SCA "Use of a specific license is not required, and is currently not common for DLDP and SC&A collections"
-      - Music "null"
-      - CLR "For RDCP CLRs, select the CC-BY license at time of object ingest"
+    definition: "An associated license for the object (i.e. Creative Commons license, software licenses, etc.)"
+    usage_guidelines:
+      General: "It is most often used for RDCP collections, and can be used by the owner to license their software. Licenses must be granted by the owner of the resource"
+      RDCP: "The default license for UC Regents RDCP collections is the Creative Commons Attribution License, or 'CC-BY'"
+      "DLDP/SCA": 'Use of a specific license is not required, and is currently not common for DLDP and SC&A collections'
+      Music: "null"
+      CLR: "For RDCP CLRs, select the CC-BY license at time of object ingest"
     requirement: "Required when applicable"
-    controlled_value: 
-      sources: 
-        -  "DAMS licenses controlled vocabulary"
+    controlled_value:
+      sources:
+        - "DAMS licenses controlled vocabulary"
     sample_value: "CC-BY"
     property_uri: "dc:license"
-    available_on: 
-      class: 
-        -  Object
-    range: 
+    available_on:
+      class:
+        - Object
+    range:
       class_uri: "xsd:anyURI"
     data_type: null
-    cardinality: 
-      minimum:  0
-      maximum:  null
-    index_documentation:  "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: 0
+      maximum: null
+    index_documentation: "Faceted (n); Facet group (null); UI display (Public); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "null"
-      dc: "dc:license"		
+      dc: "dc:license"
       ucsd_d4: "CC license"
-  # null
 
-
-- "null":
+  "null":
     display_label: "null"
-    definition: "null" 
-    usage_guidelines: 
-      - General "null"
-      - RDCP "null"
-      - DLDP/SCA "null"
-      - Music "null"
-      - CLR "null"
+    definition: "null"
+    usage_guidelines:
+      General: "null"
+      RDCP: "null"
+      "DLDP/SCA": "null"
+      Music: "null"
+      CLR: "null"
     requirement: "null"
-    controlled_value: 
-      sources: 
-        -  "null"
+    controlled_value:
+      sources:
+        - "null"
     sample_value: "null"
     property_uri: "null"
-    available_on: 
-      class: 
-        -  "Rows below not for YAML conversion"
-    range: 
+    available_on:
+      class:
+        - "Rows below not for YAML conversion"
+    range:
       class_uri: "null"
     data_type: null
-    cardinality: 
-      minimum:  null
-      maximum:  null
-    index_documentation:  "Faceted (null); Facet group (null); UI display (null); Indexed for searching (null); Other (null)"
-    mapping: 
+    cardinality:
+      minimum: null
+      maximum: null
+    index_documentation: "Faceted (null); Facet group (null); UI display (null); Indexed for searching (null); Other (null)"
+    mapping:
       dpla: "null"
-      dc: "null"		
+      dc: "null"
       ucsd_d4: "null"
-  # null
-...
-
