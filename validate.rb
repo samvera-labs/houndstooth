@@ -44,5 +44,5 @@ end
 if valid?
   exit(true)
 else
-  exit(0)
+  exit(1)
 end
