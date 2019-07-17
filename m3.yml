@@ -27,7 +27,7 @@ profile:
 # Definition of the mappings to different services or target schemas referenced in the profile.
 #
 # mappings:
-# - prefix: the abbreviation used to indicate the mapping target
+#   prefix: the abbreviation used to indicate the mapping target
 #   name: a fuller name of the mapping
 
 mappings:
@@ -44,16 +44,16 @@ mappings:
 # Definition of the classes used in the profile.
 #
 # classes:
-# - class_name:  Stable generic local name for the class.
-#   display_label:  Human-readable label for the class.
-#   schema_uri:  URI for the class, from a local or shared ontology.
+#   class_name:  Stable generic local name for the class.
+#     display_label:  Human-readable label for the class.
+#     schema_uri:  URI for the class, from a local or shared ontology.
 
 classes:
-  GenericWork:
+  genericWork:
     display_label: "Generic Work"
-  Collection:
+  collection:
     display_label: "Collection"
-  Agent:
+  agent:
     display_label: "Agent"
     schema_uri: http://id.loc.gov/ontologies/bibframe/Agent
 
@@ -66,13 +66,13 @@ classes:
 #   property_name:  Stable generic local name for the property.
 #     display_label:  Human-readable label for the property.  Context specific display_labels provided as a list using the class and value.
 #        default: Default display label.
-#        - MyCustomWorkType: Context dependent display label.
+#        MyCustomWorkType: Context dependent display label.
 #     definition:  The definition for the metadata property being described.
 #        default: Default definition.
-#        - MyCustomWorkType: Context dependent definition.
+#        MyCustomWorkType: Context dependent definition.
 #     usage_guidelines:  Description of how the defined property should be used (helper text, hints, deposit text, etc.)
 #        default: Default usage guidelines.
-#        - MyCustomWorkType: Context dependent usage guidelines.
+#        MyCustomWorkType: Context dependent usage guidelines.
 #     requirement:  Whether the property is required, optional, recommended, etc. from a best practices standpoint.
 #     controlled_values:
 #       format:  Controlled vocabulary constraint on the property's value.
@@ -82,7 +82,7 @@ classes:
 #     sample_value:  Example value(s) for the property.
 #     property_uri:  URI for the property, from a local or shared ontology.
 #     available_on:  The objects and/or work types is this property available on (defined in "class definitions" section.)
-#         - Collection
+#         - collection
 #         - MyCustomWorkType
 #     range: Class constraint on the property's value.  If there is no value provided, the assumed default range is http://www.w3.org/2000/01/rdf-schema#Literal
 #     data_type:  Type constraint on the property's value. If there is no value provided, the assumed default data_type is http://www.w3.org/2001/XMLSchema#string. If multiple data types are possible, general best practice is to use the most specific type that applies to all values.  If multiple types are listed, the lowest common denominator will be used for validation.
@@ -117,8 +117,8 @@ properties:
     property_uri: http://purl.org/dc/elements/1.1/creator
     available_on:
       class:
-        - Collection
-        - MyCustomWorkType
+        - collection
+        - genericWork
     range: http://www.w3.org/2000/01/rdf-schema#Literal
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
@@ -141,8 +141,7 @@ properties:
     property_uri: http://purl.org/dc/terms/created
     available_on:
       class:
-        - GenericWork
-        - Image
+        - genericWork
     range: http://www.w3.org/2000/01/rdf-schema#Literal
     data_type: http://www.w3.org/2001/XMLSchema#date
     syntax: edtf
@@ -166,9 +165,8 @@ properties:
     property_uri: http://purl.org/dc/terms/title
     available_on:
       class:
-        - GenericWork
-        - Image
-        - Collection
+        - genericWork
+        - collection
     range: http://www.w3.org/2000/01/rdf-schema#Literal
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
