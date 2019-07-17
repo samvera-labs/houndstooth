@@ -16,3 +16,10 @@ m3.yml
   122:4     warning  comment not indented like content  (comments-indentation)
   124:6     warning  comment not indented like content  (comments-indentation)
 ```
+
+# Tools
+
+* yamllint (`gem install yamllint`) - comannd line YAML validation
+* [jsonschemalint](https://jsonschemalint.com/#/version/draft-07/markup/json) - web-based tool for validating json against a JSON schema
+* [YAML Converter](https://codebeautify.org/yaml-to-json-xml-csv) - web-based tool for converting YAML to JSON
+* `validate.rb` - lightweight script to validate an m3 YAML specification against the JSON Schema (`m3_json_schema.json`); run with ruby validate.rb m3.yml
