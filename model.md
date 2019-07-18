@@ -1,51 +1,67 @@
 ---
 layout: default
-title: Glorious Model
+title: M3 Model Documentation
 ---
 
-<header class="intro">
-    <h1>{{ page.title }}</h1>
-</header>
+# {{ page.title }}
 
 ## Introduction
-Some introduction text to the model  
-  
-## Administrative Information 
+
+This is documentation of the M3 model. It is auto-generated from the YAML representation via the static website generator software [Jekyll](https://jekyllrb.com/). The file that generates this documentation is named `m3.yml` ([source](https://github.com/samvera-labs/houndstooth/blob/master/m3.yml)).  
+
+## Administrative Information
+
 ### Profile  
+
+Administrative information about the profile or model defined in the file.
 <table>
 <thead>
 <tr>
 <th>Property</th>
-<th>Example Value</th>
+<th>Value</th>
 </tr>
 </thead>
 {% for e in site.data.m3.profile %}
 {% for item in e %}
 {% if forloop.first %}<tr>{% endif %}
 <td>{{item}}</td>
-{% if item == profile.version %}
-{% break %}
-{% endif %}
 {% endfor %}
 {% endfor %}
 </table>
 
+## Mapping Definitions
+
+Definition of the mappings to different services or target schemas referenced in the profile.
+
+{% for e in site.data.m3.mappings %}
+  **{{ e[0] }}** - 
+  {% for item in e %}{{ item.name }}{% endfor %}
+{% endfor %}
+
 ## Class Definitions
-### Classes
+
+Definition of the classes used in the profile.
 
 <table>
 <thead>
 <tr>
+<th>Class</th>
 <th>Display Label</th>
-<th>Schema URI</th>
+<th>URI</th>
 </tr>
 </thead>
 {% for e in site.data.m3.classes %}
-<tr>
-<td>{{e.display_label}}</td>
-<td>{{e.schema_uri}}</td>
-</tr>
+{% for item in e %}
+{% if item.display_label %}<tr><td>{{e[0]}}</td><td>{{item.display_label}}</td><td><a href="{{item.schema_uri}}">{{item.schema_uri}}</a></td></tr>{% endif %}
+{% endfor %}
 {% endfor %}
 </table>
 
 ## Property Definitions
+
+Definition of the properties used in the model.
+
+{% for e in site.data.m3.properties %}
+  **{{ e[0] }}** - 
+  {% for item in e %}{{ item }}{% endfor %}
+{% endfor %}
