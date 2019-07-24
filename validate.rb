@@ -5,6 +5,8 @@ require 'pathname'
 
 @schema = Pathname.new('m3_json_schema.json')
 
+puts "supply the file to validate, eg. ruby validate.rb m3.yml" if ARGV[0].nil?
+exit if ARGV[0].nil?
 puts "can't fine the file" unless File.exist?(ARGV[0])
 exit unless File.exist?(ARGV[0])
 

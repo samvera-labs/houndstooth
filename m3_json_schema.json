@@ -5,11 +5,21 @@
   "title": "The M3 JSON Schema",
   "comment": "profile, classes and properties are required; mappings is not",
   "required": [
+    "schema_version",
     "profile",
     "classes",
     "properties"
   ],
   "properties": {
+
+    "schema_version": {
+      "$id": "#/properties/schema_version",
+      "type": "string",
+      "title": "Schema Version",
+      "description": "Version of the JSON Schema to validate against. Change this to make a new release.",
+      "pattern": "1.0.beta"
+    },
+
     "profile": {
       "$id": "#/properties/profile",
       "type": "object",
