@@ -14,7 +14,7 @@
 #   type:  type of thing does the profile describe
 #   version:  version of the profile
 
-schema_version: "1.0.beta"
+m3_version: "1.0.beta"
 
 profile:
   responsibility: https://wiki.duraspace.org/display/samvera/Samvera+Metadata+Interest+Group
