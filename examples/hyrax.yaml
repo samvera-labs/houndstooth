@@ -11,7 +11,7 @@
 profile:
   responsibility: https://samvera.org/
   responsibility_statement: Samvera Community
-  date_modified: 2019-06-26
+  date_modified: "2019-06-26"
   type: concept
   version: 0.2
 
@@ -76,7 +76,7 @@ properties:
     cardinality:
       minimum: 0
       maximum:
-    index_documentation: "Keyword should be indexed as searchable."
+    index_documentation: "Keyword should be indexed as searchable." #this is different than current default, currently keyword is facetable but it shouldn't be.
 
   rights_statement:
     display_label: "Rights Statement"
@@ -302,6 +302,7 @@ properties:
     mapping:
       dpla: "http://purl.org/dc/elements/1.1/relation"
 
+  #This property exists but purpose is unclear. Might need to be removed.
   source:
     display_label: "Source"
     requirement: recommended
