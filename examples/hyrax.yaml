@@ -384,7 +384,10 @@ properties:
         - GenericWork
         - Image
     range: http://www.w3.org/2000/01/rdf-schema#Literal
-    data_type: http://www.w3.org/2001/XMLSchema#string
+    data_type:
+      - http://www.w3.org/2001/XMLSchema#string
+      - http://www.w3.org/2001/XMLSchema#date
+      - http://www.w3.org/2001/XMLSchema#dateTime
     cardinality:
       minimum: 1
       maximum: 1
@@ -399,7 +402,10 @@ properties:
         - GenericWork
         - Image
     range: http://www.w3.org/2000/01/rdf-schema#Literal
-    data_type: http://www.w3.org/2001/XMLSchema#string
+    data_type:
+        - http://www.w3.org/2001/XMLSchema#string
+        - http://www.w3.org/2001/XMLSchema#date
+        - http://www.w3.org/2001/XMLSchema#dateTime
     cardinality:
       minimum: 0
       maximum:
