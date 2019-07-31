@@ -15,6 +15,19 @@ profile:
   type: concept
   version: 0.2
 
+#---------------------------------------------------------
+# Mapping Definitions
+#---------------------------------------------------------
+# Definition of the mappings to different services or target schemas referenced in the profile.
+#
+# mappings:
+#   prefix: the abbreviation used to indicate the mapping target
+#   name: a fuller name of the mapping
+
+mappings:
+  dpla:
+    name: Digital Public Library of America
+
 # Class Definitions
 
 classes:
