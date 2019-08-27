@@ -6,14 +6,29 @@
 # Hyrax Profile
 # Corresponds with the property list found in the Hyrax MAP, with some updates based on reported metadata issues: https://samvera.github.io/metadata_application_profile.html
 
+m3_version: "1.0.beta"
+
 # Administrative information about the profile/model
 
 profile:
   responsibility: https://samvera.org/
   responsibility_statement: Samvera Community
-  date_modified: 2019-06-26
+  date_modified: "2019-06-26"
   type: concept
   version: 0.2
+
+#---------------------------------------------------------
+# Mapping Definitions
+#---------------------------------------------------------
+# Definition of the mappings to different services or target schemas referenced in the profile.
+#
+# mappings:
+#   prefix: the abbreviation used to indicate the mapping target
+#   name: a fuller name of the mapping
+
+mappings:
+  dpla:
+    name: Digital Public Library of America
 
 # Class Definitions
 
@@ -29,11 +44,15 @@ classes:
 
 properties:
   creator:
-    display_label: "Creator"
-    definition: "An entity primarily responsible for making the resource. Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity."
-    usage_guidelines: "Record in lastname, firstname order."
+    display_label: 
+      default: "Creator"
+    definition: 
+      default: "An entity primarily responsible for making the resource. Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity."
+    usage_guidelines: 
+      default: "Record in lastname, firstname order."
     requirement: required
-    sample_value: "Butler, Octavia"
+    sample_value: 
+      - "Butler, Octavia"
     property_uri: http://purl.org/dc/elements/1.1/creator
     available_on:
       class:
@@ -42,16 +61,19 @@ properties:
     range: http://www.w3.org/2000/01/rdf-schema#Literal
     cardinality:
       minimum: 1
-      maximum:
     index_documentation: "Creator should be indexed as searchable, displayable, and facetable."
     mapping:
       dpla: "http://purl.org/dc/terms/creator"
 
   keyword:
-    display_label: "Keyword"
-    definition: "Words or phrases you select to describe what the work is about. These are used to search for content."
+    display_label: 
+      default: "Keyword"
+      collection: "Keyword"
+    definition: 
+      default: "Words or phrases you select to describe what the work is about. These are used to search for content."
     requirement: recommended #https://github.com/samvera/hyrax/issues/3298
-    sample_value: "afrofuturism"
+    sample_value: 
+      - "afrofuturism"
     property_uri: https://schema.org/keywords #https://github.com/samvera/hyrax/issues/1505
     available_on:
       class:
@@ -62,19 +84,21 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
-    index_documentation: "Keyword should be indexed as searchable."
+    index_documentation: "Keyword should be indexed as searchable." #this is different than current default, currently keyword is facetable but it shouldn't be.
 
   rights_statement:
-    display_label: "Rights Statement"
-    definition: "Information about copyright, usage and access rights of the digital objects."
+    display_label: 
+      default: "Rights Statement"
+    definition: 
+      default: "Information about copyright, usage and access rights of the digital objects."
     requirement: required
     controlled_values:
       controlled_value_format: http://www.w3.org/2001/XMLSchema#anyURI
       controlled_value_sources:
         - http://rightsstatements.org/
         - http://creativecommons.org/
-    sample_value: http://rightsstatements.org/vocab/InC/1.0/
+    sample_value: 
+      - http://rightsstatements.org/vocab/InC/1.0/
     property_uri: http://www.europeana.eu/schemas/edm/rights
     available_on:
       class:
@@ -90,10 +114,13 @@ properties:
       dpla: "http://www.europeana.eu/schemas/edm/rights"
 
   contributor:
-    display_label: "Contributors"
-    definition: "A person or group you want to recognize for playing a role in the creation of the work, but not the primary role."
+    display_label: 
+      default: "Contributors"
+    definition: 
+      default: "A person or group you want to recognize for playing a role in the creation of the work, but not the primary role."
     requirement: recommended
-    sample_value: "Harrison, Vashti"
+    sample_value: 
+      - "Harrison, Vashti"
     property_uri: http://purl.org/dc/elements/1.1/contributor
     available_on:
       class:
@@ -103,16 +130,20 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
     index_documentation: "Contributor should be indexed as searchable and displayable."
     mapping:
       dpla: "http://purl.org/dc/terms/contributor"
 
   description:
-    display_label: "Description" #https://github.com/samvera/hyrax/issues/3296 (this is Done in Hyrax 3.0.0) How do we indicate that it's a different label on Collection.
-    definition: "For GenericWork and Image: Free-text notes about the work. Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource. For Collection: A brief overarching description that applies to all works collected in this set. For example, \"Theses and supplementary files created by the School of Earth Sciences graduate students.\"" # Again, if it's differently on Collection?
+    display_label: 
+      default: "Description" #https://github.com/samvera/hyrax/issues/3296 (this is Done in Hyrax 3.0.0) How do we indicate that it's a different label on Collection.
+      collection: "Description"
+    definition: 
+      default: "Free-text notes about the work. Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."
+      collection: "For Collection: A brief overarching description that applies to all works collected in this set. For example, \"Theses and supplementary files created by the School of Earth Sciences graduate students.\""
     requirement: recommended
-    sample_value: "This image has been taken from scan 000361 from volume 02 of \"Nouvelle Histoire de Lyon et des provinces de Lyonnais, Forez, Beaujolais, etc.\""
+    sample_value: 
+      - "This image has been taken from scan 000361 from volume 02 of \"Nouvelle Histoire de Lyon et des provinces de Lyonnais, Forez, Beaujolais, etc.\""
     property_uri: http://purl.org/dc/elements/1.1/description
     available_on:
       class:
@@ -123,19 +154,21 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
     index_documentation: "Description should be indexed as searchable and for display in search results."
     mapping:
       dpla: "http://purl.org/dc/terms/description"
 
   license:
-    display_label: "License"
-    definition: "Licensing and distribution information governing access to the work. Select from the provided drop-down list."
+    display_label: 
+      default: "License"
+    definition: 
+      default: "Licensing and distribution information governing access to the work. Select from the provided drop-down list."
     requirement: recommended
     controlled_values:
       controlled_value_format: http://www.w3.org/2001/XMLSchema#anyURI
       controlled_value_sources: http://creativecommons.org/
-    sample_value: http://creativecommons.org/licenses/by-nc-nd/4.0/
+    sample_value: 
+      - http://creativecommons.org/licenses/by-nc-nd/4.0/
     property_uri: http://purl.org/dc/terms/license #https://github.com/samvera/hyrax/issues/3293
     available_on:
       class:
@@ -148,10 +181,13 @@ properties:
     index_documentation: "License should be indexed as a facetable field."
 
   publisher:
-    display_label: "Publisher"
-    definition: "The person or group making the work available. Generally this is the institution."
+    display_label: 
+      default: "Publisher"
+    definition: 
+      default: "The person or group making the work available. Generally this is the institution."
     requirement: recommended
-    sample_value: "Indiana University, Bloomington"
+    sample_value: 
+      - "Indiana University, Bloomington"
     property_uri: http://purl.org/dc/elements/1.1/publisher
     available_on:
       class:
@@ -161,39 +197,41 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
     index_documentation: "Publisher should be indexed as a searchable and facetable field."
     mapping:
       dpla: "http://purl.org/dc/terms/publisher"
 
   date_created:
-    display_label: "Date Created"
-    definition: "The date on which the work was created."
-    usage_guidelines: "Enter in yyyy-mm-dd format."
+    display_label: 
+      default: "Date Created"
+    definition: 
+      default: "The date on which the work was created."
+    usage_guidelines: 
+      default: "Enter in yyyy-mm-dd format."
     requirement: recommended
-    sample_value: "2019-04-11"
+    sample_value: 
+      - "2019-04-11"
     property_uri: http://purl.org/dc/terms/created
     available_on:
       class:
         - GenericWork
         - Image
     range: http://www.w3.org/2000/01/rdf-schema#Literal
-    data_type:
-      - http://www.w3.org/2001/XMLSchema#string
-      - http://www.w3.org/2001/XMLSchema#date
-      - http://www.w3.org/2001/XMLSchema#dateTime
+    data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
     index_documentation: "Date created should be indexed as a searchable, displayable, and facetable field."
     mapping:
       dpla: "http://purl.org/dc/elements/1.1/date"
 
   subject:
-    display_label: "Subject"
-    definition: "Headings or index terms describing what the work is about; these do need to conform to an existing vocabulary."
+    display_label: 
+      default: "Subject"
+    definition: 
+      default: "Headings or index terms describing what the work is about; these do need to conform to an existing vocabulary."
     requirement: recommended
-    sample_value: "Ants"
+    sample_value: 
+      - "Ants"
     property_uri: http://purl.org/dc/elements/1.1/subject
     available_on:
       class:
@@ -203,16 +241,18 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
     index_documentation: "Subject should be indexed as searchable and facetable."
     mapping:
       dpla: "http://purl.org/dc/terms/subject"
 
   language:
-    display_label: "Language"
-    definition: "The language of the work's content."
+    display_label: 
+      default: "Language"
+    definition: 
+      default: "The language of the work's content."
     requirement: recommended
-    sample_value: "French"
+    sample_value: 
+      - "French"
     property_uri: http://purl.org/dc/elements/1.1/language
     available_on:
       class:
@@ -222,16 +262,18 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
     index_documentation: "Language should be indexed as searchable and facetable."
     mapping:
       dpla: "http://purl.org/dc/terms/language"
 
   identifier:
-    display_label: "Identifier"
-    definition: "A unique handle identifying the work. An example would be a DOI for a journal article, or an ISBN or OCLC number for a book."
+    display_label: 
+      default: "Identifier"
+    definition: 
+      default: "A unique handle identifying the work. An example would be a DOI for a journal article, or an ISBN or OCLC number for a book."
     requirement: recommended
-    sample_value: "https://purl.dlib.indiana.edu/iudl/media/682x11zs2s"
+    sample_value: 
+      - "https://purl.dlib.indiana.edu/iudl/media/682x11zs2s"
     property_uri: http://purl.org/dc/terms/identifier
     available_on:
       class:
@@ -241,19 +283,21 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
     index_documentation: "Identifier should be indexed as searchable."
     mapping:
       dpla: "http://purl.org/dc/terms/identifier"
 
   based_near:
-    display_label: "Location"
-    definition: "A place name related to the work, such as its site of publication, or the city, state, or country the work contents are about. Calls upon the GeoNames web service."
+    display_label: 
+      default: "Location"
+    definition: 
+      default: "A place name related to the work, such as its site of publication, or the city, state, or country the work contents are about. Calls upon the GeoNames web service."
     requirement: recommended
     controlled_values:
       controlled_value_format: literal
       controlled_value_sources: http://www.geonames.org
-    sample_value: "Peoria, Illinois, United States"
+    sample_value: 
+      - "Peoria, Illinois, United States"
     property_uri: http://xmlns.com/foaf/0.1/based_near
     available_on:
       class:
@@ -263,36 +307,38 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#anyURI
     cardinality:
       minimum: 0
-      maximum:
     index_documentation: "Location should be indexed as searchable and facetable."
     mapping:
       dpla: "http://purl.org/dc/terms/spatial"
 
   related_url:
-    display_label: "Related URL"
-    definition: "A link to a website or other specific content (audio, video, PDF document) related to the work. An example is the URL of a research project from which the work was derived."
+    display_label: 
+      default: "Related URL"
+    definition: 
+      default: "A link to a website or other specific content (audio, video, PDF document) related to the work. An example is the URL of a research project from which the work was derived."
     requirement: recommended
-    sample_value: "http://www.cnn.com"
+    sample_value: 
+      - "http://www.cnn.com"
     property_uri: http://www.w3.org/2000/01/rdf-schema#seeAlso
     available_on:
       class:
         - GenericWork
         - Image
     range: http://www.w3.org/2000/01/rdf-schema#Literal
-    data_type:
-      - http://www.w3.org/2001/XMLSchema#string
-      - http://www.w3.org/2001/XMLSchema#anyURI
+    data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
     index_documentation: "Related URL should be indexed as searchable." # Should it though?
     mapping:
       dpla: "http://purl.org/dc/elements/1.1/relation"
 
+  #This property exists but purpose is unclear. Might need to be removed.
   source:
-    display_label: "Source"
+    display_label: 
+      default: "Source"
     requirement: recommended
-    sample_value: "Collected Works of William Shakespeare"
+    sample_value: 
+      - "Collected Works of William Shakespeare"
     property_uri: http://purl.org/dc/terms/source
     available_on:
       class:
@@ -302,17 +348,19 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
     index_documentation: "Source should be indexed as searchable."
 
   resource_type:
-    display_label: "Resource type"
-    definition: "Pre-defined categories to describe the type of content being uploaded, such as 'article' or 'dataset.' More than one type may be selected."
+    display_label: 
+      default: "Resource type"
+    definition: 
+      default: "Pre-defined categories to describe the type of content being uploaded, such as 'article' or 'dataset.' More than one type may be selected."
     requirement: recommended
     controlled_values:
       controlled_value_format: http://www.w3.org/2000/01/rdf-schema#Literal
       controlled_value_sources: "local/path/to/yaml"
-    sample_value: "Article"
+    sample_value: 
+      - "Article"
     property_uri: http://purl.org/dc/terms/type
     available_on:
       class:
@@ -322,17 +370,20 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
     index_documentation: "Resource type should be indexed as searchable, displayable, and facetable."
     mapping:
       dpla: "http://purl.org/dc/terms/type"
 
   title:
-    display_label: "Title"
-    definition: "For GenericWork and Image: A name to aid in identifying a work or collection. For Collection: A name to aid in identifying the Administrative Set and to distinguish it from other Administrative Sets in the repository."
-  #  definition: "A name to aid in identifying the Administrative Set and to distinguish it from other Administrative Sets in the repository." #Collection
+    display_label: 
+      default: "Title"
+      collection: "Title"
+    definition: 
+      default: "For GenericWork and Image: A name to aid in identifying a work or collection. For Collection: A name to aid in identifying the Administrative Set and to distinguish it from other Administrative Sets in the repository."
+      collection: "A name to aid in identifying the Administrative Set and to distinguish it from other Administrative Sets in the repository."
     requirement: required
-    sample_value: "On the Road"
+    sample_value: 
+      - "On the Road"
     property_uri: http://purl.org/dc/terms/title
     available_on:
       class:
@@ -349,8 +400,11 @@ properties:
       dpla: "http://purl.org/dc/terms/title"
 
   depositor:
+    display_label:
+      default: "Depositor"
     requirement: required
-    sample_value: "jlhardes@iu.edu"
+    sample_value: 
+      - "person@example.edu"
     property_uri: http://id.loc.gov/vocabulary/relators/dpt
     available_on:
       class:
@@ -363,24 +417,47 @@ properties:
       maximum: 1
 
   date_uploaded:
+    display_label:
+      default: "Date Uploaded"
     requirement: required
-    sample_value: "2019-04-11"
+    sample_value: 
+      - "2019-04-11"
     property_uri: http://purl.org/dc/terms/dateSubmitted
     available_on:
       class:
         - GenericWork
         - Image
     range: http://www.w3.org/2000/01/rdf-schema#Literal
-    data_type: http://www.w3.org/2001/XMLSchema#string
+    data_type: http://www.w3.org/2001/XMLSchema#dateTime
     cardinality:
       minimum: 1
       maximum: 1
 
   date_modified:
-    display_label: "Last modified"
+    display_label: 
+      default: "Last modified"
     requirement: required
-    sample_value: "2019-04-11"
+    sample_value: 
+      - "2019-04-11"
     property_uri: http://purl.org/dc/terms/modified
+    available_on:
+      class:
+        - GenericWork
+        - Image
+    range: http://www.w3.org/2000/01/rdf-schema#Literal
+    data_type: http://www.w3.org/2001/XMLSchema#dateTime
+    cardinality:
+      minimum: 0
+
+  rights_note:
+    display_label: 
+      default: "Rights note"
+    definition: 
+      default: "Contains information about rights held in and over the resource."
+    requirement: recommended
+    sample_value: 
+      - "Rights held by Institution X."
+    property_uri: http://purl.org/dc/elements/1.1/rights #https://github.com/samvera/hyrax/issues/3294 (this is Done in Hyrax 3.0.0)
     available_on:
       class:
         - GenericWork
@@ -389,25 +466,15 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
-
-  rights_note:
-    display_label: "Rights note"
-    definition: "Contains information about rights held in and over the resource."
-    requirement: recommended
-    sample_value: "Rights held by Institution X."
-    property_uri: http://purl.org/dc/elements/1.1/rights #https://github.com/samvera/hyrax/issues/3294 (this is Done in Hyrax 3.0.0)
-    range: http://www.w3.org/2000/01/rdf-schema#Literal
-    data_type: http://www.w3.org/2001/XMLSchema#string
-    cardinality:
-      minimum: 0
-      maximum:
 
   access_rights:
-    display_label: "Access rights"
-    definition: "Contains information about who can access the resource or an indication of its security status."
+    display_label: 
+      default: "Access rights"
+    definition: 
+      default: "Contains information about who can access the resource or an indication of its security status."
     requirement: recommended
-    sample_value: "campus-only"
+    sample_value: 
+      - "campus-only"
     property_uri: http://purl.org/dc/terms/accessRights #https://github.com/samvera/hyrax/issues/3295
     available_on:
       class:
@@ -417,13 +484,15 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
 
   abstract:
-    display_label: "Abstract"
-    definition: "A summary of the resource. Examples include abstracts of a paper or citation information for a journal article."
+    display_label: 
+      default: "Abstract"
+    definition: 
+      default: "A summary of the resource. Examples include abstracts of a paper or citation information for a journal article."
     requirement: recommended
-    sample_value: "This is my article abstract. It tells you what the article is going to tell you. This is not a real abstract, it's an abstraction."
+    sample_value: 
+      - "This is my article abstract. It tells you what the article is going to tell you. This is not a real abstract, it's an abstraction."
     property_uri: http://purl.org/dc/terms/abstract #https://github.com/samvera/hyrax/issues/3297 (this is Done in Hyrax 3.0.0)
     available_on:
       class:
@@ -433,4 +502,3 @@ properties:
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
       minimum: 0
-      maximum:
