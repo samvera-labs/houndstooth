@@ -3,7 +3,7 @@
   "$id": "http://example.com/m3_json_schema.json",
   "type": "object",
   "title": "The M3 JSON Schema",
-  "comment": "profile, classes and properties are required; mappings is not",
+  "comment": "profile, classes and properties are required; contexts and mappings are not",
   "required": [
     "m3_version",
     "profile",
@@ -17,7 +17,7 @@
       "type": "string",
       "title": "Schema Version",
       "description": "Version number for the M3 specification. Change this to make a new release. Instances will be validated to check they have this version in place.",
-      "pattern": "1.0.beta1"
+      "pattern": "1.0.beta2"
     },
 
     "profile": {
@@ -137,6 +137,14 @@
             "examples": [
               "Generic Work"
             ]
+          },
+          "contexts": {
+            "type": "array",
+            "description": "A list of contexts in which this class may be used. Empty is taken to indicate all contexts.",
+            "comment": "Contexts must match a context defined in the contexts block.",
+            "examples": [
+              ["chem"]
+            ]
           }
         }
       },
@@ -162,6 +170,37 @@
         }
       ]
     },
+    "contexts": {
+      "$id": "#/properties/contexts",
+      "type": "object",
+      "title": "Context Definitions",
+      "description": "Definition of the contexts used in the profile. Contexts should be provided with a stable generic local name for the context. Names must be lower case alpha characters separated with underscores.",
+      "comment": "Context names are pattern matched.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["display_label"],
+        "properties": {
+          "display_label": {
+            "type": "string",
+            "description": "Human-readable label for the context.",
+            "comment": "For contexts, display label is a string.",
+            "examples": [
+              "Department of Chemistry"
+            ]
+          }
+        }
+      },
+      "propertyNames": {
+        "pattern": "^[a-z_]*$"
+      },
+      "examples": [
+        {
+          "chem": {
+            "display_label": "Department of Chemistry"
+          }
+        }
+      ]
+    },
     "properties": {
       "$id": "#/properties/properties",
       "type": "object",
@@ -178,7 +217,7 @@
 
           "display_label": {
             "type": "object",
-            "description": "Human-readable label for the property.  Context specific display_labels provided as a list using the class and value.",
+            "description": "Human-readable label for the property.  Class or context specific display_labels provided as a list using the class and value.",
             "properties": {
               "default": {
                 "type": "string",
@@ -188,7 +227,8 @@
             "examples": [
               {
                 "default": "Default display label.",
-                "MyCustomWorkType": "Context dependent display label."
+                "MyCustomWorkType": "Context dependent display label.",
+                "project_x": "Project specific display label"
               }
             ]
           },
@@ -282,9 +322,14 @@
           },
           "available_on": {
             "type": "object",
-            "description": "The objects and/or work types is this property available on (defined in 'class definitions' section.)",
+            "description": "The classes (objects and/or work types) or contexts this property is available on (defined in 'classes' or 'contexts' section.)",
             "properties": {
               "class": {
+                "comment": "Listed values must match a class defined in the classes block.",
+                "type": "array"
+              },
+              "context": {
+                "comment": "Listed values must match a context defined in the contexts block.",
                 "type": "array"
               }
             },
@@ -293,6 +338,9 @@
                 "class": [
                   "Collection",
                   "MyCustomWorkType"
+                ],
+                "context": [
+                  "chem"
                 ]
               }
             ]

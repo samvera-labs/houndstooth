@@ -14,7 +14,7 @@
 #   type:  type of thing does the profile describe
 #   version:  version of the profile
 
-m3_version: "1.0.beta1"
+m3_version: "1.0.beta2"
 
 profile:
   responsibility: https://wiki.duraspace.org/display/samvera/Samvera+Metadata+Interest+Group
@@ -44,6 +44,7 @@ mappings:
 # Class Definitions
 #---------------------------------------------------------
 # Definition of the classes used in the profile.
+# Classes being a 
 #
 # classes:
 #   class_name:  Stable generic local name for the class.
@@ -53,11 +54,18 @@ mappings:
 classes:
   genericWork:
     display_label: "Generic Work"
+    contexts: ["department_y"]
   collection:
     display_label: "Collection"
   agent:
     display_label: "Agent"
     schema_uri: http://id.loc.gov/ontologies/bibframe/Agent
+
+contexts:
+  project_x:
+    display_label: "Project X"
+  department_y:
+    display_label: "Department Y"
 
 #---------------------------------------------------------
 # Property Definitions
@@ -132,6 +140,8 @@ properties:
       class:
         - collection
         - genericWork
+      context:
+        - department_y
     range: http://www.w3.org/2000/01/rdf-schema#Literal
     data_type: http://www.w3.org/2001/XMLSchema#string
     cardinality:
