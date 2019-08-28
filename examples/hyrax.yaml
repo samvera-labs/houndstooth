@@ -6,7 +6,7 @@
 # Hyrax Profile
 # Corresponds with the property list found in the Hyrax MAP, with some updates based on reported metadata issues: https://samvera.github.io/metadata_application_profile.html
 
-m3_version: "1.0.beta"
+m3_version: "1.0.beta1"
 
 # Administrative information about the profile/model
 
