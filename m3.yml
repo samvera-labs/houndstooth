@@ -93,7 +93,17 @@ classes:
 #       minimum:  Minimum number of values the property must have.  If there is no value provided, the assumed default minimum is 0.
 #       maximum:  Maximum number of values the property may have.  If there is no value provided, the assumed default maximum is unlimited.
 #     index_documentation: Free text documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc.
-#     indexing: a list of dynamic field names, taken from a controlled list; commonly used values are _tesim (stored searchable text), _teim (searchable text), _sim (string facetable), _ssm (string displayable)
+#     indexing: a list of dynamic field names, taken from a controlled list;
+#       Choose a value from this list.
+#         displayable - store as string, multi-valued
+#         facetable - index as a string, multi-valued
+#         searchable - index the specific data type, multi-valued
+#         sortable - index the specific data type
+#         stored_searchable - index and store the specific data type, multi-valued
+#         stored_sortable - index and store as string
+#         symbol - index and store as string, multi-valued
+#         fulltext_searchable - index as text, multi-valued with termVectors if enabled
+#       The consuming application is expected to use this information in conjunction with data types to determine the precise indexing strategy.
 #     validations:
 #       match_regex:  Regular Expression pattern each value must match to be valid.
 #     mapping: A pair value defining the target property for a mapping (defined in "mapping definitions" section.)
@@ -129,9 +139,9 @@ properties:
       maximum: 100
     index_documentation: "searchable, displayable, creator facet"
     indexing:
-      - "_tesim" # stored searchable
-      - "_sim" # facetable
-      - "_ssm" # displayable
+      - "stored_searchable"
+      - "facetable" 
+      - "displayable"
     mapping:
       dpla: http://purl.org/dc/elements/1.1/creator
 
