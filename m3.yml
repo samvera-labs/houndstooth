@@ -166,9 +166,9 @@ properties:
       minimum: 0
     index_documentation: "Date created should be indexed as a searchable, displayable, and facetable field."
     indexing:
-      - "_dtsim" # stored searchable
-      - "_dtim" # facetable
-      - "_dtsm" # displayable
+      - "stored_searchable"
+      - "facetable"
+      - "displayable"
     validations:
       match_regex: "[\\d]{4}"
     mapping:
@@ -195,7 +195,7 @@ properties:
       maximum: 1
     index_documentation: "Title should be indexed as searchable and displayable."
     indexing:
-      - "_tesim" # stored searchable
-      - "_ssm" # displayable
+      - "stored_searchable"
+      - "displayable"
     mapping:
       dpla: "http://purl.org/dc/terms/title"
