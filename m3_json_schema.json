@@ -17,7 +17,7 @@
       "type": "string",
       "title": "Schema Version",
       "description": "Version number for the M3 specification. Change this to make a new release. Instances will be validated to check they have this version in place.",
-      "pattern": "1.0.beta"
+      "pattern": "1.0.beta1"
     },
 
     "profile": {
@@ -356,6 +356,26 @@
             "description": "Free text documentation field about whether a property should be faceted, searchable, displayable, treated as text, etc.",
             "examples": [
               "searchable, displayable, creator facet"
+            ]
+          },
+          "indexing": {
+            "type": "array",
+            "description": "a list of dynamic field names, taken from a controlled list; commonly used values are _tesim (stored searchable text), _teim (searchable text), _sim (string facetable), _ssm (string displayable)",
+            "items": {
+              "type": "string",
+              "enum": [
+                "displayable",
+                "facetable",
+                "searchable",
+                "sortable",
+                "stored_searchable",
+                "stored_sortable",
+                "symbol",
+                "fulltext_searchable"
+              ]
+            },
+            "examples": [
+              ["_tesim", "_sim"]
             ]
           },
           "validations": {
