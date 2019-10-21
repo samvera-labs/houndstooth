@@ -1,0 +1,10 @@
+_site
+.sass-cache
+.jekyll-metadata
+.DS_Store
+.jekyll
+.bundle
+.sass-cache
+node_modules
+package.json
+.ruby-version
