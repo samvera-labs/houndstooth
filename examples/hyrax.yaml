@@ -118,6 +118,8 @@ properties:
       default: "Contributors"
     definition: 
       default: "A person or group you want to recognize for playing a role in the creation of the work, but not the primary role."
+    usage_guidelines: 
+      default: "Record in lastname, firstname order."
     requirement: recommended
     sample_value: 
       - "Harrison, Vashti"
