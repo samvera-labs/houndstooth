@@ -142,6 +142,9 @@
             "type": "array",
             "description": "A list of contexts in which this class may be used. Empty is taken to indicate all contexts.",
             "comment": "Contexts must match a context defined in the contexts block.",
+            "items": {
+              "type": "string"
+            },
             "examples": [
               ["chem"]
             ]
@@ -224,6 +227,9 @@
                 "description": "Default value."
               }
             },
+            "additionalProperties": {
+              "type": "string"
+            },
             "examples": [
               {
                 "default": "Default display label.",
@@ -241,6 +247,9 @@
                 "description": "Default value."
               }
             },
+            "additionalProperties": {
+              "type": "string"
+            },
             "examples": [
               {
                 "default": "Default display label.",
@@ -256,6 +265,9 @@
                 "type": "string",
                 "description": "Default value."
               }
+            },
+            "additionalProperties": {
+              "type": "string"
             },
             "examples": [
               {
@@ -283,11 +295,9 @@
               "sources": {
                 "type": "array",
                 "description": "Link to a controlled vocabulary source list or file path to a config file listing accepted values.",
-                "items": [
-                  {
-                    "type": "string"
-                  }
-                ],
+                "items": {
+                  "type": "string"
+                },
                 "examples": []
               }
             },
@@ -305,6 +315,9 @@
           "sample_value": {
             "type": "array",
             "description": "Example value(s) for the property.",
+            "items": {
+              "type": "string"
+            },
             "examples": [
               [
                 "Smith, John",
@@ -326,11 +339,17 @@
             "properties": {
               "class": {
                 "comment": "Listed values must match a class defined in the classes block.",
-                "type": "array"
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "context": {
                 "comment": "Listed values must match a context defined in the contexts block.",
-                "type": "array"
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               }
             },
             "examples": [
