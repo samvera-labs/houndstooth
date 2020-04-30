@@ -151,7 +151,7 @@ properties:
     definition:
       default: "The date on which the work was created."
     usage_guidelines:
-      default: “Enter in YYYY-MM-DD, YYYY-MM, or YYYY format.”
+      default: "Enter in yyyy-mm-dd format."
     requirement: recommended
     sample_value: 
       - "2019-04-11"
@@ -161,7 +161,7 @@ properties:
         - genericWork
     range: http://www.w3.org/2000/01/rdf-schema#Literal
     data_type: http://www.w3.org/2001/XMLSchema#date
-    syntax: W3CDTF
+    syntax: edtf
     cardinality:
       minimum: 0
     index_documentation: "Date created should be indexed as a searchable, displayable, and facetable field."
