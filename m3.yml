@@ -44,7 +44,6 @@ mappings:
 # Class Definitions
 #---------------------------------------------------------
 # Definition of the classes used in the profile.
-# Classes being a 
 #
 # classes:
 #   class_name:  Stable generic local name for the class.
