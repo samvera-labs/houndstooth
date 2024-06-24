@@ -466,7 +466,27 @@ properties:
     mapping:
       dpla: "http://purl.org/dc/terms/type"
       
-# bibliographic_citation listed in Hyrax 3.0 Map but greyed out. It is not in Nurax (Hyrax Version: 3.0.0.pre.rc2).
+   bibliographic_citation: #See issue #4632 (https://github.com/samvera/hyrax/issues/4632)
+     display_label: 
+       default: "Bibliographic Citation" #It is not visible in form in Nurax (Hyrax Version: 3.0.0.pre.rc2).
+     definition: 
+       default: "A bibliographic reference for the resource."
+     usage_guidelines:
+       default: Follow formal citation format, e.g. MLA, APA, Chicago, for resource. If resource is a pre-print or post-print, the publisher of a different version may have required wording for this field. Form does not support special text formatting, including italics.
+     controlled_values:
+       format: http://www.w3.org/2000/01/rdf-schema#Literal
+     sample_value: 
+       - "Author. 'Article Title.' Journal Title, Volume, Issue, Year, page numbers."
+     property_uri: http://purl.org/dc/terms/bibliographicCitation
+     available_on:
+       class:
+         - GenericWork
+         - Image
+         - Collection #It is unclear if it is in Collection
+     range: http://www.w3.org/2000/01/rdf-schema#Literal
+     data_type: http://www.w3.org/2001/XMLSchema#string
+     cardinality:
+       minimum: 0
 
   title:
     display_label: 
