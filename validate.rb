@@ -2,6 +2,7 @@
 
 require 'json_schemer'
 require 'pathname'
+require 'yaml'
 
 @schema = Pathname.new('m3_json_schema.json')
 

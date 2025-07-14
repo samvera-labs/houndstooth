@@ -270,22 +270,13 @@
           },
           "indexing": {
             "type": "array",
-            "description": "a list of dynamic field names, taken from a controlled list; commonly used values are _tesim (stored searchable text), _teim (searchable text), _sim (string facetable), _ssm (string displayable)",
+            "description": "a list of Solr dynamic field names following the pattern property_name + suffix",
             "items": {
               "type": "string",
-              "enum": [
-                "displayable",
-                "facetable",
-                "searchable",
-                "sortable",
-                "stored_searchable",
-                "stored_sortable",
-                "symbol",
-                "fulltext_searchable"
-              ]
+              "pattern": "^[a-z_]+_(tesi|tesim|teim|sim|ssm|bsi|isi|dts|dtsi|ti|si|ssi|ss|is|bs|dt)$"
             },
             "examples": [
-              ["_tesim", "_sim"]
+              ["creator_tesim", "title_sim", "date_created_dtsi"]
             ]
           },
           "definition": {
