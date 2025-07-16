@@ -1,4 +1,11 @@
 # frozen_string_literal: true
 
-gem 'json_schemer'
-gem 'yamllint'
+source "https://rubygems.org"
+
+# Specify your gem's dependencies in houndstooth.gemspec
+gemspec
+
+gem "rake", "~> 13.0"
+
+gem "rspec", "~> 3.0"
+gem "yamllint"

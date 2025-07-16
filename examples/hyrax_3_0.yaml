@@ -6,7 +6,7 @@
 # Hyrax Profile
 # Corresponds with the property list found in the Hyrax MAP, with some updates based on reported metadata issues: https://samvera.github.io/metadata_application_profile.html
 
-m3_version: "1.0.beta1"
+m3_version: "1.0.beta2"
 
 # Administrative information about the profile/model
 
@@ -471,9 +471,8 @@ properties:
   title:
     display_label: 
       default: "Title"
-    definition:  #Is collection definition necessary since we are not using text from Nurax?
+    definition:
       default: "A name given to the resource."
-      collection: #fill in with helptext from Nurax
     requirement: required
     sample_value: 
       - "On the Road"
