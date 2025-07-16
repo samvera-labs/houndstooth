@@ -1,0 +1,8 @@
+---
+m3_version: 1.0.beta2
+classes:
+  TestWork:
+    display_label: Test Work
+properties:
+  title:
+    display_label: Title 

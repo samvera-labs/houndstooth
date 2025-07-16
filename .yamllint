@@ -2,8 +2,6 @@
 extends: default
 
 rules:
-  comments: disable
-  comments-indentation: disable
-  line-length: disable
-  trailing-spaces:
+  line-length:
+    max: 120
     level: warning

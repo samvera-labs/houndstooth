@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require "houndstooth"
+require "yaml"
+
+if ARGV.empty?
+  puts "Usage: houndstooth <path_to_yaml_file>"
+  exit 1
+end
+
+file_path = ARGV[0]
+
+begin
+  validator = Houndstooth::Validator.new(file_path)
+  errors = validator.validate
+
+  if errors.empty?
+    puts "Validation successful: #{file_path} is valid."
+    exit 0
+  else
+    puts "Validation failed: #{file_path} has the following errors:"
+    errors.each do |error|
+      puts "- #{error['data_pointer']}: #{error['type']}"
+    end
+    exit 1
+  end
+rescue => e
+  puts "An error occurred: #{e.message}"
+  exit 1
+end
